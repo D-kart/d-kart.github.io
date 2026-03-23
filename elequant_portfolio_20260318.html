@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>象量EleQuant · 储备项目投资简报 · 2026年3月</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Times New Roman', 'SimSun', serif;
+    background: #f4f1eb;
+    color: #1a1a1a;
+    font-size: 10.5pt;
+    line-height: 1.55;
+  }
+
+  .page {
+    max-width: 860px;
+    margin: 36px auto;
+    background: #fff;
+    box-shadow: 0 2px 18px rgba(0,0,0,0.12);
+    padding: 56px 64px 72px;
+  }
+
+  /* ── Letterhead ── */
+  .header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 2.5px solid #1a1a4e;
+    padding-bottom: 10px;
+    margin-bottom: 0;
+  }
+  .firm-left { display: flex; flex-direction: column; gap: 2px; }
+  .firm-name {
+    font-size: 13pt;
+    font-weight: 800;
+    color: #1a1a4e;
+    letter-spacing: 2px;
+    font-family: 'Arial', sans-serif;
+  }
+  .firm-name span { color: #888; font-weight: 400; font-size: 9pt; }
+  .firm-slogan {
+    font-size: 8pt;
+    color: #888;
+    letter-spacing: 1px;
+    font-family: 'Arial', sans-serif;
+  }
+  .doc-meta {
+    font-family: 'Arial', sans-serif;
+    font-size: 7.5pt;
+    color: #555;
+    text-align: right;
+    line-height: 1.7;
+  }
+
+  .confidential {
+    background: #1a1a4e;
+    color: #fff;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    font-size: 7pt;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 3px 0;
+    margin-bottom: 32px;
+  }
+
+  /* ── Cover title ── */
+  .title-block {
+    border-left: 4px solid #1a1a4e;
+    padding-left: 16px;
+    margin-bottom: 24px;
+  }
+  .report-type {
+    font-family: 'Arial', sans-serif;
+    font-size: 7.5pt;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 4px;
+  }
+  .report-title {
+    font-size: 20pt;
+    font-weight: bold;
+    color: #1a1a4e;
+    line-height: 1.2;
+  }
+  .report-subtitle {
+    font-size: 10.5pt;
+    color: #444;
+    margin-top: 5px;
+  }
+
+  /* ── Snap bar ── */
+  .snap-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border: 1px solid #c8c0aa;
+    margin-bottom: 32px;
+  }
+  .snap-item {
+    padding: 12px 14px;
+    border-right: 1px solid #c8c0aa;
+  }
+  .snap-item:last-child { border-right: none; }
+  .snap-label {
+    font-family: 'Arial', sans-serif;
+    font-size: 7pt;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #888;
+    margin-bottom: 4px;
+  }
+  .snap-value {
+    font-size: 13pt;
+    font-weight: bold;
+    color: #1a1a4e;
+  }
+  .snap-sub {
+    font-size: 7.5pt;
+    color: #666;
+    font-family: 'Arial', sans-serif;
+  }
+
+  /* ── Section ── */
+  .section { margin-bottom: 30px; }
+  .section-title {
+    font-family: 'Arial', sans-serif;
+    font-size: 8pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #1a1a4e;
+    border-bottom: 1px solid #1a1a4e;
+    padding-bottom: 3px;
+    margin-bottom: 14px;
+  }
+
+  /* ── Project card ── */
+  .project-card {
+    border: 1px solid #c8c0aa;
+    margin-bottom: 20px;
+    page-break-inside: avoid;
+  }
+  .project-header {
+    background: #1a1a4e;
+    color: #fff;
+    padding: 10px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .project-num {
+    font-family: 'Arial', sans-serif;
+    font-size: 7pt;
+    letter-spacing: 2px;
+    opacity: 0.7;
+  }
+  .project-name {
+    font-size: 12pt;
+    font-weight: 700;
+    font-family: 'Arial', sans-serif;
+    letter-spacing: 1px;
+  }
+  .project-tag {
+    background: rgba(255,255,255,0.15);
+    font-family: 'Arial', sans-serif;
+    font-size: 7.5pt;
+    padding: 2px 10px;
+    border-radius: 2px;
+    letter-spacing: 1px;
+  }
+  .project-body { padding: 14px 16px; }
+
+  .project-meta {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border: 1px solid #e8e4da;
+    margin-bottom: 12px;
+  }
+  .meta-item {
+    padding: 8px 12px;
+    border-right: 1px solid #e8e4da;
+  }
+  .meta-item:last-child { border-right: none; }
+  .meta-label {
+    font-family: 'Arial', sans-serif;
+    font-size: 7pt;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #888;
+    margin-bottom: 3px;
+  }
+  .meta-value {
+    font-size: 9.5pt;
+    font-weight: bold;
+    color: #1a1a4e;
+  }
+
+  .project-desc {
+    font-size: 9.5pt;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    border-left: 2px solid #c8c0aa;
+    padding-left: 10px;
+  }
+
+  .highlights-title {
+    font-family: 'Arial', sans-serif;
+    font-size: 7pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #1a1a4e;
+    margin-bottom: 6px;
+  }
+  .highlights-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  .highlight-item {
+    background: #faf9f6;
+    border: 1px solid #e8e4da;
+    padding: 8px 10px;
+    font-size: 9pt;
+    color: #333;
+    line-height: 1.5;
+  }
+  .highlight-item strong {
+    color: #1a1a4e;
+    font-family: 'Arial', sans-serif;
+    font-size: 8pt;
+  }
+
+  .logic-box {
+    background: #f5f5fa;
+    border: 1px solid #1a1a4e;
+    padding: 8px 12px;
+    font-size: 9pt;
+    color: #1a1a1a;
+    line-height: 1.55;
+  }
+  .logic-label {
+    font-family: 'Arial', sans-serif;
+    font-size: 6.5pt;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #888;
+    margin-bottom: 3px;
+  }
+
+  /* ── Reserve table ── */
+  .reserve-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9pt;
+  }
+  .reserve-table th {
+    background: #1a1a4e;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    font-size: 7.5pt;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 7px 10px;
+    text-align: left;
+  }
+  .reserve-table td {
+    padding: 8px 10px;
+    border-bottom: 1px solid #e8e4da;
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  .reserve-table tr:nth-child(even) td { background: #faf9f6; }
+  .co-name { font-weight: bold; color: #1a1a4e; }
+
+  /* ── Divider ── */
+  .section-divider {
+    border: none;
+    border-top: 1px dashed #c8c0aa;
+    margin: 28px 0;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    margin-top: 40px;
+    border-top: 1px solid #c8c0aa;
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .footer-left {
+    font-family: 'Arial', sans-serif;
+    font-size: 7pt;
+    color: #999;
+    line-height: 1.7;
+  }
+  .footer-right {
+    font-family: 'Arial', sans-serif;
+    font-size: 7.5pt;
+    color: #1a1a4e;
+    font-weight: 700;
+    text-align: right;
+    letter-spacing: 1px;
+  }
+  .footer-slogan {
+    font-size: 6.5pt;
+    color: #aaa;
+    font-weight: 400;
+    letter-spacing: 1px;
+  }
+
+  @media print {
+    body { background: #fff; }
+    .page { box-shadow: none; margin: 0; padding: 36px 48px; }
+    .project-card { page-break-inside: avoid; }
+  }
+  @media (max-width: 600px) {
+    .page { padding: 20px 16px; }
+    .snap-bar, .project-meta, .highlights-grid { grid-template-columns: 1fr 1fr; }
+    .project-header { flex-wrap: wrap; gap: 4px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Letterhead -->
+  <div class="header-bar">
+    <div class="firm-left">
+      <div class="firm-name">象量 <span>EleQuant.AI</span></div>
+      <div class="firm-slogan">象无形，量有度。· 构建数据驱动的AI投资研究新范式</div>
+    </div>
+    <div class="doc-meta">
+      机密文件 — 仅供内部阅览<br>
+      日期：2026年3月18日<br>
+      版本：Draft v1.0
+    </div>
+  </div>
+  <div class="confidential">Strictly Confidential — For Internal Use Only · 象量科技 EleQuant.AI</div>
+
+  <!-- Title -->
+  <div class="title-block">
+    <div class="report-type">Portfolio Pipeline Brief · 储备项目投资简报</div>
+    <div class="report-title">2026年3月储备项目</div>
+    <div class="report-subtitle">商业航天 · 国防AI · 硬科技 · 脑机接口 · 新材料</div>
+  </div>
+
+  <!-- Snap bar -->
+  <div class="snap-bar">
+    <div class="snap-item">
+      <div class="snap-label">储备项目总数</div>
+      <div class="snap-value">13</div>
+      <div class="snap-sub">含重点拟投 & 储备</div>
+    </div>
+    <div class="snap-item">
+      <div class="snap-label">重点拟投项目</div>
+      <div class="snap-value">9</div>
+      <div class="snap-sub">含具体投资方式</div>
+    </div>
+    <div class="snap-item">
+      <div class="snap-label">核心赛道</div>
+      <div class="snap-value">商业航天</div>
+      <div class="snap-sub">国防AI · 硬科技</div>
+    </div>
+    <div class="snap-item">
+      <div class="snap-label">主要退出路径</div>
+      <div class="snap-value">科创板</div>
+      <div class="snap-sub">IPO / 产业并购</div>
+    </div>
+  </div>
+
+  <!-- ====== SECTION 1: 重点拟投项目 ====== -->
+  <div class="section">
+    <div class="section-title">Section I · 重点拟投项目 — 详细分析</div>
+
+    <!-- 01 上海圆舟 -->
+    <div class="project-card">
+      <div class="project-header">
+        <div>
+          <div class="project-num">PROJECT 01</div>
+          <div class="project-name">上海圆舟电子科技有限公司</div>
+        </div>
+        <div class="project-tag">航海装备 · 雷达</div>
+      </div>
+      <div class="project-body">
+        <div class="project-meta">
+          <div class="meta-item">
+            <div class="meta-label">投资方式</div>
+            <div class="meta-value">增资 1,000–3,000万元</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">退出路径</div>
+            <div class="meta-value">科创板IPO / 航天产业并购</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">企业资质</div>
+            <div class="meta-value">国家级高新技术企业</div>
+          </div>
+        </div>
+        <div class="project-desc">
+          专注智慧海洋与航天配套领域；核心团队来自航天雷达与海事装备领域顶尖机构，构建了完整的高性能雷达产品体系，涵盖岸基小目标探测网络雷达、高分辨率海洋遥感雷达及航天配套雷达组件。产品通过中国船级社、国家无线电管理委员会认证，关键技术达国际先进水平，深度协同航天领域需求，为低轨卫星遥感、海上发射监测提供核心配套支持。
+        </div>
+        <div class="highlights-title">Investment Highlights · 投资亮点</div>
+        <div class="highlights-grid">
+          <div class="highlight-item"><strong>技术壁垒</strong><br>深耕雷达领域十余年，核心产品通过多项权威认证，性能达国际先进水平</div>
+          <div class="highlight-item"><strong>场景协同</strong><br>产品衔接航天与海洋领域，适配低轨卫星遥感、海上发射监测等核心场景</div>
+          <div class="highlight-item"><strong>客户资源</strong><br>服务多家航天总体单位与海事部门，客户粘性强，订单稳定性高</div>
+          <div class="highlight-item"><strong>估值潜力</strong><br>未进行外部融资，估值处于低位，后续商业化放量后估值提升空间显著</div>
+        </div>
+        <div class="logic-label">投资逻辑</div>
+        <div class="logic-box">卡位航天配套雷达细分赛道，绑定低轨卫星遥感、海上航天发射监测刚需，依托技术积累与资质优势，通过战略投资布局，分享航天与海洋协同发展红利。</div>
+      </div>
+    </div>
+
+    <!-- 02 劢司达 -->
+    <div class="project-card">
+      <div class="project-header">
+        <div>
+          <div class="project-num">PROJECT 02</div>
+          <div class="project-name">劢司达医疗科技（上海）有限公司</div>
+        </div>
+        <div class="project-tag">脑机芯片 · 人工耳蜗</div>
+      </div>
+      <div class="project-body">
+        <div class="project-meta">
+          <div class="meta-item">
+            <div class="meta-label">投资方式</div>
+            <div class="meta-value">增资 1,500–4,000万元</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">退出路径</div>
+            <div class="meta-value">科创板IPO / 脑机产业链并购</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">企业资质</div>
+            <div class="meta-value">NMPA三类医疗器械认证</div>
+          </div>
+        </div>
+        <div class="project-desc">
+          国内领先的人工耳蜗研发与脑机接口芯片产业化企业，是目前唯一获得中国NMPA三类医疗器械认证且完成大规模临床验证的国产人工耳蜗企业。2025年10月人工耳蜗纳入国家医保乙类目录，报销比例50%–70%，商业化加速进入爆发期。
+        </div>
+        <div class="highlights-title">Investment Highlights · 投资亮点</div>
+        <div class="highlights-grid">
+          <div class="highlight-item"><strong>技术壁垒</strong><br>自研"双模态声信号处理技术"，嘈杂环境识别准确率提升35%–40%</div>
+          <div class="highlight-item"><strong>成本优势</strong><br>国产系统¥12–15万/套，仅为进口产品60%；医保后患者实付降至5–8万元</div>
+          <div class="highlight-item"><strong>市场空间</strong><br>国内重度听障患者约1,200万，植入率仅0.45%，远低于发达国家10%–15%</div>
+          <div class="highlight-item"><strong>商业化进展</strong><br>已与25家三甲医院战略合作，2025年营收850万，2026年预计突破3,000万</div>
+        </div>
+        <div class="logic-label">投资逻辑</div>
+        <div class="logic-box">卡位国产人工耳蜗稀缺赛道，依托技术突破、成本优势与医保政策红利，把握市场爆发期机遇，通过战略投资获取核心股权，分享国产替代与商业化放量双重收益。</div>
+      </div>
+    </div>
+
+    <!-- 03 中国长征火箭 -->
+    <div class="project-card">
+      <div class="project-header">
+        <div>
+          <div class="project-num">PROJECT 03</div>
+          <div class="project-name">中国长征火箭</div>
+        </div>
+        <div class="project-tag">商业航天 · 国家队</div>
+      </div>
+      <div class="project-body">
+        <div class="project-meta">
+          <div class="meta-item">
+            <div class="meta-label">投资方式</div>
+            <div class="meta-value">老股转让（待定）</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">退出路径</div>
+            <div class="meta-value">IPO / 资产注入</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">母体机构</div>
+            <div class="meta-value">航天科技集团一院</div>
+          </div>
+        </div>
+        <div class="project-desc">
+          中国航天科技集团一院旗下商业航天核心平台，国内商业火箭赛道国家队主体。主营长二丙、长十一、捷龙三号等火箭商业发射服务，2023年新签合同突破20亿元，营业收入复合增长率达68.55%，同时推进可重复使用火箭研发（2025年完成立项）。
+        </div>
+        <div class="highlights-title">Investment Highlights · 投资亮点</div>
+        <div class="highlights-grid">
+          <div class="highlight-item"><strong>资质稀缺</strong><br>商业火箭国家队主体，发射可靠性行业领先</div>
+          <div class="highlight-item"><strong>产能充足</strong><br>建成规模化生产基地，订单排期至2025年后，业绩增长确定性强</div>
+          <div class="highlight-item"><strong>战略布局</strong><br>布局可重复使用火箭，全链条服务契合行业降本趋势</div>
+          <div class="highlight-item"><strong>政策红利</strong><br>享受国家商业航天政策加持，资源壁垒极高</div>
+        </div>
+        <div class="logic-label">投资逻辑</div>
+        <div class="logic-box">商业火箭国家队核心赛道，依托航天科技集团技术积淀与高可靠性口碑，绑定低轨卫星高密度发射刚需，分享商业航天黄金发展期红利，依托国企背景实现稳健增值。</div>
+      </div>
+    </div>
+
+    <!-- 04 蓝箭蓝塔 -->
+    <div class="project-card">
+      <div class="project-header">
+        <div>
+          <div class="project-num">PROJECT 04</div>
+          <div class="project-name">北京蓝塔光传智能科技有限公司</div>
+        </div>
+        <div class="project-tag">商业航天 · 星箭一体化</div>
+      </div>
+      <div class="project-body">
+        <div class="project-meta">
+          <div class="meta-item">
+            <div class="meta-label">投资方式</div>
+            <div class="meta-value">增资 5,000万元</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">退出路径</div>
+            <div class="meta-value">分拆IPO / 蓝箭体系内并购</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">控股方</div>
+            <div class="meta-value">蓝箭航天控股子公司</div>
+          </div>
+        </div>
+        <div class="project-desc">
+          蓝箭航天"火箭+卫星"天地一体化生态核心布局，专注低轨卫星核心载荷、星上电子、大带宽低时延数据传输系统研发制造。与蓝箭航天火箭业务形成强产业协同，可提供星箭一体化全链条解决方案，填补蓝箭航天卫星上游配套空白。
+        </div>
+        <div class="highlights-title">Investment Highlights · 投资亮点</div>
+        <div class="highlights-grid">
+          <div class="highlight-item"><strong>产业协同</strong><br>依托蓝箭火箭发射能力，形成"火箭+卫星+载荷"全链条闭环</div>
+          <div class="highlight-item"><strong>赛道卡位</strong><br>填补蓝箭卫星上游配套空白，星箭一体化模式具备独特竞争力</div>
+          <div class="highlight-item"><strong>退出清晰</strong><br>可随蓝箭航天IPO实现资产增值，或后续分拆独立上市</div>
+          <div class="highlight-item"><strong>技术壁垒</strong><br>全面具备星、箭、载荷一体化设计交付能力，低成本规模化建设</div>
+        </div>
+        <div class="logic-label">投资逻辑</div>
+        <div class="logic-box">绑定蓝箭航天科创板IPO产业链协同红利，卡位星箭一体化稀缺赛道，通过蓝箭航天专项通道获取份额，伴随卫星业务商业化落地实现快速增值。</div>
+      </div>
+    </div>
+
+    <!-- 05 东方空间 -->
+    <div class="project-card">
+      <div class="project-header">
+        <div>
+          <div class="project-num">PROJECT 05</div>
+          <div class="project-name">东方空间（山东）科技有限公司</div>
+        </div>
+        <div class="project-tag">商业航天 · 固体火箭</div>
+      </div>
+      <div class="project-body">
+        <div class="project-meta">
+          <div class="meta-item">
+            <div class="meta-label">投资方式</div>
+            <div class="meta-value">增资 5,000万元</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">退出路径</div>
+            <div class="meta-value">科创板IPO / 产业链并购</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">成立时间</div>
+            <div class="meta-value">2020年</div>
+          </div>
+        </div>
+        <div class="project-desc">
+          主营太空运输，打造"引力"系列运载火箭，创造全球运力最大固体运载火箭纪录，同步推进中大型可复用液体火箭研发，具备规模化发射服务能力。致力于成为全球最受尊敬的商业航天产品和发射服务商。
+        </div>
+        <div class="highlights-title">Investment Highlights · 投资亮点</div>
+        <div class="highlights-grid">
+          <div class="highlight-item"><strong>赛道稀缺</strong><br>民营火箭头部，契合"星多箭少"行业缺口，全链条研制发射能力</div>
+          <div class="highlight-item"><strong>产品落地</strong><br>引力一号多次成功入轨，运力领先民营固体火箭，引力二号大额意向订单</div>
+          <div class="highlight-item"><strong>成本领先</strong><br>规划可回收路线，目标发射成本具备国际竞争力，订单排期充足</div>
+          <div class="highlight-item"><strong>资本加持</strong><br>顶级机构背书，地方产业基地支撑，已启动上市筹备</div>
+        </div>
+        <div class="logic-label">投资逻辑</div>
+        <div class="logic-box">卡位卫星互联网核心刚需赛道，绑定星座建设关键节点，通过领投/跟投获取份额，伴随激光终端规模化放量实现估值与业绩双升。</div>
+      </div>
+    </div>
+
+    <!-- 06 蓝星光域 -->
+    <div class="project-card">
+      <div class="project-header">
+        <div>
+          <div class="project-num">PROJECT 06</div>
+          <div class="project-name">蓝星光域（北京）科技有限公司</div>
+        </div>
+        <div class="project-tag">商业航天 · 激光通信</div>
+      </div>
+      <div class="project-body">
+        <div class="project-meta">
+          <div class="meta-item">
+            <div class="meta-label">投资方式</div>
+            <div class="meta-value">增资 5,000万元</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">退出路径</div>
+            <div class="meta-value">科创板IPO（预计2027年申报）</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">最新融资</div>
+            <div class="meta-value">C轮近5亿元（2025年）</div>
+          </div>
+        </div>
+        <div class="project-desc">
+          国内商业航天激光通信领域领军企业，国家级高新技术企业、专精特新中小企业。核心团队来自航天系统与光通信领域顶尖机构，专注星载同轨/异轨激光通信终端、机载平流层激光通信终端研发生产，构建空天地海全场景激光通信解决方案。
+        </div>
+        <div class="highlights-title">Investment Highlights · 投资亮点</div>
+        <div class="highlights-grid">
+          <div class="highlight-item"><strong>场景全面</strong><br>构建空天地海全场景激光通信解决方案，应用场景广泛</div>
+          <div class="highlight-item"><strong>技术成熟</strong><br>已完成多轮在轨技术验证，具备批量交付能力</div>
+          <div class="highlight-item"><strong>融资领先</strong><br>2025年完成近5亿元C轮融资，估值快速提升，上市筹备中</div>
+          <div class="highlight-item"><strong>客户优质</strong><br>深度参与国家低轨卫星互联网星座建设，订单保障充足</div>
+        </div>
+        <div class="logic-label">投资逻辑</div>
+        <div class="logic-box">卡位卫星互联网激光通信核心赛道，绑定星网星座批量组网窗口期，通过老股转让/战略配售获取份额，伴随激光终端规模化放量实现估值与业绩双升。</div>
+      </div>
+    </div>
+
+    <!-- 07 极光星通 -->
+    <div class="project-card">
+      <div class="project-header">
+        <div>
+          <div class="project-num">PROJECT 07</div>
+          <div class="project-name">北京极光星通科技有限公司</div>
+        </div>
+        <div class="project-tag">商业航天 · 激光通信</div>
+      </div>
+      <div class="project-body">
+        <div class="project-meta">
+          <div class="meta-item">
+            <div class="meta-label">投资方式</div>
+            <div class="meta-value">增资 5,000万元</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">退出路径</div>
+            <div class="meta-value">科创板IPO（预计2027年申报）</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">2026年产能规划</div>
+            <div class="meta-value">800台套</div>
+          </div>
+        </div>
+        <div class="project-desc">
+          国内空间激光通信赛道头部企业，国家级高新技术企业、北京市专精特新中小企业。核心团队来自中科院、航天科技集团及华为，构建"光、机、电、热、软、通"全自主技术体系，主打100Mbps至400Gbps全谱系星载/机载/地面激光通信终端。
+        </div>
+        <div class="highlights-title">Investment Highlights · 投资亮点</div>
+        <div class="highlights-grid">
+          <div class="highlight-item"><strong>技术壁垒</strong><br>全自主知识产权，覆盖100Mbps–400Gbps全速率场景，在轨验证成熟度领先</div>
+          <div class="highlight-item"><strong>订单确定</strong><br>深度绑定星网等核心客户，批量交付订单已落地，2026年产能规划明确</div>
+          <div class="highlight-item"><strong>赛道稀缺</strong><br>国内仅少数企业具备星载激光终端量产能力，行业集中度高</div>
+          <div class="highlight-item"><strong>团队背景</strong><br>中科院、航天科技集团、华为三重背书，技术与资源双重优势</div>
+        </div>
+        <div class="logic-label">投资逻辑</div>
+        <div class="logic-box">卡位卫星互联网核心刚需赛道，绑定星网星座建设关键节点，通过领投/跟投获取份额，伴随激光终端规模化放量实现估值与业绩双升。</div>
+      </div>
+    </div>
+
+    <!-- 08 靖安科技 -->
+    <div class="project-card">
+      <div class="project-header">
+        <div>
+          <div class="project-num">PROJECT 08</div>
+          <div class="project-name">靖安科技有限公司</div>
+        </div>
+        <div class="project-tag">国防AI · 态势感知</div>
+      </div>
+      <div class="project-body">
+        <div class="project-meta">
+          <div class="meta-item">
+            <div class="meta-label">投资方式</div>
+            <div class="meta-value">增资 5,000万元</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">退出路径</div>
+            <div class="meta-value">科创板IPO / 军工龙头并购</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">合同增速</div>
+            <div class="meta-value">年增速超300%</div>
+          </div>
+        </div>
+        <div class="project-desc">
+          国内国防AI赛道标杆企业，对标美国Palantir/Anduril。核心团队来自阿里云、达摩院、华为及空军、火箭军等部队退役专业人员。自研"旌旗·全球态势感知系统"，依托卫星遥感、信号情报与图像情报技术，实现全球目标全维度动态追踪，已落地10余个国家级示范场景。
+        </div>
+        <div class="highlights-title">Investment Highlights · 投资亮点</div>
+        <div class="highlights-grid">
+          <div class="highlight-item"><strong>赛道稀缺</strong><br>国内国防AI+态势感知赛道标杆，对标海外顶级军工科技公司</div>
+          <div class="highlight-item"><strong>团队豪华</strong><br>顶尖科技企业与军方背景，技术与资源双重优势</div>
+          <div class="highlight-item"><strong>增长确定</strong><br>合同额年增速超300%，已落地多个国家级示范项目</div>
+          <div class="highlight-item"><strong>产业协同</strong><br>与景嘉微达成战略合作，构建"芯片+装备+大模型+智能体"全栈能力</div>
+        </div>
+        <div class="logic-label">投资逻辑</div>
+        <div class="logic-box">卡位国防AI+卫星遥感双黄金赛道，绑定低空经济、国防信息化国家战略红利，依托景嘉微产业资源协同优势，通过B轮跟投获取份额，伴随订单规模化落地实现估值跃升。</div>
+      </div>
+    </div>
+
+    <!-- 09 方心科技 -->
+    <div class="project-card">
+      <div class="project-header">
+        <div>
+          <div class="project-num">PROJECT 09</div>
+          <div class="project-name">方心科技股份有限公司</div>
+        </div>
+        <div class="project-tag">高性能计算 · 国产替代</div>
+      </div>
+      <div class="project-body">
+        <div class="project-meta">
+          <div class="meta-item">
+            <div class="meta-label">投资方式</div>
+            <div class="meta-value">增资 1,500–4,000万元</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">退出路径</div>
+            <div class="meta-value">科创板IPO / 军工信息化并购</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">企业资质</div>
+            <div class="meta-value">专精特新"小巨人"</div>
+          </div>
+        </div>
+        <div class="project-desc">
+          核心团队源自国防科大计算机学院，专注国家关键领域高性能计算装备自主可控。自研ECI异构实时计算框架，已落地电力、军工核心场景：雷达信号推理仿真计算效率提升100倍、飞行器制导控制计算效率提升6倍、无人机视觉解算效率提升15倍。
+        </div>
+        <div class="highlights-title">Investment Highlights · 投资亮点</div>
+        <div class="highlights-grid">
+          <div class="highlight-item"><strong>顶尖团队</strong><br>国防科大背景，深耕高性能计算十余年</div>
+          <div class="highlight-item"><strong>效果极致</strong><br>多项场景效率提升数倍至百倍，壁垒极高</div>
+          <div class="highlight-item"><strong>资质稀缺</strong><br>服务关键领域，客户粘性与订单确定性强</div>
+          <div class="highlight-item"><strong>上市明确</strong><br>已完成多轮融资，为科创板后备企业</div>
+        </div>
+        <div class="logic-label">投资逻辑</div>
+        <div class="logic-box">布局军工/电力自主可控算力刚需，依托极致性能优化壁垒，绑定国家重大装备算力需求，分享国产化替代红利。</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="section-divider">
+
+  <!-- ====== SECTION 2: 其他储备项目 ====== -->
+  <div class="section">
+    <div class="section-title">Section II · 其他储备项目 — 概览</div>
+    <table class="reserve-table">
+      <thead>
+        <tr>
+          <th style="width:8%">#</th>
+          <th style="width:20%">企业名称</th>
+          <th style="width:15%">赛道</th>
+          <th style="width:42%">核心亮点</th>
+          <th style="width:15%">退出路径</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>S-01</td>
+          <td><span class="co-name">深圳科瑞沃</span></td>
+          <td>高端特种高分子材料</td>
+          <td>自主研发XCPS®特种材料，打破海外巨头垄断，广泛应用于航空航天、5G/6G、雷达、核工业等领域，已覆盖数百个基地用户</td>
+          <td>上市 / 产业并购</td>
+        </tr>
+        <tr>
+          <td>S-02</td>
+          <td><span class="co-name">馥昶空间</span></td>
+          <td>商业卫星电源</td>
+          <td>核心团队来自航天电源研究所与中科院，累计配套卫星超340颗，参与发射任务75余次，在轨稳定卫星超250颗，市占率领先</td>
+          <td>科创板IPO</td>
+        </tr>
+        <tr>
+          <td>S-03</td>
+          <td><span class="co-name">伊米森</span></td>
+          <td>精密智能抓取 · 电机</td>
+          <td>国家级专精特新企业，自研全系列空心杯电机（6–40mm），价格仅为海外产品1/3，2025年产值约2亿元，已进入军工供应链快速放量期</td>
+          <td>2030年上市规划</td>
+        </tr>
+        <tr>
+          <td>S-04</td>
+          <td><span class="co-name">上光通信</span></td>
+          <td>星间激光通信</td>
+          <td>中科院上海光机所孵化，承接卫星互联网星激光终端订单超百台套，具备规模化批量供货能力，国内星间激光通信核心供应商</td>
+          <td>科创板IPO</td>
+        </tr>
+        <tr>
+          <td>S-05</td>
+          <td><span class="co-name">蓝箭鸿擎</span></td>
+          <td>低轨卫星整星</td>
+          <td>蓝箭航天核心子公司，国内唯一具备星箭协同能力的卫星组网解决方案商，已向国际电信联盟申报万颗级星座</td>
+          <td>科创板IPO</td>
+        </tr>
+        <tr>
+          <td>S-06</td>
+          <td><span class="co-name">微纳星空</span></td>
+          <td>商业卫星制造</td>
+          <td>国内商业卫星制造头部独角兽，具备10–1000kg全谱系研制能力，累计发射27颗卫星，中标超10亿元星座订单，民营发射数量及订单规模最大之一</td>
+          <td>科创板IPO</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-left">
+      <strong>免责声明：</strong>本文件为内部研究文件，仅供参考，不构成任何投资要约或建议。<br>
+      所有数据与判断均基于公开信息及合理推断，投资决策请结合专业法律、财务及合规顾问意见。<br>
+      © 2026 象量科技 EleQuant.AI · 严格保密 · Strictly Confidential
+    </div>
+    <div class="footer-right">
+      象量 EleQuant.AI<br>
+      <span class="footer-slogan">象无形，量有度。</span>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
