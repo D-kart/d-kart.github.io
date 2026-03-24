@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>象量EleQuant.AI · 产品战略内参 · 2026</title>
+<style>
+  :root {
+    --navy: #1a1a4e;
+    --navy-light: #2a2a6e;
+    --navy-pale: #f0f0f8;
+    --gold: #c8a000;
+    --gold-light: #f5e9b0;
+    --paper: #faf9f6;
+    --border: #c8c0aa;
+    --text: #1a1a1a;
+    --muted: #555;
+    --red: #8b0000;
+    --green: #1a4a1a;
+    --orange: #b84800;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Times New Roman', 'STSong', 'SimSun', serif;
+    background: #e8e4da;
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.75;
+  }
+
+  /* ── Page wrapper ── */
+  .page {
+    max-width: 960px;
+    margin: 32px auto;
+    background: var(--paper);
+    box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+  }
+
+  /* ── Top confidential bar ── */
+  .conf-bar {
+    background: var(--navy);
+    color: rgba(255,255,255,0.85);
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 7px 20px;
+  }
+
+  /* ── Letterhead ── */
+  .letterhead {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 28px 48px 20px;
+    border-bottom: 3px solid var(--navy);
+  }
+  .lh-brand { }
+  .lh-brand .en { font-family: Arial, sans-serif; font-size: 22px; font-weight: 700; color: var(--navy); letter-spacing: 1px; }
+  .lh-brand .cn { font-size: 12px; color: var(--muted); letter-spacing: 3px; margin-top: 2px; }
+  .lh-brand .slogan { font-size: 11px; color: var(--gold); letter-spacing: 2px; margin-top: 4px; font-style: italic; }
+  .lh-meta { text-align: right; font-family: Arial, sans-serif; font-size: 11px; color: var(--muted); line-height: 1.8; }
+  .lh-meta .doc-type { font-size: 13px; font-weight: 700; color: var(--navy); letter-spacing: 1px; }
+
+  /* ── Gold snap bar ── */
+  .snap-bar {
+    background: linear-gradient(90deg, var(--gold) 0%, #e8c000 100%);
+    padding: 10px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .snap-bar .title { font-family: Arial, sans-serif; font-size: 17px; font-weight: 700; color: var(--navy); letter-spacing: 0.5px; }
+  .snap-bar .sub { font-family: Arial, sans-serif; font-size: 11px; color: rgba(26,26,78,0.7); }
+
+  /* ── Body ── */
+  .body { padding: 36px 48px; }
+
+  /* ── Section headers ── */
+  .section { margin-bottom: 36px; }
+  .section-title {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--navy);
+    padding-bottom: 6px;
+    margin-bottom: 16px;
+  }
+  .section-title span {
+    display: inline-block;
+    background: var(--navy);
+    color: #fff;
+    padding: 2px 10px;
+    font-size: 11px;
+    margin-right: 10px;
+    letter-spacing: 1px;
+  }
+
+  /* ── Lead paragraph ── */
+  .lead {
+    font-size: 15px;
+    line-height: 1.85;
+    color: #222;
+    margin-bottom: 16px;
+    padding: 16px 20px;
+    border-left: 4px solid var(--gold);
+    background: #fffdf5;
+  }
+
+  p { margin-bottom: 12px; color: #333; }
+
+  /* ── Constraint table ── */
+  table.constraint {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0 20px;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+  }
+  table.constraint th {
+    background: var(--navy);
+    color: #fff;
+    padding: 8px 14px;
+    text-align: left;
+    font-size: 11px;
+    letter-spacing: 1px;
+    font-weight: 600;
+  }
+  table.constraint td {
+    padding: 9px 14px;
+    border-bottom: 1px solid #ddd;
+    vertical-align: top;
+  }
+  table.constraint tr:nth-child(even) td { background: #f7f5f0; }
+  table.constraint tr:hover td { background: var(--navy-pale); }
+
+  /* ── Pain point flow ── */
+  .flow {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    margin: 16px 0 20px;
+    flex-wrap: wrap;
+  }
+  .flow-step {
+    flex: 1;
+    min-width: 120px;
+    background: var(--navy);
+    color: #fff;
+    padding: 12px 10px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    position: relative;
+  }
+  .flow-step:not(:last-child)::after {
+    content: '▶';
+    position: absolute;
+    right: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gold);
+    font-size: 16px;
+    z-index: 2;
+  }
+  .flow-step .sub { font-size: 10px; font-weight: 400; opacity: 0.75; margin-top: 4px; display: block; }
+
+  /* ── Pain points grid ── */
+  .pain-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin: 16px 0 20px;
+  }
+  .pain-card {
+    border: 1px solid #ccc;
+    padding: 14px;
+    background: #fff;
+  }
+  .pain-card .tag {
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--navy);
+    font-weight: 700;
+    margin-bottom: 6px;
+    display: block;
+  }
+  .pain-card h4 { font-size: 13px; color: var(--navy); margin-bottom: 6px; font-family: Arial, sans-serif; }
+  .pain-card p { font-size: 12px; color: var(--muted); margin: 0; line-height: 1.6; }
+
+  /* ── Priority matrix ── */
+  .priority-section { margin: 20px 0; }
+
+  .priority-badge {
+    display: inline-block;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 3px 10px;
+    margin-bottom: 10px;
+    border-radius: 2px;
+  }
+  .badge-red { background: var(--red); color: #fff; }
+  .badge-orange { background: var(--orange); color: #fff; }
+  .badge-yellow { background: #8a7200; color: #fff; }
+  .badge-grey { background: #444; color: #fff; }
+
+  .feature-card {
+    border-left: 5px solid var(--navy);
+    background: #fff;
+    padding: 18px 20px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .feature-card.p1 { border-left-color: var(--red); }
+  .feature-card.p2 { border-left-color: var(--orange); }
+  .feature-card.p3 { border-left-color: var(--gold); }
+  .feature-card.avoid { border-left-color: #888; background: #f9f9f9; }
+
+  .feature-card h3 {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+  .feature-card .desc { font-size: 13px; color: #333; margin-bottom: 10px; }
+
+  /* Score bars */
+  .scores {
+    display: flex;
+    gap: 20px;
+    margin: 8px 0 10px;
+    flex-wrap: wrap;
+  }
+  .score-item { font-family: Arial, sans-serif; font-size: 11px; color: var(--muted); }
+  .score-item strong { color: var(--navy); }
+  .score-dots { display: inline-flex; gap: 3px; margin-left: 4px; }
+  .dot { width: 9px; height: 9px; border-radius: 50%; background: #ddd; display: inline-block; }
+  .dot.on { background: var(--navy); }
+  .dot.on.p1 { background: var(--red); }
+  .dot.on.p2 { background: var(--orange); }
+
+  .feature-card .insight {
+    font-size: 12px;
+    color: var(--green);
+    font-style: italic;
+    border-top: 1px solid #eee;
+    padding-top: 8px;
+    margin-top: 8px;
+  }
+  .feature-card.avoid .insight { color: #888; }
+
+  /* ── Pitch block ── */
+  .pitch-box {
+    background: var(--navy);
+    color: #fff;
+    padding: 24px 28px;
+    margin: 20px 0;
+    position: relative;
+  }
+  .pitch-box::before {
+    content: '"';
+    font-size: 72px;
+    color: var(--gold);
+    opacity: 0.4;
+    position: absolute;
+    top: 8px;
+    left: 16px;
+    font-family: Georgia, serif;
+    line-height: 1;
+  }
+  .pitch-box p {
+    color: rgba(255,255,255,0.9);
+    font-size: 15px;
+    line-height: 1.85;
+    padding-left: 28px;
+    margin: 0;
+  }
+  .pitch-box .attr {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 1px;
+    margin-top: 12px;
+    padding-left: 28px;
+  }
+
+  /* ── TAM calc ── */
+  .tam-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 1px solid #ccc;
+    margin: 14px 0 20px;
+  }
+  .tam-cell {
+    padding: 14px 12px;
+    border-right: 1px solid #ccc;
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  .tam-cell:last-child { border-right: none; }
+  .tam-cell .num { font-size: 22px; font-weight: 700; color: var(--navy); display: block; }
+  .tam-cell .label { font-size: 11px; color: var(--muted); margin-top: 4px; display: block; }
+  .tam-cell .arrow { font-size: 18px; color: var(--gold); display: block; margin: 6px 0 0; }
+
+  /* ── Action box ── */
+  .action-box {
+    background: linear-gradient(135deg, #fffbea 0%, #fff8d6 100%);
+    border: 2px solid var(--gold);
+    padding: 20px 24px;
+    margin: 20px 0;
+  }
+  .action-box h3 {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .action-box ol { padding-left: 18px; }
+  .action-box li { font-size: 13px; margin-bottom: 7px; color: #333; }
+  .action-box li strong { color: var(--navy); }
+
+  /* ── Roadmap ── */
+  .roadmap {
+    display: flex;
+    gap: 0;
+    margin: 16px 0 20px;
+    border: 1px solid #ccc;
+    overflow: hidden;
+  }
+  .rm-phase {
+    flex: 1;
+    padding: 16px 14px;
+    border-right: 1px solid #ccc;
+    background: #fff;
+  }
+  .rm-phase:last-child { border-right: none; }
+  .rm-phase.now { background: var(--navy); }
+  .rm-phase .phase-tag {
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 8px;
+    display: block;
+  }
+  .rm-phase.now .phase-tag { color: var(--gold); }
+  .rm-phase:not(.now) .phase-tag { color: var(--navy); }
+  .rm-phase h4 { font-size: 13px; margin-bottom: 6px; font-family: Arial, sans-serif; }
+  .rm-phase.now h4 { color: #fff; }
+  .rm-phase:not(.now) h4 { color: var(--navy); }
+  .rm-phase ul { padding-left: 14px; }
+  .rm-phase li { font-size: 11px; margin-bottom: 4px; }
+  .rm-phase.now li { color: rgba(255,255,255,0.85); }
+  .rm-phase:not(.now) li { color: var(--muted); }
+
+  /* ── Verdict / call to action ── */
+  .verdict {
+    background: var(--navy);
+    color: #fff;
+    padding: 20px 28px;
+    margin: 28px 0 0;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .verdict-icon { font-size: 36px; flex-shrink: 0; }
+  .verdict-text h3 { font-family: Arial, sans-serif; font-size: 15px; color: var(--gold); margin-bottom: 6px; letter-spacing: 1px; }
+  .verdict-text p { color: rgba(255,255,255,0.88); font-size: 13px; margin: 0; line-height: 1.7; }
+
+  /* ── Footer ── */
+  .footer {
+    border-top: 1px solid var(--border);
+    padding: 14px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.5px;
+  }
+
+  /* ── Last updated badge ── */
+  .last-updated {
+    display: inline-block;
+    background: #eef0ff;
+    border: 1px solid #b0b8ee;
+    color: var(--navy);
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    padding: 3px 10px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+  }
+
+  /* Print */
+  @media print {
+    body { background: #fff; }
+    .page { box-shadow: none; margin: 0; max-width: 100%; }
+  }
+
+  @media (max-width: 700px) {
+    .pain-grid { grid-template-columns: 1fr; }
+    .tam-grid { grid-template-columns: repeat(2, 1fr); }
+    .roadmap { flex-direction: column; }
+    .rm-phase { border-right: none; border-bottom: 1px solid #ccc; }
+    .letterhead { flex-direction: column; gap: 12px; }
+    .snap-bar { flex-direction: column; gap: 4px; }
+    .body { padding: 24px 20px; }
+    .flow { flex-direction: column; }
+    .flow-step:not(:last-child)::after { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Confidential bar -->
+  <div class="conf-bar">STRICTLY CONFIDENTIAL — FOR INTERNAL CIRCULATION ONLY · 内部传阅 · 请勿外传</div>
+
+  <!-- Letterhead -->
+  <div class="letterhead">
+    <div class="lh-brand">
+      <div class="en">象量 EleQuant.AI</div>
+      <div class="cn">象量科技 · 钛禾智库孵化</div>
+      <div class="slogan">象无形，量有度。</div>
+    </div>
+    <div class="lh-meta">
+      <div class="doc-type">产品战略内参</div>
+      <div>INTERNAL STRATEGY MEMO</div>
+      <div style="margin-top:6px;">日期：2026年3月24日</div>
+      <div>版本：V1.0 · 持续更新</div>
+      <div>密级：内部保密</div>
+    </div>
+  </div>
+
+  <!-- Gold snap bar -->
+  <div class="snap-bar">
+    <div class="title">EleQuant.AI 面向 PE/VC 机构的产品优先级战略</div>
+    <div class="sub">创业生死局 · 关键融资节点 · 合伙人讨论版</div>
+  </div>
+
+  <!-- Body -->
+  <div class="body">
+
+    <div class="last-updated">◎ 本文档为活文档，随战略推进持续更新 · 最后更新：2026-03-24</div>
+
+    <!-- Section 1: 核心约束 -->
+    <div class="section">
+      <div class="section-title"><span>I</span>我们面临的三重约束</div>
+
+      <div class="lead">
+        这是一道战略题，不是功能清单题。象量当下同时面临三个约束，且彼此存在张力——只有三重约束的交集，才是现在值得投入资源开发的方向。
+      </div>
+
+      <table class="constraint">
+        <tr>
+          <th>约束维度</th>
+          <th>核心含义</th>
+          <th>陷阱方向</th>
+        </tr>
+        <tr>
+          <td><strong>客户需求</strong></td>
+          <td>百亿股权基金现在要用，解决真实的、反复出现的工作痛点</td>
+          <td>做了好功能但客户暂时用不上</td>
+        </tr>
+        <tr>
+          <td><strong>资本故事</strong></td>
+          <td>融资逻辑清晰，投资人能"听懂、相信、传播"</td>
+          <td>产品逻辑正确但市场故事讲不清楚</td>
+        </tr>
+        <tr>
+          <td><strong>公司能力</strong></td>
+          <td>象量现阶段团队与资源能真正高质量交付</td>
+          <td>方向正确但超出当前交付能力</td>
+        </tr>
+      </table>
+
+      <p style="font-size:13px; color:var(--muted); font-style:italic;">
+        ✦ 评估任何功能时，先问：这个功能同时满足上述三个约束吗？若不是，它只是一个好想法，不是现在应该做的事。
+      </p>
+    </div>
+
+    <!-- Section 2: 客户痛点 -->
+    <div class="section">
+      <div class="section-title"><span>II</span>PE/VC 机构的真实痛点地图</div>
+
+      <p>股权基金的工作本质是<strong>在信息不对称中找到被低估的资产</strong>。核心动作链如下：</p>
+
+      <div class="flow">
+        <div class="flow-step">看项目<span class="sub">Deal Flow</span></div>
+        <div class="flow-step">判断真伪<span class="sub">Due Diligence</span></div>
+        <div class="flow-step">估值建模<span class="sub">Valuation</span></div>
+        <div class="flow-step">过会决策<span class="sub">IC Meeting</span></div>
+        <div class="flow-step">投后管理<span class="sub">Portfolio Mgmt</span></div>
+      </div>
+
+      <p>每个环节都有未被充分解决的痛点：</p>
+
+      <div class="pain-grid">
+        <div class="pain-card">
+          <span class="tag">Deal Flow</span>
+          <h4>项目初筛效率极低</h4>
+          <p>每年看几百个项目，99%靠人工初筛；看过的项目无结构化沉淀，同赛道复看需重头开始。</p>
+        </div>
+        <div class="pain-card">
+          <span class="tag">Due Diligence</span>
+          <h4>信息散、拼凑慢</h4>
+          <p>创始人/竞品/产业链信息分散各处，分析师人肉搜索拼凑耗时3–10天，质量参差不齐。</p>
+        </div>
+        <div class="pain-card">
+          <span class="tag">Valuation</span>
+          <h4>估值缺一致性</h4>
+          <p>可比公司选取、DCF参数高度依赖个人经验；不同分析师建模结果差异显著，过会时常被挑战。</p>
+        </div>
+        <div class="pain-card">
+          <span class="tag">IC Meeting</span>
+          <h4>Memo格式不统一</h4>
+          <p>Investment Memo写法各异，合伙人阅读效率低；市场数据引用来源混乱，无法快速核实。</p>
+        </div>
+        <div class="pain-card">
+          <span class="tag">Portfolio Mgmt</span>
+          <h4>投后数据碎片化</h4>
+          <p>被投企业报送格式五花八门；市场变化（竞对融资、政策风险）无法自动预警，全靠人盯。</p>
+        </div>
+        <div class="pain-card">
+          <span class="tag">LP Relations</span>
+          <h4>LP报告耗时费力</h4>
+          <p>季报/年报须手动从多个系统汇总数据，每次撰写需数天；LP口味各异，个性化难度高。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 3: Priority Matrix -->
+    <div class="section">
+      <div class="section-title"><span>III</span>功能优先级评估矩阵</div>
+
+      <p>我们用三个维度对每个功能方向打分（1–5分），取三维交集最高者优先：</p>
+
+      <table class="constraint" style="margin-bottom:24px;">
+        <tr>
+          <th>评分维度</th>
+          <th>含义</th>
+          <th>决策权重</th>
+        </tr>
+        <tr>
+          <td><strong>痛点烈度</strong></td>
+          <td>客户有多痛？是否反复出现？愿意付多少钱解决？</td>
+          <td>40%</td>
+        </tr>
+        <tr>
+          <td><strong>象量壁垒</strong></td>
+          <td>象量能做得比竞品好多少？核心能力是否已具备原型？</td>
+          <td>35%</td>
+        </tr>
+        <tr>
+          <td><strong>资本故事分</strong></td>
+          <td>投资人听了会不会兴奋？能否讲成大市场 + 可持续竞争力？</td>
+          <td>25%</td>
+        </tr>
+      </table>
+
+      <!-- P1 -->
+      <div class="priority-badge badge-red">🔴 第一优先级 — 立刻做，这是生命线</div>
+
+      <div class="feature-card p1">
+        <h3>AI-Powered Investment Memo 生成器</h3>
+        <div class="desc">
+          输入项目原始材料（BP、财报、行业数据），象量AI自动生成结构化Investment Memo：格式统一、引用可溯源、支持一键导出为华尔街风格HTML/PDF。
+        </div>
+        <div class="scores">
+          <div class="score-item">痛点烈度
+            <span class="score-dots">
+              <span class="dot on p1"></span><span class="dot on p1"></span><span class="dot on p1"></span><span class="dot on p1"></span><span class="dot on p1"></span>
+            </span> <strong>5/5</strong>
+          </div>
+          <div class="score-item">象量壁垒
+            <span class="score-dots">
+              <span class="dot on p1"></span><span class="dot on p1"></span><span class="dot on p1"></span><span class="dot on p1"></span><span class="dot on p1"></span>
+            </span> <strong>5/5</strong>
+          </div>
+          <div class="score-item">资本故事
+            <span class="score-dots">
+              <span class="dot on p1"></span><span class="dot on p1"></span><span class="dot on p1"></span><span class="dot on p1"></span><span class="dot on p1"></span>
+            </span> <strong>5/5</strong>
+          </div>
+        </div>
+        <div class="insight">
+          ✦ 关键洞察：象量已有完整的Wall Street HTML文档生成能力（本文档即为原型），这正是别人没有的起点。每个分析师每周花20–30小时写Memo，这是真实、反复出现的核心痛苦。"输入BP，三分钟出Investment Memo"——这一句话就是完整的Pitch。
+        </div>
+      </div>
+
+      <!-- P2 -->
+      <div class="priority-badge badge-orange">🟠 第二优先级 — 3个月内，构建护城河</div>
+
+      <div class="feature-card p2">
+        <h3>项目雷达 · Deal Flow Intelligence</h3>
+        <div class="desc">
+          监控目标赛道的融资事件、创始人动态、竞品新闻；每日推送结构化简报，支持自定义赛道订阅与关键词过滤。
+        </div>
+        <div class="scores">
+          <div class="score-item">痛点烈度
+            <span class="score-dots">
+              <span class="dot on p2"></span><span class="dot on p2"></span><span class="dot on p2"></span><span class="dot on p2"></span><span class="dot"></span>
+            </span> <strong>4/5</strong>
+          </div>
+          <div class="score-item">象量壁垒
+            <span class="score-dots">
+              <span class="dot on p2"></span><span class="dot on p2"></span><span class="dot on p2"></span><span class="dot on p2"></span><span class="dot"></span>
+            </span> <strong>4/5</strong>
+          </div>
+          <div class="score-item">资本故事
+            <span class="score-dots">
+              <span class="dot on p2"></span><span class="dot on p2"></span><span class="dot on p2"></span><span class="dot on p2"></span><span class="dot"></span>
+            </span> <strong>4/5</strong>
+          </div>
+        </div>
+        <div class="insight">✦ SaaS订阅 + 数据护城河是投资人喜欢的商业模式；需要数据源整合能力，这是技术壁垒，也是防御优势。</div>
+      </div>
+
+      <div class="feature-card p2">
+        <h3>可比公司估值数据库 · Comp Table Engine</h3>
+        <div class="desc">
+          A股+港股+美股同赛道企业动态PE/PS/EV倍数，支持自定义筛选，自动生成估值区间参考。专注科技赛道，做深不做宽。
+        </div>
+        <div class="scores">
+          <div class="score-item">痛点烈度
+            <span class="score-dots">
+              <span class="dot on p2"></span><span class="dot on p2"></span><span class="dot on p2"></span><span class="dot on p2"></span><span class="dot"></span>
+            </span> <strong>4/5</strong>
+          </div>
+          <div class="score-item">象量壁垒
+            <span class="score-dots">
+              <span class="dot on p2"></span><span class="dot on p2"></span><span class="dot on p2"></span><span class="dot"></span><span class="dot"></span>
+            </span> <strong>3/5</strong>
+          </div>
+          <div class="score-item">资本故事
+            <span class="score-dots">
+              <span class="dot on p2"></span><span class="dot on p2"></span><span class="dot on p2"></span><span class="dot"></span><span class="dot"></span>
+            </span> <strong>3/5</strong>
+          </div>
+        </div>
+        <div class="insight">✦ Wind也做，但聚焦科技赛道+AI辅助解读是差异化路线；定位为Memo生成器的数据底座，可协同发力。</div>
+      </div>
+
+      <!-- P3 -->
+      <div class="priority-badge badge-yellow">🟡 第三优先级 — 6个月后，扩大想象空间</div>
+
+      <div class="feature-card p3">
+        <h3>投后监控预警系统 · Portfolio Intelligence</h3>
+        <div class="desc">被投企业KPI仪表盘 + 外部风险预警（竞对融资、负面舆情、政策变化），管理资产全生命周期。</div>
+        <div class="scores">
+          <div class="score-item">痛点烈度 <strong>3/5</strong></div>
+          <div class="score-item">象量壁垒 <strong>3/5</strong></div>
+          <div class="score-item">资本故事 <strong>5/5</strong></div>
+        </div>
+        <div class="insight">✦ "管理资产全生命周期"是大市场故事，想象空间打开；但不是最急的痛，先把前端投研做好再延伸。</div>
+      </div>
+
+      <div class="feature-card p3">
+        <h3>LP 报告自动化 · LP Reporting Engine</h3>
+        <div class="desc">基金定期向LP汇报的季报/年报，自动从数据源拉取生成，支持个性化模板。</div>
+        <div class="scores">
+          <div class="score-item">痛点烈度 <strong>3/5</strong></div>
+          <div class="score-item">象量壁垒 <strong>3/5</strong></div>
+          <div class="score-item">资本故事 <strong>4/5</strong></div>
+        </div>
+        <div class="insight">✦ LP端是另一个付费主体，双边市场故事；与Memo生成器技术同源，可复用基础设施。</div>
+      </div>
+
+      <!-- Avoid -->
+      <div class="priority-badge badge-grey">⚫ 暂不做 — 规避陷阱</div>
+
+      <div class="feature-card avoid">
+        <h3>量化选股 / 二级市场策略</h3>
+        <div class="desc">与万得、同花顺、Bloomberg正面竞争。</div>
+        <div class="insight">✦ 竞争对手护城河极深，会稀释"股权投资AI工具"定位，让融资投资人产生困惑。</div>
+      </div>
+
+      <div class="feature-card avoid">
+        <h3>全自动AI投资决策</h3>
+        <div class="desc">系统自动给出买/卖/投/不投决策。</div>
+        <div class="insight">✦ 监管风险极高；百亿基金合规部门不会允许；出问题责任归属不清，客户不敢用。</div>
+      </div>
+    </div>
+
+    <!-- Section 4: Capital Story -->
+    <div class="section">
+      <div class="section-title"><span>IV</span>资本故事：如何讲才能打动投资人</div>
+
+      <p>我们当前最强的一张牌：<strong>百亿股权基金既是第一个付费客户，又是潜在股东。</strong>这句话的价值在于它打通了完整的商业逻辑链：</p>
+
+      <div class="flow" style="margin:16px 0 20px;">
+        <div class="flow-step">客户验证<span class="sub">产品可用</span></div>
+        <div class="flow-step">收入可见性<span class="sub">SaaS化路径</span></div>
+        <div class="flow-step">估值支撑<span class="sub">ARR锚点</span></div>
+        <div class="flow-step">战略背书<span class="sub">客户即股东</span></div>
+      </div>
+
+      <div class="pitch-box">
+        <p>
+          象量AI是股权投资行业的"<strong>AI分析师</strong>"。<br>
+          我们把PE机构从看项目到出Memo的全流程，从<strong>3天压缩到3小时</strong>。<br>
+          第一个客户是管理规模超过百亿的顶级股权基金，他们即将成为我们的战略股东。<br>
+          我们的目标是成为中国每一家PE/VC机构的<strong>标配基础设施</strong>。
+        </p>
+        <div class="attr">— 象量EleQuant.AI · 核心Pitch主线 · 2026</div>
+      </div>
+
+      <p style="font-size:13px; margin-bottom:8px;"><strong>市场规模测算（A轮故事框架）：</strong></p>
+
+      <div class="tam-grid">
+        <div class="tam-cell">
+          <span class="num">2.2万</span>
+          <span class="label">中国登记备案<br>私募基金管理人</span>
+          <span class="arrow">×</span>
+        </div>
+        <div class="tam-cell">
+          <span class="num">3–5人</span>
+          <span class="label">每家平均<br>分析师人数</span>
+          <span class="arrow">×</span>
+        </div>
+        <div class="tam-cell">
+          <span class="num">¥2万/年</span>
+          <span class="label">每家SaaS费<br>（价值捕获20%）</span>
+          <span class="arrow">=</span>
+        </div>
+        <div class="tam-cell">
+          <span class="num">¥4.4亿</span>
+          <span class="label">全渗透TAM<br>渗透1000家=¥2000万ARR</span>
+        </div>
+      </div>
+
+      <p style="font-size:12px; color:var(--muted); font-style:italic;">
+        注：以上基于每家分析师年均节省500小时×时薪200元=10万元价值，按20%价值捕获定价。渗透1000家即可支撑A轮估值叙事。
+      </p>
+    </div>
+
+    <!-- Section 5: Roadmap -->
+    <div class="section">
+      <div class="section-title"><span>V</span>产品路线图</div>
+
+      <div class="roadmap">
+        <div class="rm-phase now">
+          <span class="phase-tag">▶ 现在 · 2周内</span>
+          <h4>MVP验证期</h4>
+          <ul>
+            <li>AI Memo生成器Demo</li>
+            <li>输入BP → 3分钟出Memo</li>
+            <li>给百亿基金分析师演示</li>
+            <li>收集反馈，快速迭代</li>
+          </ul>
+        </div>
+        <div class="rm-phase">
+          <span class="phase-tag">→ 0–3个月</span>
+          <h4>产品化阶段</h4>
+          <ul>
+            <li>Memo生成器正式版</li>
+            <li>标准化模板库</li>
+            <li>项目雷达Beta版</li>
+            <li>第一笔SaaS收入</li>
+          </ul>
+        </div>
+        <div class="rm-phase">
+          <span class="phase-tag">→ 3–6个月</span>
+          <h4>规模化阶段</h4>
+          <ul>
+            <li>可比公司估值数据库</li>
+            <li>多客户接入</li>
+            <li>Pre-A融资</li>
+            <li>团队扩充</li>
+          </ul>
+        </div>
+        <div class="rm-phase">
+          <span class="phase-tag">→ 6–12个月</span>
+          <h4>生态化阶段</h4>
+          <ul>
+            <li>投后监控系统</li>
+            <li>LP报告自动化</li>
+            <li>A轮融资</li>
+            <li>开放平台API</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 6: Action Items -->
+    <div class="section">
+      <div class="section-title"><span>VI</span>最重要的一件事</div>
+
+      <div class="action-box">
+        <h3>核心行动项 — 产品是最好的Pitch Deck</h3>
+        <ol>
+          <li><strong>两周内</strong>：把象量现有的HTML报告生成能力，包装成百亿基金分析师可以自己操作的Demo。哪怕是半自动化、界面简陋，只要能现场演示"输入BP → 三分钟出Memo"，融资胜率翻倍。</li>
+          <li><strong>锁定参考标准</strong>：以本次学习的"罗特尼克 Intro Memo"为格式标杆——其七章结构（Deal Summary / 技术分析 / 竞争格局 / Investment Thesis / 团队 / 财务 / Reference Check）是行业公认的完整框架。</li>
+          <li><strong>明确产品定位</strong>：我们做的不是"AI写作工具"，而是"让分析师把精力从搬砖转移到判断"的AI分析师基础设施。这一定位既精准又有防御性。</li>
+          <li><strong>把客户变成故事</strong>：百亿基金若成为战略股东，公开披露这一关系（在允许范围内），这比任何Marketing都有力。</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Verdict -->
+    <div class="verdict">
+      <div class="verdict-icon">⚡</div>
+      <div class="verdict-text">
+        <h3>分析师裁决 · ANALYST VERDICT</h3>
+        <p>象量现在处于最有利的位置：核心技术能力已有原型，第一大客户已在谈判桌上，融资节点窗口正在打开。唯一的风险是想太多、做太少。现在最需要的不是更完整的战略文档，而是一个能被人实际操作的Demo。<br>
+        <strong>建议：本周开始搭建AI Memo生成器的内部演示版本。</strong></p>
+      </div>
+    </div>
+
+  </div><!-- /body -->
+
+  <!-- Footer -->
+  <div class="footer">
+    <div>象量科技 · EleQuant.AI · 象无形，量有度。</div>
+    <div>内部保密文件 · 版本 V1.0 · 2026-03-24 · 持续更新</div>
+    <div>联系：kart712@qq.com</div>
+  </div>
+
+</div>
+</body>
+</html>
