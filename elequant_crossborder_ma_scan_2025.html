@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>象量EleQuant.AI · 行业深度研究 · 2025年至今国际前二十大跨境并购交易全景扫描</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Times New Roman', 'SimSun', serif;
+    background: #f4f1eb;
+    color: #1a1a1a;
+    font-size: 10.5pt;
+    line-height: 1.6;
+  }
+
+  .page {
+    max-width: 900px;
+    margin: 36px auto;
+    background: #fff;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.12);
+    padding: 56px 64px 72px;
+  }
+
+  /* ── Letterhead ── */
+  .header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 2.5px solid #1a1a4e;
+    padding-bottom: 10px;
+  }
+  .firm-left { display: flex; flex-direction: column; gap: 3px; }
+  .firm-name {
+    font-size: 14pt;
+    font-weight: 800;
+    color: #1a1a4e;
+    letter-spacing: 2px;
+    font-family: 'Arial', sans-serif;
+  }
+  .firm-name span { color: #888; font-weight: 400; font-size: 9pt; letter-spacing: 1px; }
+  .firm-slogan {
+    font-size: 7.5pt;
+    color: #888;
+    letter-spacing: 1px;
+    font-family: 'Arial', sans-serif;
+  }
+  .doc-meta {
+    font-family: 'Arial', sans-serif;
+    font-size: 7.5pt;
+    color: #555;
+    text-align: right;
+    line-height: 1.7;
+  }
+
+  .confidential {
+    background: #1a1a4e;
+    color: #fff;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    font-size: 7pt;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 3px 0;
+    margin-bottom: 32px;
+  }
+
+  /* ── Title ── */
+  .title-block {
+    border-left: 4px solid #1a1a4e;
+    padding-left: 18px;
+    margin-bottom: 26px;
+  }
+  .report-type {
+    font-family: 'Arial', sans-serif;
+    font-size: 7.5pt;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 4px;
+  }
+  .report-title {
+    font-size: 19pt;
+    font-weight: bold;
+    color: #1a1a4e;
+    line-height: 1.25;
+  }
+  .report-subtitle {
+    font-size: 10.5pt;
+    color: #444;
+    margin-top: 6px;
+  }
+
+  /* ── Snap bar ── */
+  .snap-bar {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    border: 1px solid #c8c0aa;
+    margin-bottom: 32px;
+  }
+  .snap-item {
+    padding: 11px 13px;
+    border-right: 1px solid #c8c0aa;
+  }
+  .snap-item:last-child { border-right: none; }
+  .snap-label {
+    font-family: 'Arial', sans-serif;
+    font-size: 6.5pt;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #888;
+    margin-bottom: 4px;
+  }
+  .snap-value {
+    font-size: 13pt;
+    font-weight: bold;
+    color: #1a1a4e;
+    line-height: 1.1;
+  }
+  .snap-sub {
+    font-size: 7pt;
+    color: #666;
+    font-family: 'Arial', sans-serif;
+    margin-top: 2px;
+  }
+
+  /* ── Section ── */
+  .section { margin-bottom: 30px; }
+  .section-title {
+    font-family: 'Arial', sans-serif;
+    font-size: 8pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #1a1a4e;
+    border-bottom: 1px solid #1a1a4e;
+    padding-bottom: 3px;
+    margin-bottom: 14px;
+  }
+
+  /* ── Prose text ── */
+  .prose { font-size: 10pt; line-height: 1.7; color: #222; margin-bottom: 10px; }
+
+  /* ── Insight boxes ── */
+  .insight-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .insight-box {
+    border: 1px solid #c8c0aa;
+    padding: 12px 13px;
+    background: #faf9f6;
+  }
+  .insight-num {
+    font-family: 'Arial', sans-serif;
+    font-size: 6.5pt;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #888;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+  .insight-heading {
+    font-weight: bold;
+    color: #1a1a4e;
+    font-size: 9.5pt;
+    margin-bottom: 5px;
+    font-family: 'Arial', sans-serif;
+  }
+  .insight-body { font-size: 9pt; color: #333; line-height: 1.55; }
+
+  /* ── Main deal table ── */
+  .deal-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 8.8pt;
+    margin-bottom: 8px;
+  }
+  .deal-table th {
+    background: #1a1a4e;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    font-size: 7pt;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 7px 9px;
+    text-align: left;
+    white-space: nowrap;
+  }
+  .deal-table td {
+    padding: 7px 9px;
+    border-bottom: 1px solid #e8e4da;
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  .deal-table tr:nth-child(even) td { background: #faf9f6; }
+  .deal-table tr:hover td { background: #f0eee8; }
+  .rank-col {
+    font-family: 'Arial', sans-serif;
+    font-weight: 700;
+    color: #1a1a4e;
+    font-size: 9pt;
+    white-space: nowrap;
+  }
+  .acquirer { font-weight: bold; color: #1a1a4e; }
+  .amount { font-weight: bold; color: #1a1a4e; white-space: nowrap; font-family: 'Arial', sans-serif; }
+
+  .sector-tag {
+    display: inline-block;
+    font-family: 'Arial', sans-serif;
+    font-size: 6.5pt;
+    padding: 1px 6px;
+    border-radius: 2px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+  .tag-finance   { background: #e8eaf6; color: #3949ab; }
+  .tag-tech      { background: #e3f2fd; color: #1565c0; }
+  .tag-semicon   { background: #e8f5e9; color: #2e7d32; }
+  .tag-energy    { background: #fff8e1; color: #f57f17; }
+  .tag-pharma    { background: #fce4ec; color: #880e4f; }
+  .tag-robot     { background: #f3e5f5; color: #6a1b9a; }
+  .tag-material  { background: #e0f2f1; color: #00695c; }
+  .tag-consumer  { background: #fff3e0; color: #e65100; }
+  .tag-media     { background: #fafafa; color: #424242; border: 1px solid #ddd; }
+  .tag-resource  { background: #efebe9; color: #4e342e; }
+  .tag-optical   { background: #e8eaf6; color: #283593; }
+
+  /* ── Sector analysis ── */
+  .sector-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 6px;
+  }
+  .sector-box {
+    border: 1px solid #c8c0aa;
+    padding: 13px 15px;
+  }
+  .sector-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  .sector-name {
+    font-family: 'Arial', sans-serif;
+    font-size: 9.5pt;
+    font-weight: 700;
+    color: #1a1a4e;
+  }
+  .sector-count {
+    font-family: 'Arial', sans-serif;
+    font-size: 7pt;
+    background: #1a1a4e;
+    color: #fff;
+    padding: 2px 7px;
+    letter-spacing: 1px;
+  }
+  .sector-amount {
+    font-family: 'Arial', sans-serif;
+    font-size: 11pt;
+    font-weight: bold;
+    color: #1a1a4e;
+    margin-bottom: 4px;
+  }
+  .sector-body { font-size: 9pt; color: #333; line-height: 1.55; }
+
+  /* ── Pattern cards ── */
+  .pattern-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .pattern-box {
+    border-left: 3px solid #1a1a4e;
+    padding: 10px 13px;
+    background: #faf9f6;
+  }
+  .pattern-heading {
+    font-family: 'Arial', sans-serif;
+    font-size: 9pt;
+    font-weight: 700;
+    color: #1a1a4e;
+    margin-bottom: 5px;
+  }
+  .pattern-body { font-size: 9pt; color: #333; line-height: 1.55; }
+  .pattern-deals { font-family: 'Arial', sans-serif; font-size: 7.5pt; color: #888; margin-top: 5px; }
+
+  /* ── Timeline ── */
+  .timeline-box {
+    border: 1px solid #c8c0aa;
+    padding: 14px 18px;
+    margin-bottom: 6px;
+    background: #faf9f6;
+  }
+  .timeline-title {
+    font-family: 'Arial', sans-serif;
+    font-size: 9pt;
+    font-weight: 700;
+    color: #1a1a4e;
+    margin-bottom: 8px;
+  }
+  .timeline-body { font-size: 9.5pt; color: #222; line-height: 1.65; }
+
+  /* ── Data table general ── */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9.5pt;
+    margin-bottom: 6px;
+  }
+  .data-table th {
+    background: #1a1a4e;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    font-size: 7.5pt;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 7px 10px;
+    text-align: left;
+  }
+  .data-table td {
+    padding: 7px 10px;
+    border-bottom: 1px solid #e8e4da;
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  .data-table tr:nth-child(even) td { background: #faf9f6; }
+  .label-col { font-weight: bold; color: #1a1a4e; width: 30%; font-family: 'Arial', sans-serif; font-size: 9pt; }
+
+  /* ── Verdict box ── */
+  .verdict-box {
+    border: 2px solid #1a1a4e;
+    padding: 18px 22px;
+    background: #f5f5fa;
+    margin-bottom: 8px;
+  }
+  .verdict-label {
+    font-family: 'Arial', sans-serif;
+    font-size: 7pt;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 6px;
+  }
+  .verdict-text { font-size: 10.5pt; line-height: 1.7; color: #1a1a1a; }
+  .verdict-badge {
+    display: inline-block;
+    background: #1a1a4e;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 700;
+    padding: 4px 16px;
+    margin-top: 12px;
+    letter-spacing: 1px;
+  }
+
+  /* ── Lists ── */
+  ul.ws-list { list-style: none; padding: 0; }
+  ul.ws-list li {
+    padding: 3px 0 3px 14px;
+    position: relative;
+    font-size: 9.5pt;
+    color: #222;
+    line-height: 1.55;
+  }
+  ul.ws-list li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: #1a1a4e;
+    font-size: 8pt;
+    top: 4px;
+  }
+
+  /* ── Callout ── */
+  .callout {
+    border-left: 3px solid #1a1a4e;
+    background: #f0f0f8;
+    padding: 10px 14px;
+    margin: 12px 0;
+    font-size: 9.5pt;
+    color: #1a1a1a;
+    line-height: 1.6;
+    font-style: italic;
+  }
+
+  /* ── Divider ── */
+  hr.divider { border: none; border-top: 1px dashed #c8c0aa; margin: 26px 0; }
+
+  /* ── Footer ── */
+  .footer {
+    margin-top: 44px;
+    border-top: 1px solid #c8c0aa;
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .footer-left { font-family: 'Arial', sans-serif; font-size: 7pt; color: #999; line-height: 1.7; }
+  .footer-right { font-family: 'Arial', sans-serif; font-size: 8pt; color: #1a1a4e; font-weight: 700; text-align: right; line-height: 1.7; }
+  .footer-slogan { font-size: 6.5pt; color: #aaa; font-weight: 400; font-style: italic; }
+
+  @media print {
+    body { background: #fff; }
+    .page { box-shadow: none; margin: 0; padding: 36px 48px; }
+  }
+  @media (max-width: 640px) {
+    .page { padding: 18px 14px; }
+    .snap-bar { grid-template-columns: repeat(3, 1fr); }
+    .insight-grid, .sector-grid, .pattern-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Letterhead -->
+  <div class="header-bar">
+    <div class="firm-left">
+      <div class="firm-name">象量 <span>EleQuant.AI</span></div>
+      <div class="firm-slogan">象无形，量有度。· 构建数据驱动的AI投资研究新范式</div>
+    </div>
+    <div class="doc-meta">
+      机密文件 — 仅供内部阅览<br>
+      日期：2026年3月<br>
+      报告类型：行业深度研究
+    </div>
+  </div>
+  <div class="confidential">Strictly Confidential — Industry Deep Research · 象量科技 EleQuant.AI 投资研究部</div>
+
+  <!-- Title -->
+  <div class="title-block">
+    <div class="report-type">International M&A Scan · 跨境并购深度扫描报告</div>
+    <div class="report-title">国际资本市场并购全景扫描<br>2025年至今前二十大跨境并购交易深度解析</div>
+    <div class="report-subtitle">出海战略逻辑 · 地缘博弈映射 · 资源与技术双轨并进 · 全球化新范式研判</div>
+  </div>
+
+  <!-- Snap bar -->
+  <div class="snap-bar">
+    <div class="snap-item">
+      <div class="snap-label">样本交易数</div>
+      <div class="snap-value">20</div>
+      <div class="snap-sub">前二十大跨境并购</div>
+    </div>
+    <div class="snap-item">
+      <div class="snap-label">交易总规模</div>
+      <div class="snap-value">~275亿</div>
+      <div class="snap-sub">美元（含折算）</div>
+    </div>
+    <div class="snap-item">
+      <div class="snap-label">最大单笔</div>
+      <div class="snap-value">~60亿</div>
+      <div class="snap-sub">宁德时代×印尼镍矿</div>
+    </div>
+    <div class="snap-item">
+      <div class="snap-label">核心战略</div>
+      <div class="snap-value">资源+科技</div>
+      <div class="snap-sub">双轨出海</div>
+    </div>
+    <div class="snap-item">
+      <div class="snap-label">统计区间</div>
+      <div class="snap-value">2025–2026</div>
+      <div class="snap-sub">截至2026年3月</div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 1: Executive Summary ===== -->
+  <div class="section">
+    <div class="section-title">Section I · Executive Summary · 核心结论</div>
+    <p class="prose">
+      2025年以来，中国企业的跨境并购正经历一次<strong>深刻的范式重构</strong>。在地缘政治博弈升温、美元汇率高位、
+      全球供应链重组的多重背景下，中国买方的出海逻辑已从"市场扩张"转向"资源控制+技术补链+品牌收割"三轨并进。
+      前二十大跨境并购交易累计规模约<strong>275亿美元</strong>，标的遍布印度尼西亚、加拿大、德国、美国、韩国、日本、
+      越南等14个国家与地区，深刻折射出中国产业资本的全球卡位意图。
+    </p>
+    <div class="insight-grid">
+      <div class="insight-box">
+        <div class="insight-num">Core Finding 01</div>
+        <div class="insight-heading">战略资源是第一优先级</div>
+        <div class="insight-body">
+          宁德时代联合体印尼镍矿（60亿美元）、紫金矿业加拿大金矿（38.5亿美元）、
+          洛阳钼业拉美金矿（10亿美元）、灵宝黄金澳洲矿业（2.5亿美元）——
+          四笔合计超110亿美元的矿产资源并购，宣告中国已将境外战略资源锁定列为国家级优先事项。
+        </div>
+      </div>
+      <div class="insight-box">
+        <div class="insight-num">Core Finding 02</div>
+        <div class="insight-heading">技术补链成为制造业主战场</div>
+        <div class="insight-body">
+          恒美光电收购三星SDI偏光片业务、东山精密收购Source Photonics、
+          富创精密收购Compart Systems、三安光电收购Lumileds——
+          制造业龙头正系统性地通过并购补齐光学、精密零部件、先进材料等领域的技术短板，
+          摆脱对外部供应商的依赖。
+        </div>
+      </div>
+      <div class="insight-box">
+        <div class="insight-num">Core Finding 03</div>
+        <div class="insight-heading">品牌与消费渠道加速收割</div>
+        <div class="insight-body">
+          博裕收购星巴克中国60%股权（40亿美元）、安踏收购Callaway德国业务（2.9亿美元）、
+          CPE源峰收购汉堡王中国控股权（3.5亿美元）、爱美客收购韩国REGEN（1.9亿美元）——
+          消费品赛道的跨境并购以"本土化控制权+渠道重构"为核心逻辑，
+          呈现出鲜明的"买断品牌中国权益"策略。
+        </div>
+      </div>
+    </div>
+    <div class="callout">
+      象量观点：本轮跨境并购浪潮的本质是"全球供应链重组背景下的战略卡位竞赛"——中国产业资本正在通过境外并购，
+      将国内产业政策的战略优先序列向全球资源节点、技术节点与消费节点延伸，构筑下一轮全球竞争的护城河。
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ===== SECTION 2: Full Deal Table ===== -->
+  <div class="section">
+    <div class="section-title">Section II · Full Transaction Database · 二十大跨境并购交易全库</div>
+    <table class="deal-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>买方</th>
+          <th>标的（国家/地区）</th>
+          <th>金额</th>
+          <th>赛道</th>
+          <th>交易逻辑摘要</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="rank-col">01</td>
+          <td><span class="acquirer">宁德时代联合体</span></td>
+          <td>印尼镍矿全产业链项目（印度尼西亚）</td>
+          <td class="amount">~60亿美元</td>
+          <td><span class="sector-tag tag-resource">战略矿产</span></td>
+          <td>锁定全球最大镍资源基地，构建"镍矿-前驱体-电芯"全链一体化，夯实电动车电池供应链主权</td>
+        </tr>
+        <tr>
+          <td class="rank-col">02</td>
+          <td><span class="acquirer">博裕资本</span></td>
+          <td>星巴克中国零售业务60%股权（美国）</td>
+          <td class="amount">40亿美元</td>
+          <td><span class="sector-tag tag-consumer">消费品牌</span></td>
+          <td>接手全球最大咖啡连锁在华主导权，重构中国门店运营与本土化战略，PE控股+品牌授权双轮驱动</td>
+        </tr>
+        <tr>
+          <td class="rank-col">03</td>
+          <td><span class="acquirer">紫金矿业</span></td>
+          <td>加拿大联合黄金 Allied Gold（加拿大）</td>
+          <td class="amount">~38.5亿美元</td>
+          <td><span class="sector-tag tag-resource">黄金资源</span></td>
+          <td>补齐非洲黄金资产版图，Allied Gold拥有多国运营矿山，紫金全球黄金储量跃升至全球前五</td>
+        </tr>
+        <tr>
+          <td class="rank-col">04</td>
+          <td><span class="acquirer">京东集团</span></td>
+          <td>德国Ceconomy AG（德国）</td>
+          <td class="amount">~25亿美元</td>
+          <td><span class="sector-tag tag-consumer">零售生态</span></td>
+          <td>战略入股欧洲最大消费电子零售商，布局欧洲数字零售渠道，为中国科技品牌出海搭建分发平台</td>
+        </tr>
+        <tr>
+          <td class="rank-col">05</td>
+          <td><span class="acquirer">红杉中国</span></td>
+          <td>英国Marshall集团（英国）</td>
+          <td class="amount">~12亿美元</td>
+          <td><span class="sector-tag tag-consumer">消费品牌</span></td>
+          <td>收购全球顶级音响品牌，布局高端音频赛道，Marshall品牌溢价与中国制造成本优势高度契合</td>
+        </tr>
+        <tr>
+          <td class="rank-col">06</td>
+          <td><span class="acquirer">美的集团</span></td>
+          <td>德国Teka集团（德国）</td>
+          <td class="amount">~11.8亿美元</td>
+          <td><span class="sector-tag tag-consumer">家电品牌</span></td>
+          <td>收购欧洲厨电龙头，嵌入欧洲高端厨电市场，叠加美的智能制造能力实现品质升维与渠道扩张</td>
+        </tr>
+        <tr>
+          <td class="rank-col">07</td>
+          <td><span class="acquirer">洛阳钼业</span></td>
+          <td>Leagold LatAm + Luna Gold Corp.（拉丁美洲）</td>
+          <td class="amount">10.15亿美元</td>
+          <td><span class="sector-tag tag-resource">有色矿产</span></td>
+          <td>强化拉美多金属矿产布局，铜金协同开采提升综合回收率，构建全球有色金属资产组合</td>
+        </tr>
+        <tr>
+          <td class="rank-col">08</td>
+          <td><span class="acquirer">联想集团</span></td>
+          <td>以色列Infinidat（以色列）</td>
+          <td class="amount">~10亿美元</td>
+          <td><span class="sector-tag tag-tech">存储技术</span></td>
+          <td>收购全球顶级企业存储解决方案商，补齐AI算力存储短板，融合联想全球数据中心渠道网络</td>
+        </tr>
+        <tr>
+          <td class="rank-col">09</td>
+          <td><span class="acquirer">恒美光电</span></td>
+          <td>三星SDI全球偏光片业务（韩国）</td>
+          <td class="amount">~8亿美元</td>
+          <td><span class="sector-tag tag-optical">光学材料</span></td>
+          <td>一举获取三星偏光片核心技术与全球客户，国内偏光片市占率跃至全球前列，替代日韩垄断格局</td>
+        </tr>
+        <tr>
+          <td class="rank-col">10</td>
+          <td><span class="acquirer">东山精密</span></td>
+          <td>Source Photonics Holdings（美国）</td>
+          <td class="amount">6.29亿美元</td>
+          <td><span class="sector-tag tag-optical">光模块</span></td>
+          <td>取得全球头部光模块制造商，切入AI数据中心400G/800G光互联核心赛道，AI算力基础设施布局加速</td>
+        </tr>
+        <tr>
+          <td class="rank-col">11</td>
+          <td><span class="acquirer">富创精密</span></td>
+          <td>Compart Systems Pte. Ltd.（新加坡）</td>
+          <td class="amount">~4.3亿美元</td>
+          <td><span class="sector-tag tag-semicon">半导体设备零部件</span></td>
+          <td>补齐半导体设备精密零部件海外制造能力，规避出口管制风险，形成国内+海外双基地供应体系</td>
+        </tr>
+        <tr>
+          <td class="rank-col">12</td>
+          <td><span class="acquirer">梧桐树资本</span></td>
+          <td>住友化学中国区LCD偏光片业务（日本）</td>
+          <td class="amount">~4.2亿美元</td>
+          <td><span class="sector-tag tag-optical">光学材料</span></td>
+          <td>接手日系偏光片在华产线与客户，国产替代进程加速，与恒美光电形成中国偏光片双雄格局</td>
+        </tr>
+        <tr>
+          <td class="rank-col">13</td>
+          <td><span class="acquirer">杉川机器人</span></td>
+          <td>美国iRobot Corp.（美国）</td>
+          <td class="amount">~3.5亿美元</td>
+          <td><span class="sector-tag tag-robot">消费机器人</span></td>
+          <td>收购全球扫地机器人鼻祖，获取Roomba品牌、专利池与全球供应链，加速国内AI机器人全球化路径</td>
+        </tr>
+        <tr>
+          <td class="rank-col">14</td>
+          <td><span class="acquirer">CPE源峰</span></td>
+          <td>汉堡王中国控股权（美国）</td>
+          <td class="amount">3.5亿美元</td>
+          <td><span class="sector-tag tag-consumer">餐饮品牌</span></td>
+          <td>获取全球第二大快餐连锁中国业务控制权，PE驱动本土化运营升级，门店规模化+数字化改造</td>
+        </tr>
+        <tr>
+          <td class="rank-col">15</td>
+          <td><span class="acquirer">安踏体育</span></td>
+          <td>德国Callaway Germany Holdco（德国）</td>
+          <td class="amount">2.9亿美元</td>
+          <td><span class="sector-tag tag-consumer">运动品牌</span></td>
+          <td>延续"买下全球高尔夫"战略，补齐德国区运营，构建覆盖全球的高端运动品牌矩阵</td>
+        </tr>
+        <tr>
+          <td class="rank-col">16</td>
+          <td><span class="acquirer">丽珠医药</span></td>
+          <td>越南Imexpharm Corporation（越南）</td>
+          <td class="amount">~2.6亿美元</td>
+          <td><span class="sector-tag tag-pharma">医药出海</span></td>
+          <td>取得越南头部本土药企控制权，借道东南亚高速增长医药市场，抢占"一带一路"医药渠道节点</td>
+        </tr>
+        <tr>
+          <td class="rank-col">17</td>
+          <td><span class="acquirer">灵宝黄金</span></td>
+          <td>St Barbara Mining Pty Ltd（澳大利亚）</td>
+          <td class="amount">~2.5亿美元</td>
+          <td><span class="sector-tag tag-resource">黄金矿业</span></td>
+          <td>收购澳洲成熟黄金矿山，低成本扩充储量，强化中国黄金企业海外资产组合以对冲地缘风险</td>
+        </tr>
+        <tr>
+          <td class="rank-col">18</td>
+          <td><span class="acquirer">三安光电</span></td>
+          <td>Lumileds Holding B.V.（荷兰）</td>
+          <td class="amount">2.39亿美元</td>
+          <td><span class="sector-tag tag-semicon">LED芯片</span></td>
+          <td>收购前飞利浦照明芯片业务，获取汽车照明核心技术与全球客户，切入车规LED高端市场</td>
+        </tr>
+        <tr>
+          <td class="rank-col">19</td>
+          <td><span class="acquirer">爱美客</span></td>
+          <td>韩国REGEN Biotech（韩国）</td>
+          <td class="amount">1.9亿美元</td>
+          <td><span class="sector-tag tag-pharma">医美生物</span></td>
+          <td>收购韩国再生医学平台，获取PRP、脂肪填充等前沿技术，构建"注射美容+再生医学"双赛道全球布局</td>
+        </tr>
+        <tr>
+          <td class="rank-col">20</td>
+          <td><span class="acquirer">梅花生物</span></td>
+          <td>日本协和发酵氨基酸与HMO业务（日本）</td>
+          <td class="amount">~1.1亿美元</td>
+          <td><span class="sector-tag tag-material">生物发酵</span></td>
+          <td>收购全球氨基酸龙头核心业务，强化梅花在氨基酸+母乳低聚糖（HMO）赛道的全球技术与市场领导地位</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-family:'Arial',sans-serif; font-size:7pt; color:#999; margin-top:4px;">* 金额为公开披露或经汇率折算估算数据，部分含换股对价及或有支付。数据来源：公开公告、Bloomberg、象量研究整理。</p>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ===== SECTION 3: Sector Analysis ===== -->
+  <div class="section">
+    <div class="section-title">Section III · Sector Distribution · 赛道分布与战略意义</div>
+    <div class="sector-grid">
+      <div class="sector-box">
+        <div class="sector-header">
+          <div class="sector-name">战略矿产与自然资源</div>
+          <div class="sector-count">4笔</div>
+        </div>
+        <div class="sector-amount">~111亿美元</div>
+        <div class="sector-body">
+          宁德时代印尼镍矿（60亿）、紫金矿业加拿大金矿（38.5亿）、洛阳钼业拉美（10亿）、
+          灵宝黄金澳洲（2.5亿）四笔交易合计超110亿美元，占本次样本总量约40%。
+          矿产并购的底层逻辑是<strong>战略资源主权化</strong>——锂钴镍铜黄金构成新能源与货币体系的双重基石，
+          中国正通过资本手段将关键资源节点纳入产业链控制半径。
+        </div>
+      </div>
+      <div class="sector-box">
+        <div class="sector-header">
+          <div class="sector-name">光学材料与光模块</div>
+          <div class="sector-count">3笔</div>
+        </div>
+        <div class="sector-amount">~18.5亿美元</div>
+        <div class="sector-body">
+          恒美光电×三星SDI偏光片（8亿）、梧桐树×住友化学偏光片（4.2亿）、
+          东山精密×Source Photonics（6.29亿）三笔交易共同指向一个战略：
+          <strong>在AI算力和显示赛道完成光学核心材料与器件的国产替代</strong>。
+          两笔偏光片并购使中国彻底打破日韩在LCD偏光片的历史垄断；
+          Source Photonics则是中国企业切入AI数据中心高速光互联的关键一步。
+        </div>
+      </div>
+      <div class="sector-box">
+        <div class="sector-header">
+          <div class="sector-name">消费品牌与零售渠道</div>
+          <div class="sector-count">6笔</div>
+        </div>
+        <div class="sector-amount">~96亿美元</div>
+        <div class="sector-body">
+          博裕×星巴克中国（40亿）、京东×Ceconomy（25亿）、红杉×Marshall（12亿）、
+          CPE×汉堡王中国（3.5亿）、安踏×Callaway（2.9亿）、美的×Teka（11.8亿）。
+          消费品牌并购呈现两种路径：一是<strong>品牌中国主权收割</strong>（星巴克、汉堡王），
+          二是<strong>海外品牌赋能中国制造出海</strong>（Marshall、Teka、Callaway）。
+          两条路径的共同逻辑：以品牌溢价锁定消费者心智，降低出海营销壁垒。
+        </div>
+      </div>
+      <div class="sector-box">
+        <div class="sector-header">
+          <div class="sector-name">半导体与精密制造</div>
+          <div class="sector-count">3笔</div>
+        </div>
+        <div class="sector-amount">~10.7亿美元</div>
+        <div class="sector-body">
+          富创精密×Compart Systems（4.3亿）、三安光电×Lumileds（2.39亿）、
+          联想×Infinidat（10亿含技术协同价值）。
+          在出口管制升级背景下，半导体相关跨境并购策略已从"补技术"转向
+          <strong>"绕监管+补短板"双轨</strong>——新加坡设立双基地规避管制，
+          车规LED技术收购应对汽车电子国产化需求，企业存储收购支撑AI算力基础设施。
+        </div>
+      </div>
+      <div class="sector-box">
+        <div class="sector-header">
+          <div class="sector-name">医药与生命科学</div>
+          <div class="sector-count">2笔</div>
+        </div>
+        <div class="sector-amount">~4.5亿美元</div>
+        <div class="sector-body">
+          丽珠医药×越南Imexpharm（2.6亿）、爱美客×韩国REGEN（1.9亿）。
+          医药跨境并购呈现两个清晰方向：<strong>东南亚渠道卡位</strong>（丽珠借道越南布局"一带一路"医药市场）
+          与<strong>韩国前沿医美技术收购</strong>（爱美客整合再生医学平台）。
+          两笔交易共同指向国内医药企业在高速增长市场的提前布局意图。
+        </div>
+      </div>
+      <div class="sector-box">
+        <div class="sector-header">
+          <div class="sector-name">机器人与生物发酵</div>
+          <div class="sector-count">2笔</div>
+        </div>
+        <div class="sector-amount">~4.6亿美元</div>
+        <div class="sector-body">
+          杉川机器人×iRobot（3.5亿）、梅花生物×协和发酵（1.1亿）。
+          iRobot并购是中国消费机器人企业<strong>收割欧美头部品牌专利与渠道</strong>的典型样本；
+          梅花×协和发酵则代表中国生物发酵龙头以并购手段
+          <strong>一步跨入HMO母婴营养高附加值赛道</strong>，技术+市场双收。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ===== SECTION 4: Strategic Pattern Analysis ===== -->
+  <div class="section">
+    <div class="section-title">Section IV · Strategic Patterns · 跨境并购战略模式解析</div>
+    <p class="prose">
+      本次二十大跨境并购样本中，中国买方的出海策略呈现出高度清晰的四大战略范式，
+      代表了新阶段中国产业资本参与全球竞争的核心方法论：
+    </p>
+    <div class="pattern-grid">
+      <div class="pattern-box">
+        <div class="pattern-heading">模式一：战略资源主权化锁定</div>
+        <div class="pattern-body">
+          在新能源与地缘博弈双重驱动下，中国买方通过股权并购锁定海外关键矿产资源，
+          将资源控制权从外部采购依赖转化为产业链内部可控资产。
+          以宁德时代、紫金矿业为代表，构建从矿山到终端产品的完整资源闭环，
+          价格波动抵御能力与供应链韧性大幅跃升。
+        </div>
+        <div class="pattern-deals">典型案例：宁德时代×印尼镍矿（60亿美元）；紫金矿业×Allied Gold（38.5亿美元）</div>
+      </div>
+      <div class="pattern-box">
+        <div class="pattern-heading">模式二：品牌中国权益收割</div>
+        <div class="pattern-body">
+          以PE为主要买方，收购海外知名品牌在中国市场的运营权或控股权，
+          获取稳定现金流与品牌溢价空间，同步推进本土化运营重构。
+          此模式有效绕开直接与外资品牌正面竞争，以"购而非建"快速形成市场支配力。
+        </div>
+        <div class="pattern-deals">典型案例：博裕×星巴克中国60%（40亿美元）；CPE×汉堡王中国控股权（3.5亿美元）</div>
+      </div>
+      <div class="pattern-box">
+        <div class="pattern-heading">模式三：技术补链+管制规避</div>
+        <div class="pattern-body">
+          在出口管制升级背景下，部分制造业龙头将关键产能与技术通过海外并购迁移至
+          新加坡、荷兰等中立节点，形成"国内研发+境外制造"双基地模式，
+          同步实现技术补短板与贸易合规双重目标。
+          此结构正在成为中国半导体产业链企业的标准化出海模板。
+        </div>
+        <div class="pattern-deals">典型案例：富创精密×Compart Systems（新加坡，4.3亿美元）；三安光电×Lumileds（荷兰，2.39亿美元）</div>
+      </div>
+      <div class="pattern-box">
+        <div class="pattern-heading">模式四：海外品牌赋能制造出海</div>
+        <div class="pattern-body">
+          中国制造业龙头通过收购欧美知名品牌，以"品牌背书+中国成本"组合打入
+          欧美中高端消费市场，打破消费者对"中国制造"的质量偏见，
+          实现从OEM到品牌溢价的根本性升级。此模式已被安踏集团成功验证（FILA、Salomon、Arc'teryx），
+          正在向更多制造业赛道复制扩散。
+        </div>
+        <div class="pattern-deals">典型案例：美的×Teka（欧洲厨电，11.8亿美元）；红杉×Marshall（英国音响，12亿美元）</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ===== SECTION 5: Geopolitical Mapping ===== -->
+  <div class="section">
+    <div class="section-title">Section V · Geopolitical Mapping · 地缘政治映射与监管信号解读</div>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>地缘/政策背景</th>
+          <th>对应并购类型</th>
+          <th>典型案例</th>
+          <th>象量解读</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>美国出口管制升级</strong><br><span style="font-size:8pt;color:#888;">《芯片法案》+对华技术封锁持续加码</span></td>
+          <td>半导体设备零部件海外产能布局</td>
+          <td>富创精密×Compart Systems（新加坡）</td>
+          <td>制造基地迁至管制豁免地区，"中立化"结构成为半导体企业标准出海路径，预计未来12个月出现更多类似案例</td>
+        </tr>
+        <tr>
+          <td><strong>新能源供应链安全焦虑</strong><br><span style="font-size:8pt;color:#888;">欧美去中国化政策催生反向资源锁定</span></td>
+          <td>战略矿产海外控股并购</td>
+          <td>宁德时代×印尼镍矿；紫金×Allied Gold</td>
+          <td>越是封锁，越要卡位上游资源。中国电池企业已将"境外矿产资源锁定"列为战略必选项，而非财务性投资</td>
+        </tr>
+        <tr>
+          <td><strong>欧盟贸易壁垒与反倾销</strong><br><span style="font-size:8pt;color:#888;">电动车关税、消费品反补贴调查</span></td>
+          <td>收购欧洲品牌+渠道资产</td>
+          <td>美的×Teka（德国）；京东×Ceconomy（德国）</td>
+          <td>以"欧洲品牌+欧洲供应链"绕开贸易壁垒，将中国制造成本优势嵌入欧洲消费品牌护城河之内</td>
+        </tr>
+        <tr>
+          <td><strong>"一带一路"深化与东南亚红利</strong><br><span style="font-size:8pt;color:#888;">东南亚制造业转移+消费市场爆发</span></td>
+          <td>东南亚产能、渠道与品牌并购</td>
+          <td>丽珠×越南Imexpharm；宁德×印尼镍矿</td>
+          <td>东南亚正成为中国企业"第二主场"，一带一路医药渠道、矿产资源、制造基地三线并进</td>
+        </tr>
+        <tr>
+          <td><strong>韩日技术资产折价出售窗口</strong><br><span style="font-size:8pt;color:#888;">韩日化工、材料、医美企业业务瘦身</span></td>
+          <td>剥离业务低价收购</td>
+          <td>恒美×三星SDI偏光片；梅花×协和发酵；爱美客×REGEN</td>
+          <td>韩日企业战略收缩为中国买方提供难得的折价并购窗口，技术溢出效应可观，是2025年跨境并购最佳性价比赛道</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ===== SECTION 6: Forward Outlook ===== -->
+  <div class="section">
+    <div class="section-title">Section VI · Forward Outlook · 未来跨境并购趋势预判</div>
+    <div class="insight-grid">
+      <div class="insight-box">
+        <div class="insight-num">Trend 01 · 12个月内</div>
+        <div class="insight-heading">东南亚制造+渠道并购持续加温</div>
+        <div class="insight-body">
+          随着欧美对华关税升温，"越南/印尼工厂+中国研发"双基地模式需求激增。
+          预计未来12个月，中国消费品、新能源、医药企业将加速收购东南亚本土制造与渠道资产，
+          越南、印尼、泰国将成为最活跃的并购目的地。
+        </div>
+      </div>
+      <div class="insight-box">
+        <div class="insight-num">Trend 02 · 12–24个月</div>
+        <div class="insight-heading">韩日技术资产折价收购窗口延续</div>
+        <div class="insight-body">
+          三星、住友、协和发酵的业务剥离仅是序幕。韩日大型企业的"瘦身战略"
+          将在化工、材料、精密部件、医美生物等领域持续释放优质标的。
+          中国买方应密切关注日韩企业年报中的战略业务重组信号，
+          提前布局折价并购窗口。
+        </div>
+      </div>
+      <div class="insight-box">
+        <div class="insight-num">Trend 03 · 24–36个月</div>
+        <div class="insight-heading">机器人出海并购浪潮到来</div>
+        <div class="insight-body">
+          杉川×iRobot只是开端。随着中国人形机器人、工业机器人企业进入量产阶段，
+          海外品牌渠道、专利池的价值将大幅凸显。
+          预计2026–2027年，中国机器人企业将掀起新一波海外品牌并购，
+          重点目标：北美家用机器人品牌、欧洲工业机器人Tier1。
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-box" style="margin-top:12px;">
+      <div class="timeline-title">象量预判：2026–2027年十大高概率跨境并购方向</div>
+      <div class="timeline-body">
+        <ul class="ws-list">
+          <li><strong>东南亚锂电产能：</strong>宁德时代/亿纬锂能等电池企业在印尼/越南并购或参股本土制造基地，应对欧美本地化要求</li>
+          <li><strong>欧洲氢能设备：</strong>隆基/阳光电源等能源企业收购欧洲电解槽制造商，抢占欧洲氢能基础设施建设红利</li>
+          <li><strong>日本精密机械：</strong>国内精密制造龙头收购日本老牌精密部件企业，获取百年技术积累与日本市场准入</li>
+          <li><strong>北美AI SaaS：</strong>国内科技企业收购在美营收稳健的垂直行业AI SaaS公司，借壳切入美国企业市场</li>
+          <li><strong>中东医疗基础设施：</strong>迈瑞/联影等医疗器械龙头收购中东本土医院或医疗服务商，锁定石油美元医疗支出</li>
+          <li><strong>韩国显示材料：</strong>国内面板企业收购韩国OLED材料供应商，完成高端显示材料国产替代最后一公里</li>
+          <li><strong>欧洲废旧电池回收：</strong>宁德系企业或专业回收商收购欧洲动力电池回收企业，布局欧盟碳关税时代供应链合规</li>
+          <li><strong>拉美锂矿直接控股：</strong>国内材料企业绕开贸易摩擦，直接收购阿根廷/智利锂盐湖作业权益</li>
+          <li><strong>东欧软件工程：</strong>国内企业收购波兰/捷克软件外包公司，以低成本欧洲研发团队服务欧洲客户，规避出口管制</li>
+          <li><strong>非洲关键矿产：</strong>洛阳钼业/华友钴业延续非洲布局，围绕刚果金钴铜矿进行进一步垂直整合</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ===== SECTION 7: EleQuant Verdict ===== -->
+  <div class="section">
+    <div class="section-title">Section VII · EleQuant Research Verdict · 象量研究综合评价</div>
+    <div class="verdict-box">
+      <div class="verdict-label">Research Conclusion · 研究结论</div>
+      <div class="verdict-text">
+        2025年以来的中国跨境并购市场，正在经历一次<strong>战略逻辑的根本性升维</strong>。
+        早期"走出去"的财务套利驱动、低价资产抄底模式，已让位于更具体系性的
+        <strong>战略资源锁定、技术管制突围、品牌渠道卡位</strong>三轨并进战略。<br><br>
+        本次样本的二十笔跨境交易，横跨全球14个国家与地区、六大战略赛道，
+        但共享同一底层判断：<strong>在全球供应链重组与地缘博弈加剧的时代窗口，
+        率先完成境外关键节点卡位的企业，将在下一轮全球竞争中取得结构性优势。</strong>
+        这是一种超越财务回报的战略赌注，也是本轮跨境并购浪潮区别于以往的本质所在。<br><br>
+        对于中国投资机构而言，本轮跨境并购揭示的核心机会在于：
+        提前识别"全球战略节点资产"——即那些对中国产业链具有不可替代价值、
+        尚未被中国资本定价的境外优质标的，在并购溢价兑现之前完成布局，
+        方为跨境Alpha的真正来源。
+      </div>
+      <div>
+        <span class="verdict-badge">象量评级：跨境并购进入战略卡位新纪元 · 建议重点关注战略矿产与韩日技术资产折价并购窗口</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-left">
+      <strong>免责声明：</strong>本报告为象量EleQuant.AI内部研究文件，仅供参考，不构成任何投资要约或建议。<br>
+      所有数据与判断均基于公开信息及合理推断，部分数据经象量研究团队整理，可能与官方披露存在差异。<br>
+      投资决策请结合专业法律、财务及合规顾问意见。© 2026 象量科技 EleQuant.AI · 严格保密 · Strictly Confidential
+    </div>
+    <div class="footer-right">
+      象量 EleQuant.AI<br>
+      <span class="footer-slogan">象无形，量有度。</span>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
