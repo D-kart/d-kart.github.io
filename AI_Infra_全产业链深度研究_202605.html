@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Infra 全产业链深度研究 · 集泰资本</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Times New Roman', 'SimSun', 'STSong', serif;
+    background: #f4f1eb;
+    color: #1a1a1a;
+    font-size: 10.5pt;
+    line-height: 1.65;
+  }
+  .page {
+    max-width: 920px;
+    margin: 36px auto;
+    background: #fff;
+    box-shadow: 0 2px 24px rgba(0,0,0,0.12);
+    padding: 56px 68px 72px;
+    position: relative;
+  }
+  .header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 2.5px solid #1a1a4e;
+    padding-bottom: 10px;
+    margin-bottom: 6px;
+  }
+  .firm-name {
+    font-size: 8pt;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #1a1a4e;
+    font-family: 'Arial', sans-serif;
+    font-weight: 700;
+  }
+  .doc-meta {
+    font-family: 'Arial', sans-serif;
+    font-size: 7.5pt;
+    color: #555;
+    text-align: right;
+    line-height: 1.6;
+  }
+  .confidential {
+    background: #1a1a4e;
+    color: #fff;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    font-size: 7pt;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 3px 0;
+    margin-bottom: 30px;
+  }
+  .title-block {
+    border-left: 4px solid #1a1a4e;
+    padding-left: 16px;
+    margin-bottom: 28px;
+  }
+  .report-type {
+    font-family: 'Arial', sans-serif;
+    font-size: 7.5pt;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 4px;
+  }
+  .report-title {
+    font-size: 18pt;
+    font-weight: bold;
+    color: #1a1a4e;
+    line-height: 1.2;
+  }
+  .report-subtitle {
+    font-size: 10.5pt;
+    color: #444;
+    margin-top: 4px;
+  }
+  .snap-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 1px solid #c8c0aa;
+    margin-bottom: 30px;
+  }
+  .snap-item {
+    padding: 12px 14px;
+    border-right: 1px solid #c8c0aa;
+  }
+  .snap-item:last-child { border-right: none; }
+  .snap-label {
+    font-family: 'Arial', sans-serif;
+    font-size: 7pt;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #888;
+    margin-bottom: 4px;
+  }
+  .snap-value {
+    font-size: 13pt;
+    font-weight: bold;
+    color: #1a1a4e;
+  }
+  .snap-sub {
+    font-size: 7.5pt;
+    color: #666;
+    font-family: 'Arial', sans-serif;
+  }
+  .section { margin-bottom: 28px; }
+  .section-title {
+    font-family: 'Arial', sans-serif;
+    font-size: 8pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #1a1a4e;
+    border-bottom: 1px solid #1a1a4e;
+    padding-bottom: 3px;
+    margin-bottom: 14px;
+  }
+  .highlight-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 6px;
+  }
+  .highlight-grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 6px;
+  }
+  .highlight-grid-4 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .highlight-box {
+    border: 1px solid #c8c0aa;
+    padding: 12px 14px;
+    background: #faf9f6;
+  }
+  .highlight-num {
+    font-family: 'Arial', sans-serif;
+    font-size: 7pt;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #888;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+  .highlight-heading {
+    font-weight: bold;
+    color: #1a1a4e;
+    font-size: 10pt;
+    margin-bottom: 5px;
+  }
+  .highlight-body {
+    font-size: 9.5pt;
+    color: #333;
+    line-height: 1.5;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9.5pt;
+    margin-bottom: 8px;
+  }
+  th {
+    background: #1a1a4e;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    font-size: 7.5pt;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 7px 10px;
+    text-align: left;
+  }
+  td {
+    border-bottom: 1px solid #e8e4dc;
+    padding: 8px 10px;
+    vertical-align: top;
+  }
+  tr:nth-child(even) td { background: #faf9f6; }
+  .risk-high { color: #b30000; font-weight: bold; font-family: 'Arial', sans-serif; font-size: 8pt; }
+  .risk-med  { color: #cc6600; font-weight: bold; font-family: 'Arial', sans-serif; font-size: 8pt; }
+  .risk-low  { color: #226600; font-weight: bold; font-family: 'Arial', sans-serif; font-size: 8pt; }
+  .tag-must { background: #1a1a4e; color: #fff; padding: 2px 6px; font-family: 'Arial', sans-serif; font-size: 7.5pt; font-weight: 700; border-radius: 2px; }
+  .tag-key  { background: #cc6600; color: #fff; padding: 2px 6px; font-family: 'Arial', sans-serif; font-size: 7.5pt; font-weight: 700; border-radius: 2px; }
+  .tag-info { background: #888; color: #fff; padding: 2px 6px; font-family: 'Arial', sans-serif; font-size: 7.5pt; font-weight: 700; border-radius: 2px; }
+  
+  .value-bar-wrap { margin: 10px 0 16px; }
+  .value-bar-row { display: flex; align-items: center; margin-bottom: 7px; font-size: 9pt; }
+  .value-bar-label { width: 115px; flex-shrink: 0; color: #444; font-size: 8.5pt; }
+  .value-bar-track { flex: 1; background: #ece9e1; height: 16px; position: relative; margin-right: 8px; }
+  .value-bar-fill { height: 100%; display: block; }
+  .value-bar-fill.gpu { background: #1a1a4e; }
+  .value-bar-fill.mem { background: #334488; }
+  .value-bar-fill.cpu { background: #4a5a9e; }
+  .value-bar-fill.net { background: #6677aa; }
+  .value-bar-fill.other { background: #8899bb; }
+  .value-bar-fill.struct { background: #aabbcc; }
+  .value-bar-val { font-family: 'Arial', sans-serif; font-size: 8.5pt; color: #333; min-width: 80px; white-space: nowrap; }
+
+  .eco-box {
+    border: 1px solid #c8c0aa;
+    padding: 16px 18px;
+    background: #faf9f6;
+    margin-bottom: 14px;
+  }
+  .eco-layer {
+    font-family: 'Arial', sans-serif;
+    font-size: 7.5pt;
+    font-weight: 700;
+    color: #1a1a4e;
+    margin-bottom: 2px;
+    letter-spacing: 1px;
+  }
+  .eco-players {
+    font-size: 9pt;
+    color: #333;
+    line-height: 1.5;
+  }
+
+  .blueteam-box {
+    border-left: 4px solid #b30000;
+    background: #fff5f5;
+    padding: 14px 18px;
+    margin-bottom: 16px;
+    font-size: 9.5pt;
+  }
+  .blueteam-label {
+    font-family: 'Arial', sans-serif;
+    font-size: 7pt;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #b30000;
+    margin-bottom: 5px;
+  }
+  .verdict-box {
+    border: 2px solid #1a1a4e;
+    padding: 18px 22px;
+    margin-bottom: 20px;
+    background: #f6f7fb;
+  }
+  .verdict-label {
+    font-family: 'Arial', sans-serif;
+    font-size: 7pt;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 6px;
+  }
+  .verdict-rating {
+    font-size: 15pt;
+    font-weight: bold;
+    color: #1a1a4e;
+    margin-bottom: 8px;
+  }
+  .verdict-body {
+    font-size: 9.5pt;
+    color: #333;
+    line-height: 1.6;
+  }
+  .footer {
+    margin-top: 40px;
+    border-top: 1px solid #c8c0aa;
+    padding-top: 12px;
+    font-family: 'Arial', sans-serif;
+    font-size: 7pt;
+    color: #888;
+    line-height: 1.6;
+  }
+  .footer strong { color: #555; }
+  p { margin-bottom: 10px; text-align: justify; }
+  
+  .opp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .opp-card {
+    border: 1px solid #c8c0aa;
+    padding: 14px;
+  }
+  .opp-card.gold { border-left: 3px solid #c8a84b; }
+  .opp-card.navy { border-left: 3px solid #1a1a4e; }
+  .opp-card-title {
+    font-weight: bold;
+    color: #1a1a4e;
+    font-size: 9.5pt;
+    margin-bottom: 4px;
+  }
+  .opp-card-size {
+    font-family: 'Arial', sans-serif;
+    font-size: 7pt;
+    color: #888;
+    margin-bottom: 6px;
+  }
+  .opp-card-desc {
+    font-size: 8.5pt;
+    color: #333;
+    line-height: 1.45;
+  }
+  
+  @media print {
+    body { background: #fff; }
+    .page { box-shadow: none; margin: 0; padding: 36px 48px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header-bar">
+    <div class="firm-name">集泰资本 JT CAPITAL<br><span style="font-size:7pt;letter-spacing:1px;font-weight:400;color:#888;">PRIVATE EQUITY · 私募股权投资</span></div>
+    <div class="doc-meta">
+      行业深度研究<br>
+      2026年5月<br>
+      AI Infra · 人工智能基础设施 · 产业链全景
+    </div>
+  </div>
+  <div class="confidential">Confidential — For Internal Use Only · 仅供内部使用，请勿外传</div>
+
+  <!-- TITLE -->
+  <div class="title-block">
+    <div class="report-type">行业深度研究 · Industry Deep Dive</div>
+    <div class="report-title">AI 基础设施全产业链：从算力中心到结构件</div>
+    <div class="report-subtitle">全球市场洞察 · 供应格局 · 价值量排序 · 金属加工机会 · 投资并购切入路径 | 2026年5月</div>
+  </div>
+
+  <!-- SNAP BAR -->
+  <div class="snap-bar">
+    <div class="snap-item">
+      <div class="snap-label">2025E 超大规模Capex</div>
+      <div class="snap-value">$330B+</div>
+      <div class="snap-sub">Microsoft/Amazon/Google/Meta/Oracle 合计</div>
+    </div>
+    <div class="snap-item">
+      <div class="snap-label">GPU/加速器市场 2024</div>
+      <div class="snap-value">$100B+</div>
+      <div class="snap-sub">NVIDIA 市占率 80-85%</div>
+    </div>
+    <div class="snap-item">
+      <div class="snap-label">AI 服务器BOM · GPU占比</div>
+      <div class="snap-value">65-75%</div>
+      <div class="snap-sub">8×GPU服务器单台BOM $250K-400K</div>
+    </div>
+    <div class="snap-item">
+      <div class="snap-label">结构件/金属加工价值</div>
+      <div class="snap-value" style="font-size:11pt;color:#b30000;">0.5-1.5%</div>
+      <div class="snap-sub">但受益于总量爆发，绝对规模增长迅猛</div>
+    </div>
+  </div>
+
+  <!-- ===== 01 · 投资摘要 ===== -->
+  <div class="section">
+    <div class="section-title">01 · 投资摘要 Investment Summary</div>
+    <p><strong>结论先行：</strong>AI 基础设施正处在前所未有的资本开支超级周期中。2025年五大超大规模云厂商（Microsoft、Amazon、Google、Meta、Oracle）合计资本开支预计突破 $330B，其中至少 60-70% 投向 AI 相关基础设施。这个体量相当于每年新建一个台积电，且增长斜率未见放缓。</p>
+    <p>整条产业链呈现典型的<strong>"倒金字塔"价值分配</strong>：GPU 一家独吞 65-75% 的服务器 BOM 价值，NVIDIA 凭借 CUDA 生态和芯片代际领先构筑了极深的护城河。但正因如此，产业链中<strong>非 GPU 环节</strong>反而出现了被忽视的结构性机会——当行业所有人都在盯着 NVIDIA 时，液冷散热、高速连接器、精密结构件、高多层 PCB、电力管理等"配角"正在享受总量爆发的红利。</p>
+    <p><strong>对 PE 而言</strong>，GPU 和 HBM 环节已是巨头战场，直接进入不现实。真正可操作的切入路径在<strong>产业链中下游</strong>：通过收购精密金属加工/结构件厂商（向 NVIDIA 或服务器 OEM 供货）、液冷散热方案商、高速连接器企业，建立 AI 硬件供应链的立足点，再沿价值链向上整合。</p>
+  </div>
+
+  <!-- ===== 02 · 全球市场洞察 ===== -->
+  <div class="section">
+    <div class="section-title">02 · 全球市场洞察 Global Market Intelligence</div>
+    
+    <div class="highlight-grid">
+      <div class="highlight-box">
+        <div class="highlight-num">Hyperscaler CAPEX 2024</div>
+        <div class="highlight-heading">$227B</div>
+        <div class="highlight-body">五大云厂商（MSFT/AMZN/GOOGL/META/ORCL）合计，同比 +47%。2025E 将达 $330B+</div>
+      </div>
+      <div class="highlight-box">
+        <div class="highlight-num">全球 AI 服务器市场 2024</div>
+        <div class="highlight-heading">$55-65B</div>
+        <div class="highlight-body">出货量约 180-200 万台（含 GPU/ASIC 服务器），2027E 预计突破 $150B</div>
+      </div>
+      <div class="highlight-box">
+        <div class="highlight-num">NVIDIA 数据中心收入 FY2025</div>
+        <div class="highlight-heading">$115B+</div>
+        <div class="highlight-body">同比增长 140%+，单季超过 $35B。Blackwell (B200/GB200) 2025年量产爬坡</div>
+      </div>
+      <div class="highlight-box">
+        <div class="highlight-num">全球 AI Infra TAM 2027E</div>
+        <div class="highlight-heading">$400-500B</div>
+        <div class="highlight-body">含芯片、服务器、网络、存储、电力、散热全栈。2023-2027 CAGR 约 35-40%</div>
+      </div>
+    </div>
+
+    <p style="margin-top:14px;"><strong>关键趋势判断：</strong></p>
+    <p>① <strong>推理需求将超越训练</strong>——随着 GPT-5/Claude 4 等大模型部署，推理算力需求 2026 年起将超过训练。推理对低延迟、高并发的要求将拉动更多边缘和中型算力中心建设，而非仅集中在超大规模训练集群。</p>
+    <p>② <strong>自研芯片加速分流</strong>——Google TPU v5/v6 已支撑 Gemini 训练；Amazon Trainium2 进入量产；Microsoft Maia 100 开始部署；Meta Artemis 在研。2025年后定制 ASIC 份额预计从 5-8% 上升至 15-20%。</p>
+    <p>③ <strong>液冷从可选变标配</strong>——B200/GB200 单机架功耗超 100kW，传统风冷无法支撑。液冷（尤其直接芯片液冷 DLC）渗透率将从 2024 年 <15% 升至 2027 年 >50%。</p>
+  </div>
+
+  <!-- ===== 03 · 产业链全景 ===== -->
+  <div class="section">
+    <div class="section-title">03 · 产业链全景与玩家分布 Supply Chain Ecosystem</div>
+    <p>以下从算力中心到最末端的金属结构件，按<strong>5层架构</strong>展示全球 AI Infra 产业全景、主要玩家及中国市场对标企业：</p>
+
+    <!-- Layer 1: Hyperscalers -->
+    <div class="eco-box">
+      <div class="eco-layer">LAYER 1 ▸ 超大规模云厂商 / 需求方</div>
+      <div class="eco-players">
+        <strong>美国：</strong>Microsoft Azure ($80B+ capex 2025E) · Amazon AWS ($100B+) · Google Cloud ($75B+) · Meta ($60-65B) · Oracle OCI ($15B+) · xAI (Colossus 集群, $10B+)<br>
+        <strong>中国：</strong>字节跳动 · 阿里巴巴 · 腾讯 · 百度 · 华为云 · 中国移动/电信/联通<br>
+        <strong>核心逻辑：</strong>这些是最终金主，决定整条产业链的采购量和方向。中国客户的供应链因出口管制而"国内化"。
+      </div>
+    </div>
+
+    <!-- Layer 2: Server -->
+    <div class="eco-box">
+      <div class="eco-layer">LAYER 2 ▸ AI 服务器 OEM / ODM</div>
+      <div class="eco-players">
+        <strong>全球 OEM：</strong>Dell Technologies · HPE · SuperMicro (SMCI) · Lenovo · ASUS · Gigabyte<br>
+        <strong>白牌 ODM（直接供货超大规模客户）：</strong>广达电脑 (Quanta) · 纬颖科技 (Wiwynn) · 鸿海/鸿佰 (Foxconn/Ingrasys) · 纬创 (Wistron) · 英业达 (Inventec) · ZT Systems (2024年被 AMD $4.9B 收购)<br>
+        <strong>中国：</strong>浪潮信息 (Inspur) · 中科曙光 (Sugon) · 新华三 (H3C) · 超聚变 (xFusion，原华为) · 联想 · 中兴通讯<br>
+        <strong>关键变化：</strong>ODM 直供模式占比从 2019 年 ~30% 升至 2024 年 >65%，因为超大规模客户倾向直接向 ODM 采购以降低成本。SuperMicro 凭借液冷方案和快速定制能力，份额快速增长。
+      </div>
+    </div>
+
+    <!-- Layer 3: Core Components -->
+    <div class="eco-box">
+      <div class="eco-layer">LAYER 3 ▸ 核心部件（按价值量排序）</div>
+      <div class="eco-players">
+        <strong>GPU/加速器：</strong>NVIDIA (H100/H200/B200/GB200, 80-85% 份额) · AMD (MI300X/MI350, 8-12%) · Intel (Gaudi 3, <3%) · 自研 ASIC (Google TPU, Amazon Trainium2, MS Maia)<br>
+        <strong>中国对标：</strong>华为昇腾 (Ascend 910B/910C) · 海光信息 (深算 DCU) · 寒武纪 (思元系列) · 燧原科技 · 壁仞科技 · 摩尔线程<br>
+        <strong>HBM 内存：</strong>SK 海力士 (HBM3e, 50%+ 份额) · 三星电子 · 美光科技 (Micron)<br>
+        <strong>CPU：</strong>Intel (Xeon, 60-70%) · AMD (EPYC, 25-30%) · Ampere Computing (Arm 服务器 CPU)<br>
+        <strong>中国对标：</strong>海光信息 (x86 兼容) · 飞腾 (Arm) · 龙芯 (MIPS/LoongArch) · 鲲鹏 (华为, Arm)<br>
+        <strong>网络：</strong>NVIDIA/Mellanox (InfiniBand + Spectrum 以太网, ConnectX NIC/DPU) · Broadcom (Tomahawk/Jericho 交换机芯片) · Marvell (Teralynx) · Arista Networks · Cisco<br>
+        <strong>存储：</strong>三星 · SK 海力士 · 铠侠 (Kioxia) · 西部数据 (WD) · 美光 · Solidigm (SK 海力士子公司)
+      </div>
+    </div>
+
+    <!-- Layer 4: Mid-tier -->
+    <div class="eco-box">
+      <div class="eco-layer">LAYER 4 ▸ 关键子系统 / 模组</div>
+      <div class="eco-players">
+        <strong>PCB/载板：</strong>台湾光电 (EMC, 台光) · 金像电子 (GCE) · Ibiden (日本) · 鹏鼎控股 (臻鼎) · 沪电股份 · 深南电路 · AT&S (奥地利) · Unimicron (欣兴)<br>
+        <strong>电源：</strong>台达电子 (Delta, 全球第一) · 光宝科技 (Liteon) · 雅特生 (Artesyn/Advanced Energy) · 麦格米特 · 中国长城<br>
+        <strong>散热/液冷：</strong>Vertiv (维谛) · 台达电子 · 奇鋐 (AVC) · 双鸿科技 (Auras) · 曙光数创 (中国液冷龙头) · CoolIT Systems · Boyd Corp · 英维克 (Envicool)<br>
+        <strong>连接器/线缆：</strong>Amphenol (安费诺, 全球第一) · TE Connectivity · Molex (莫仕/Koch) · 立讯精密 (Luxshare) · 中航光电 (JONHON)<br>
+        <strong>机柜/机箱：</strong>伟创力 (Flex) · 工业富联 (FII/富士康) · Celestica (天弘) · 比亚迪电子 · 捷普 (Jabil)
+      </div>
+    </div>
+
+    <!-- Layer 5: Structural -->
+    <div class="eco-box">
+      <div class="eco-layer">LAYER 5 ▸ 金属加工 / 结构件 / 基础材料</div>
+      <div class="eco-players">
+        <strong>铝合金结构件：</strong>可成科技 (Catcher) · 比亚迪电子 · 长盈精密 (Everwin) · 瑞声科技 (AAC) · 鸿准精密 (富士康子公司) · 胜利精密<br>
+        <strong>钣金/冲压件：</strong>工业富联 · 伟创力 · 捷普 · Celestica · 东山精密 · 领益智造<br>
+        <strong>铜材/散热片：</strong>奇鋐科技 · 双鸿科技 · Cooler Master (讯凯) · 超众科技<br>
+        <strong>紧固件/标准件：</strong>晋亿实业 · 长华股份 · 以及大量中小型精密加工企业（潜在并购标的）<br>
+        <strong>不锈钢/特种钢：</strong>甬金股份 · 太钢不锈（材料端）；加工端极度分散
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ===== 04 · 硬件价值量排序 ===== -->
+  <div class="section">
+    <div class="section-title">04 · 硬件价值量排序 Hardware Value Chain Ranking</div>
+    <p><strong>结论：GPU是绝对的价值中心，但"非GPU"环节正在迎来总量驱动的高增长。</strong>以下以一台典型 8×H100/B200 AI 训练服务器（单台 BOM $280K-420K）为基准进行价值量拆解：</p>
+
+    <table>
+      <tr>
+        <th style="width:5%;">#</th>
+        <th style="width:22%;">硬件环节</th>
+        <th style="width:18%;">典型单价（每台）</th>
+        <th style="width:12%;">BOM占比</th>
+        <th style="width:18%;">毛利水平</th>
+        <th style="width:25%;">主要供应商</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td><strong>GPU 加速卡</strong></td>
+        <td>$200K-320K (8×H100/B200)</td>
+        <td><strong>65-75%</strong></td>
+        <td>65-75% (NVIDIA)</td>
+        <td>NVIDIA (独家或主导)</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><strong>HBM 高带宽内存</strong></td>
+        <td>$16K-24K (8×HBM3e stack)</td>
+        <td><strong>5-8%</strong></td>
+        <td>45-55%</td>
+        <td>SK 海力士 · 三星 · 美光</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><strong>CPU</strong></td>
+        <td>$5K-15K (2×高端Xeon/EPYC)</td>
+        <td><strong>2-4%</strong></td>
+        <td>50-65%</td>
+        <td>Intel · AMD</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td><strong>网络（NIC/DPU+交换机端口）</strong></td>
+        <td>$3K-8K (ConnectX-7/8 等)</td>
+        <td><strong>2-3%</strong></td>
+        <td>55-65%</td>
+        <td>NVIDIA/Mellanox · Broadcom · Marvell</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td><strong>PCB（主板+GPU载板）</strong></td>
+        <td>$2K-5K (超高多层板)</td>
+        <td><strong>1-2%</strong></td>
+        <td>25-40%</td>
+        <td>台湾光电 · 金像电 · Ibiden · 鹏鼎</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td><strong>DDR 内存</strong></td>
+        <td>$2K-4K (24-32×RDIMM)</td>
+        <td><strong>~1%</strong></td>
+        <td>30-40%</td>
+        <td>三星 · SK 海力士 · 美光</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td><strong>散热系统（液冷/风冷）</strong></td>
+        <td>$1K-5K (液冷方案更贵)</td>
+        <td><strong>1-2%</strong></td>
+        <td>25-40%</td>
+        <td>Vertiv · 台达 · 奇鋐 · 双鸿 · CoolIT</td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td><strong>电源供应器 PSU</strong></td>
+        <td>$1K-3K (3-6×3kW冗余)</td>
+        <td><strong>~1%</strong></td>
+        <td>20-30%</td>
+        <td>台达 · 光宝 · 雅特生 · 麦格米特</td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td><strong>机箱/机柜/结构件</strong></td>
+        <td>$500-2K</td>
+        <td><strong>0.5-1%</strong></td>
+        <td>15-25%</td>
+        <td>伟创力 · 工业富联 · Celestica · 比亚迪电子</td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td><strong>连接器/高速线缆</strong></td>
+        <td>$500-1.5K (NVLink等)</td>
+        <td><strong>0.3-0.5%</strong></td>
+        <td>30-45%</td>
+        <td>Amphenol · TE · Molex · 立讯精密</td>
+      </tr>
+      <tr>
+        <td>11</td>
+        <td><strong>金属结构件（铝合金/钣金/铜）</strong></td>
+        <td>$200-800</td>
+        <td><strong>0.1-0.3%</strong></td>
+        <td>15-30%</td>
+        <td>极度分散，大量中小供应商</td>
+      </tr>
+    </table>
+
+    <p><strong>关键洞察：</strong>虽然金属结构件在单台服务器 BOM 中占比极低（0.1-0.3%），但全球 AI 服务器出货量正从 2023 年 ~120 万台增至 2025E ~250 万台，再到 2027E ~500 万台。绝对值市场规模将从 2023 年 ~$2-3 亿增长至 2027 年 ~$10-15 亿——在这个极度分散的赛道中，任何一家能整合 10% 市场份额的企业都能做到 $1-1.5 亿年收入。这正是 PE 的经典"整合型投资"机会。</p>
+
+    <!-- 价值量可视化 -->
+    <div class="value-bar-wrap">
+      <div class="value-bar-row">
+        <div class="value-bar-label">GPU 加速卡</div>
+        <div class="value-bar-track"><span class="value-bar-fill gpu" style="width:95%;"></span></div>
+        <div class="value-bar-val">$200K-320K (65-75%)</div>
+      </div>
+      <div class="value-bar-row">
+        <div class="value-bar-label">HBM 内存</div>
+        <div class="value-bar-track"><span class="value-bar-fill mem" style="width:28%;"></span></div>
+        <div class="value-bar-val">$16K-24K (5-8%)</div>
+      </div>
+      <div class="value-bar-row">
+        <div class="value-bar-label">CPU</div>
+        <div class="value-bar-track"><span class="value-bar-fill cpu" style="width:18%;"></span></div>
+        <div class="value-bar-val">$5K-15K (2-4%)</div>
+      </div>
+      <div class="value-bar-row">
+        <div class="value-bar-label">网络</div>
+        <div class="value-bar-track"><span class="value-bar-fill net" style="width:15%;"></span></div>
+        <div class="value-bar-val">$3K-8K (2-3%)</div>
+      </div>
+      <div class="value-bar-row">
+        <div class="value-bar-label">PCB + DDR</div>
+        <div class="value-bar-track"><span class="value-bar-fill other" style="width:12%;"></span></div>
+        <div class="value-bar-val">$4K-9K (2-3%)</div>
+      </div>
+      <div class="value-bar-row">
+        <div class="value-bar-label">散热 + 电源</div>
+        <div class="value-bar-track"><span class="value-bar-fill other" style="width:10%;"></span></div>
+        <div class="value-bar-val">$2K-8K (1-3%)</div>
+      </div>
+      <div class="value-bar-row">
+        <div class="value-bar-label">结构件 + 连接器</div>
+        <div class="value-bar-track"><span class="value-bar-fill struct" style="width:5%;"></span></div>
+        <div class="value-bar-val">$700-2.3K (0.4-0.8%)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 05 · 金属加工与结构件深度 ===== -->
+  <div class="section">
+    <div class="section-title">05 · 金属加工与结构件深度 Metal Fabrication &amp; Structural Parts</div>
+    <p><strong>结论：这是最被忽视、但最具备 PE 整合价值的赛道。</strong>AI 服务器/机柜的金属加工需求与传统服务器有本质区别——更高功率密度带来了全新的散热结构件需求，更大尺寸和重量对结构强度提出了更高要求。</p>
+    
+    <p><strong>AI Infra 中涉及的金属加工需求拆解：</strong></p>
+
+    <table>
+      <tr>
+        <th style="width:15%;">金属加工品类</th>
+        <th style="width:15%;">材料</th>
+        <th style="width:22%;">应用场景</th>
+        <th style="width:12%;">单台/单柜价值</th>
+        <th style="width:18%;">核心供应商（典型）</th>
+        <th style="width:18%;">供货对象</th>
+      </tr>
+      <tr>
+        <td><strong>服务器机箱/外壳</strong></td>
+        <td>铝合金 / 钣金 (SECC/SGCC)</td>
+        <td>AI 服务器外壳、GPU 托盘、主板托盘</td>
+        <td>$150-500/台</td>
+        <td>工业富联 · 比亚迪电子 · 伟创力 · 捷普</td>
+        <td>NVIDIA (DGX/GB200) · 各OEM</td>
+      </tr>
+      <tr>
+        <td><strong>机柜框架/骨架</strong></td>
+        <td>钢材 / 铝合金型材</td>
+        <td>42U/48U 重型机柜框架、承重结构</td>
+        <td>$300-800/柜</td>
+        <td>威图 (Rittal) · 施耐德 · 台达 · 图腾</td>
+        <td>数据中心总包商 · 云厂商</td>
+      </tr>
+      <tr>
+        <td><strong>液冷冷板 (Cold Plate)</strong></td>
+        <td>铜 / 铝合金</td>
+        <td>直接芯片液冷 (DLC) 的冷板模组</td>
+        <td>$100-300/GPU</td>
+        <td>奇鋐 · 双鸿 · CoolIT · Boyd · 曙光数创</td>
+        <td>NVIDIA · SuperMicro · Dell · HPE</td>
+      </tr>
+      <tr>
+        <td><strong>散热鳍片/热管</strong></td>
+        <td>铜 / 铝合金</td>
+        <td>风冷散热器、均温板 (Vapor Chamber)</td>
+        <td>$30-150/GPU</td>
+        <td>奇鋐 · 双鸿 · Cooler Master · 富士康</td>
+        <td>GPU厂商 · 服务器OEM</td>
+      </tr>
+      <tr>
+        <td><strong>结构支架/安装件</strong></td>
+        <td>钣金 (SPCC) / 不锈钢</td>
+        <td>GPU固定支架、电源托架、线缆管理</td>
+        <td>$50-200/台</td>
+        <td>极度分散 · 各ODM自有或外协</td>
+        <td>ODM/OEM</td>
+      </tr>
+      <tr>
+        <td><strong>连接器壳体</strong></td>
+        <td>锌合金 / 铝合金压铸</td>
+        <td>高速连接器金属壳体 (QSFP-DD/OSFP等)</td>
+        <td>$50-150/台</td>
+        <td>Amphenol · TE · Molex · 立讯精密</td>
+        <td>连接器厂商内部或外协</td>
+      </tr>
+      <tr>
+        <td><strong>母线/导电排 (Busbar)</strong></td>
+        <td>铜排 / 铝排</td>
+        <td>机柜大功率配电母线</td>
+        <td>$100-500/柜</td>
+        <td>施耐德 · 西门子 · 正泰</td>
+        <td>数据中心总包商</td>
+      </tr>
+      <tr>
+        <td><strong>紧固件/标准件</strong></td>
+        <td>不锈钢 / 碳钢</td>
+        <td>各类螺丝、螺柱、卡扣、铆接件</td>
+        <td>$10-50/台</td>
+        <td>极度分散 · 区域供应商为主</td>
+        <td>所有硬件制造商</td>
+      </tr>
+    </table>
+
+    <p style="margin-top:14px;"><strong>关键趋势：</strong></p>
+    <p>① <strong>液冷冷板是最大增量</strong>——单台 GB200 NVL72 机柜需要 72 块 GPU 冷板，合计价值量 $7K-22K，远超传统风冷方案。全球液冷冷板市场 2024 年 ~$5 亿 → 2027E ~$25 亿，CAGR >70%。</p>
+    <p>② <strong>铝代钢趋势</strong>——为减轻重型 AI 服务器（单台可达 80kg+）的重量，铝合金在机箱和框架中的使用比例从传统服务器的 20-30% 提升至 AI 服务器的 50-70%。</p>
+    <p>③ <strong>精密化升级</strong>——传统服务器钣金公差 ±0.5mm 即可，AI 服务器 GPU 插槽对结构件公差要求 ±0.05-0.1mm。这意味着需要 CNC 精密加工能力，而非简单的冲压+折弯。</p>
+  </div>
+
+  <!-- ===== 06 · 供应格局 ===== -->
+  <div class="section">
+    <div class="section-title">06 · 关键供应关系 Who Supplies Whom</div>
+    
+    <table>
+      <tr>
+        <th>最终客户</th>
+        <th>AI 服务器/机柜来源</th>
+        <th>结构件/金属加工来源</th>
+      </tr>
+      <tr>
+        <td><strong>NVIDIA</strong> (DGX/GB200 NVL)</td>
+        <td>自研参考设计 → ODM 制造 (广达/鸿海/纬创/SuperMicro)</td>
+        <td>工业富联（主力）· 比亚迪电子 · 伟创力 · Celestica</td>
+      </tr>
+      <tr>
+        <td><strong>Microsoft Azure</strong></td>
+        <td>广达 · 纬颖 · ZT Systems (AMD) · SuperMicro · Dell</td>
+        <td>由 ODM 自行采购或指定二级供应商</td>
+      </tr>
+      <tr>
+        <td><strong>Amazon AWS</strong></td>
+        <td>纬颖 · 广达 · 英业达 · 自研 Trainium 服务器</td>
+        <td>由 ODM 自行采购；部分关键件指定 Amphenol/TE</td>
+      </tr>
+      <tr>
+        <td><strong>Google Cloud</strong></td>
+        <td>广达 · 纬创 · 自研 TPU 系统</td>
+        <td>ODM 自行采购；冷板由 CoolIT/Boyd 等指定</td>
+      </tr>
+      <tr>
+        <td><strong>Meta</strong></td>
+        <td>广达 · 纬颖 · 英业达 · 自研 Artemis 芯片</td>
+        <td>主要由 ODM 自行采购</td>
+      </tr>
+      <tr>
+        <td><strong>字节跳动/阿里/腾讯</strong></td>
+        <td>浪潮 · 曙光 · 新华三 · 超聚变 · 宁畅 · 自研芯片系统</td>
+        <td>中国本土供应商为主；华为昇腾系统部分由比亚迪电子供货</td>
+      </tr>
+    </table>
+
+    <p style="margin-top:14px;"><strong>核心发现：</strong>供应链存在"两套体系"——美国超大规模客户主要通过台湾 ODM（广达/纬颖/鸿海）采购，而中国互联网客户通过本土服务器品牌（浪潮/曙光/超聚变）采购。但无论哪套体系，<strong>结构件和金属加工都是最分散的环节，单家供应商份额通常不超过 5-10%</strong>。</p>
+  </div>
+
+  <!-- ===== 07 · 蓝军风险 ===== -->
+  <div class="section">
+    <div class="section-title">07 · 蓝军风险拆解 Blue Team Risk Decomposition</div>
+
+    <div class="blueteam-box">
+      <div class="blueteam-label">⚠ 核心风险提示</div>
+      <p style="margin-bottom:6px;"><strong>AI Infra 不是普通周期——它是集中度极高、政治高度敏感的军备竞赛。</strong>投资判断必须考虑以下风险如何影响退出路径。</p>
+    </div>
+
+    <table>
+      <tr>
+        <th style="width:25%;">风险维度</th>
+        <th style="width:8%;">等级</th>
+        <th style="width:35%;">具体描述</th>
+        <th style="width:32%;">对 PE 投资的影响判断</th>
+      </tr>
+      <tr>
+        <td><strong>1. 算力泡沫/过度建设</strong></td>
+        <td class="risk-high">高</td>
+        <td>当前 capex 增速（+47% YoY）不可持续。若 AI 应用变现不及预期，2027-2028 可能出现产能过剩。历史参照：2000 年光纤过度建设。</td>
+        <td><strong>需在 2028 年前退出。</strong>结构件/金属加工等"配角"受冲击相对小（因为即使产能过剩，存量服务器仍需维护），但估值会承压。</td>
+      </tr>
+      <tr>
+        <td><strong>2. 技术路径突变</strong></td>
+        <td class="risk-med">中高</td>
+        <td>硅光子互连、CXL 内存池化、全光网络等新技术可能改变硬件架构，淘汰现有结构件/连接器方案。</td>
+        <td>连接器和结构件厂商需具备<strong>快速切换产品线</strong>的能力。投资标的必须有多行业服务经验，不能单一依赖 AI。</td>
+      </tr>
+      <tr>
+        <td><strong>3. 中美脱钩/出口管制</strong></td>
+        <td class="risk-high">高</td>
+        <td>BIS 2023/2024/2025 出口管制持续加码，中国 AI 芯片算力被限制。若管制进一步收紧，中国 AI Infra 市场规模将受限。</td>
+        <td><strong>双重策略：</strong>投资标的应同时服务国内外市场，或明确专注其中一端并做好情景规划。中国本土 AI 芯片供应链（昇腾/海光/寒武纪）是独立故事。</td>
+      </tr>
+      <tr>
+        <td><strong>4. 大客户集中度风险</strong></td>
+        <td class="risk-med">中</td>
+        <td>NVIDIA 一家贡献了 GPU 服务器 80%+ 的价值。任何卖给 NVIDIA/为其代工的供应商都面临单客户依赖。</td>
+        <td>必须评估收购标的的客户集中度。NVIDIA 占比 >40% 则风险红灯。理想状态下单一客户 <25%。</td>
+      </tr>
+      <tr>
+        <td><strong>5. 制造回流/友岸外包</strong></td>
+        <td class="risk-med">中</td>
+        <td>美国 CHIPS 法案推动制造回流，墨西哥/越南成为"友岸"选项。中国/中国台湾的硬件制造可能面临关税和供应链迁移压力。</td>
+        <td>标的如果在墨西哥/东南亚有产能布局，是加分项。纯中国制造面向海外客户的标的需谨慎。</td>
+      </tr>
+      <tr>
+        <td><strong>6. 毛利率压缩</strong></td>
+        <td class="risk-med">中</td>
+        <td>结构件/金属加工行业进入壁垒低（相对芯片），竞争者多。大客户年降压力可能导致毛利率从 ~25% 压缩至 ~15%。</td>
+        <td><strong>选有技术壁垒的细分。</strong>液冷冷板（铜铝焊接工艺）> 普通钣金（冲压折弯）。精密 CNC 加工 > 简单冲压。</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ===== 08 · 投资并购切入机会 ===== -->
+  <div class="section">
+    <div class="section-title">08 · 投资并购切入路径 Investment &amp; M&amp;A Entry Pathways</div> 
+    <p><strong>结论：AI Infra 硬件投资有三级切入路径——从最易落地到最具战略价值。</strong>我们的策略是"先占地、再升级"：通过收购中下游硬件制造资产建立立足点，再沿价值链向上整合高附加值环节。</p>
+
+    <table>
+      <tr>
+        <th style="width:5%;">级</th>
+        <th style="width:22%;">切入方向</th>
+        <th style="width:14%;">规模（2027E 全球）</th>
+        <th style="width:12%;">毛利率</th>
+        <th style="width:20%;">目标标的画像</th>
+        <th style="width:27%;">投资逻辑 &amp; 操作建议</th>
+      </tr>
+      <tr style="background:#f6f7fb;">
+        <td><strong>A</strong></td>
+        <td><strong>精密金属结构件整合</strong></td>
+        <td>$10-15亿</td>
+        <td>15-25%</td>
+        <td>年收入 ¥1-5 亿，有 CNC 精密加工能力，已进入 AI 服务器/通信设备供应链</td>
+        <td><strong>最容易切入。</strong>策略：收购 2-3 家区域龙头整合为平台，统一客户开发和采购，提升议价力。典型路径：消费电子结构件 → 服务器结构件（比亚迪电子已验证可行）。</td>
+      </tr>
+      <tr style="background:#f6f7fb;">
+        <td><strong>A</strong></td>
+        <td><strong>液冷冷板/散热模组</strong></td>
+        <td>$25-30亿</td>
+        <td>25-40%</td>
+        <td>年收入 ¥2-8 亿，掌握铜铝真空钎焊/摩擦焊工艺，已通过 NVIDIA 或服务器 OEM 认证</td>
+        <td><strong>增速最快。</strong>冷板是液冷核心件，技术壁垒（焊接+流道设计）高于普通结构件。投资后可与服务器 OEM 绑定供货。中国大陆曙光数创、英维克为头部，台湾奇鋐/双鸿亦为潜在合作对象。</td>
+      </tr>
+      <tr style="background:#f6f7fb;">
+        <td><strong>A</strong></td>
+        <td><strong>高速连接器/线缆组件</strong></td>
+        <td>$8-12亿 (AI服务器部分)</td>
+        <td>30-45%</td>
+        <td>年收入 ¥3-10 亿，有高速信号完整性测试能力，已进入 Amphenol/TE 供应链或直接供货服务器 OEM</td>
+        <td><strong>毛利最高。</strong>224G/448G PAM4 高速互连是 AI 服务器刚需。Amphenol 是 NVLink 独家供应商，但二级供应商和替代机会存在。</td>
+      </tr>
+      <tr style="background:#faf9f6;">
+        <td><strong>B</strong></td>
+        <td><strong>高多层 PCB/载板</strong></td>
+        <td>$15-25亿</td>
+        <td>25-40%</td>
+        <td>年收入 ¥5-20 亿，具备 26 层以上 PCB 量产能力，已通过 NVIDIA/AMD 认证</td>
+        <td>资本开支大、技术门槛高。投资需要更大资金体量。可考虑控股一家已通过认证的二线 PCB 厂并注入资金扩产。</td>
+      </tr>
+      <tr style="background:#faf9f6;">
+        <td><strong>B</strong></td>
+        <td><strong>大功率电源 (PSU)</strong></td>
+        <td>$8-12亿</td>
+        <td>20-30%</td>
+        <td>年收入 ¥5-15 亿，有 3kW+ 钛金级/超钛金级 PSU 量产能力</td>
+        <td>3kW/5.5kW 高功率 PSU 是 AI 机柜标配。台达全球第一。大陆麦格米特、中国长城在追赶。技术壁垒中等。</td>
+      </tr>
+      <tr style="background:#faf9f6;">
+        <td><strong>C</strong></td>
+        <td><strong>AI 服务器 ODM 整机组装</strong></td>
+        <td>$80-120亿</td>
+        <td>5-12%</td>
+        <td>年收入 $5-30 亿，有 L10-L12 系统组装能力，直接供货超大规模客户</td>
+        <td>体量大但毛利低。需要巨大产能和营运资金。更适合作为平台型投资，将 A/B 级收购的零部件资产与之整合形成垂直一体化。</td>
+      </tr>
+    </table>
+
+    <p style="margin-top:14px;"><strong>推荐切入路径：</strong></p>
+    <div class="highlight-grid">
+      <div class="highlight-box">
+        <div class="highlight-num">Phase 1 · 立即启动</div>
+        <div class="highlight-heading">收购精密金属结构件平台</div>
+        <div class="highlight-body">
+          标的：华南/华东有 CNC 精密加工能力的结构件厂商，年收入 ¥2-5 亿。<br>
+          关键条件：① 已进入 AI 服务器或通信设备供应链（华为/浪潮/中兴/富士康供应商优先）② 有铝铜加工能力 ③ 毛利率 >20%<br>
+          投资规模：控股 ¥3-8 亿
+        </div>
+      </div>
+      <div class="highlight-box">
+        <div class="highlight-num">Phase 2 · 6-12个月后</div>
+        <div class="highlight-heading">收购液冷/散热方案商</div>
+        <div class="highlight-body">
+          标的：有冷板制造能力的散热厂商。<br>
+          协同：与 Phase 1 的结构件平台共享客户（服务器 OEM）、共享 CNC/焊接产能。<br>
+          目标：打造"结构+散热"一站式硬件解决方案商
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 09 · 情景分析 ===== -->
+  <div class="section">
+    <div class="section-title">09 · 情景分析 Scenario Analysis</div>
+    
+    <table>
+      <tr>
+        <th style="width:12%;">情景</th>
+        <th style="width:15%;">概率</th>
+        <th style="width:18%;">触发条件</th>
+        <th style="width:18%;">2027E AI Infra TAM</th>
+        <th style="width:37%;">对金属结构件/硬件的投资影响</th>
+      </tr>
+      <tr>
+        <td><strong>🐂 牛市</strong></td>
+        <td style="color:#226600;font-weight:bold;">30%</td>
+        <td>AGI 实质性进展 + AI 应用大规模变现 + 推理需求爆发</td>
+        <td style="color:#226600;font-weight:bold;">$500-600B</td>
+        <td>结构件市场 $15-25 亿。此时持有平台型硬件资产将非常稀缺，退出估值 15-20x EV/EBITDA，战略买家（ODM/芯片厂商）争相收购。</td>
+      </tr>
+      <tr>
+        <td><strong>🐻 基准</strong></td>
+        <td style="color:#1a1a4e;font-weight:bold;">50%</td>
+        <td>Capex 增速放缓至 15-20%，算力供需趋于平衡</td>
+        <td style="color:#1a1a4e;font-weight:bold;">$400-450B</td>
+        <td>结构件市场 $10-15 亿。稳健增长。通过整合型投资+运营优化可保持 20%+ IRR。退出给产业买家 10-12x EV/EBITDA。</td>
+      </tr>
+      <tr>
+        <td><strong>🐼 熊市</strong></td>
+        <td style="color:#b30000;font-weight:bold;">20%</td>
+        <td>AI 资本开支泡沫破裂 / 中美脱钩加剧 / 技术替代</td>
+        <td style="color:#b30000;font-weight:bold;">$200-250B</td>
+        <td>结构件市场萎缩至 $5-8 亿。投资标的需有多元化收入（非 AI 至少占 60%+）。退出困难但不会归零——传统服务器/通信设备仍是基本盘。</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ===== 10 · 投资结论 ===== -->
+  <div class="section">
+    <div class="section-title">10 · 投资结论与行动建议 Investment Verdict &amp; Action Plan</div>
+    
+    <div class="verdict-box">
+      <div class="verdict-label">INVESTMENT VERDICT</div>
+      <div class="verdict-rating">推荐投资 · 优先切入精密金属结构件整合 + 液冷散热</div>
+      <div class="verdict-body">
+        <p>AI Infra 正处在超级资本开支周期中，但 PE 不能直接参与 GPU/HBM 等巨头战场。<strong>我们的机会在"看不见的底层"：</strong>精密金属结构件、液冷冷板、高速连接器等环节，市场极度分散、增速快、技术有壁垒且大客户集中度相对可控。</p>
+        <p><strong>推荐路径：</strong>先通过控股收购 2-3 家精密金属加工企业建立平台（Phase 1，投资规模 ¥5-10 亿），12 个月后收购液冷散热方案商实现产品升级（Phase 2），最终目标是打造"AI 服务器硬件一站式非芯片解决方案商"——这是个目前不存在的品类，但有明确的客户需求。</p>
+      </div>
+    </div>
+
+    <p><strong>行动清单：</strong></p>
+    <table>
+      <tr>
+        <th style="width:8%;">优先级</th>
+        <th style="width:35%;">行动项</th>
+        <th style="width:20%;">责任人</th>
+        <th style="width:17%;">时间节点</th>
+        <th style="width:20%;">交付物</th>
+      </tr>
+      <tr>
+        <td><span class="tag-must">必查</span></td>
+        <td>扫描华南/华东 AI 服务器结构件供应商，建立候选标的清单（10-15家）</td>
+        <td>投资部</td>
+        <td>2026年6月底</td>
+        <td>潜在标的长名单 + 初步财务画像</td>
+      </tr>
+      <tr>
+        <td><span class="tag-must">必查</span></td>
+        <td>赴 NVIDIA 供应链关键节点（工业富联/广达/比亚迪电子）实地调研，了解结构件外协需求</td>
+        <td>投资部 + 行业顾问</td>
+        <td>2026年7月</td>
+        <td>供应链外协需求调研报告</td>
+      </tr>
+      <tr>
+        <td><span class="tag-key">关键</span></td>
+        <td>拜访液冷散热头部企业（曙光数创/英维克/奇鋐/双鸿），评估收购或合作可行性</td>
+        <td>管理合伙人</td>
+        <td>2026年8月</td>
+        <td>液冷赛道投资机会评估报告</td>
+      </tr>
+      <tr>
+        <td><span class="tag-key">关键</span></td>
+        <td>对候选标的进行初步尽调：客户集中度、技术能力（CNC精度/焊接工艺）、海外产能布局</td>
+        <td>投资部 + 法务</td>
+        <td>2026年Q3</td>
+        <td>3-5家重点标的初步尽调报告</td>
+      </tr>
+      <tr>
+        <td><span class="tag-info">参考</span></td>
+        <td>关注 AI Infra 二级市场估值变化（SMCI/DELL/台达/立讯精密等），作为退出估值参考</td>
+        <td>投资部</td>
+        <td>持续跟踪</td>
+        <td>季度估值追踪表</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ===== Appendix: Key Data Sources & Assumptions ===== -->
+  <div class="section">
+    <div class="section-title">附录 · 数据来源与假设说明</div>
+    <p style="font-size:8.5pt; color:#666;">
+      <strong>主要数据来源：</strong>NVIDIA FY2025 年报/季报 · 微软/Amazon/Google/Meta 2024-2025 资本开支指引 · IDC Worldwide AI Server Tracker · Dell'Oro Group AI Infrastructure Report · TrendForce AI Server Shipments · Goldman Sachs AI Infrastructure Primer (2024.6) · McKinsey "The State of AI" (2024) · Semianalysis · 中国信通院 · 各公司投资者关系材料<br><br>
+      <strong>关键假设：</strong>① AI 服务器单台 BOM 基准为 8×GPU 高端训练/推理服务器配置 ② HBM 单价基于 HBM3e 8层堆叠 24GB 市场价格 ③ 结构件/金属加工单价基于台厂报价和 ODM 采购数据估算 ④ 中国市场价格可能低于全球均价 15-30% ⑤ 汇率基准：$1 = ¥7.2<br><br>
+      <strong>信息矛盾处理：</strong>不同来源对 AI Infra TAM 的估算差异较大（IDC vs Goldman vs Dell'Oro），主要源于范围定义不同（是否含传统服务器/存储/网络）。本报告取多家机构的中位数，并在情景分析中给出上下限。<br><br>
+      <strong>局限性声明：</strong>本报告基于 2026年5月可获得的最新公开数据。AI Infra 行业变化极快，建议每季度更新一次。GPU 单价、HBM 价格等受供需影响波动剧烈，具体投资决策需基于最新询价。
+    </p>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <strong>分析师：</strong>集泰资本投资研究部  |  审核：老张  |  报告日期：2026年5月26日<br><br>
+    <strong>免责声明：</strong>本报告仅供集泰资本内部投资决策参考使用，不构成任何形式的投资建议或要约。报告中的信息和分析基于公开可获得的数据和资料，集泰资本不保证其完整性和准确性。投资决策应基于独立的尽职调查和专业的法律、税务及财务顾问意见。<br><br>
+    <strong>© 2026 集泰资本 (JT Capital). All rights reserved.</strong>
+  </div>
+
+</div>
+</body>
+</html>

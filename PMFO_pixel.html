@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PMFO · Personal Mini Family Office</title>
+<style>
+  /* Self-contained — no external font dependencies */
+  @font-face {
+    font-family: 'Pixel';
+    src: local('Courier New');
+    font-weight: normal;
+  }
+  
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  :root {
+    --bg: #08080c;
+    --surface: #0f0f18;
+    --border: #1a1a30;
+    --text: #8899aa;
+    --text-dim: #445566;
+    --text-bright: #c8d6e5;
+    --gold: #c8a84b;
+    --gold-dim: #6b5a2a;
+    --blue: #3b5998;
+    --blue-glow: #5b7fd4;
+    --green: #2a6040;
+    --green-glow: #3ad472;
+    --purple: #4a3070;
+    --purple-glow: #8b5cf6;
+    --cyan: #1a5060;
+    --cyan-glow: #30c8e8;
+    --red-glow: #ff444440;
+    --pixel-size: 2px;
+  }
+
+  body {
+    background: var(--bg);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Courier New', 'SimSun', monospace;
+    overflow-x: hidden;
+  }
+
+  /* Grid background */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 32px 32px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Scanlines */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,0,0,0.15) 2px,
+      rgba(0,0,0,0.15) 4px
+    );
+    pointer-events: none;
+    z-index: 100;
+    opacity: 0.5;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    width: 1100px;
+    padding: 40px 30px 30px;
+  }
+
+  /* Title */
+  .title-section {
+    text-align: center;
+    margin-bottom: 36px;
+    position: relative;
+  }
+
+  .title-pixel {
+    font-family: 'Courier New', 'SimSun', monospace;
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 4px;
+    text-shadow: 0 0 20px rgba(200,168,75,0.4), 0 0 40px rgba(200,168,75,0.15);
+    animation: titlePulse 3s ease-in-out infinite;
+    margin-bottom: 8px;
+    image-rendering: pixelated;
+  }
+
+  @keyframes titlePulse {
+    0%, 100% { text-shadow: 0 0 20px rgba(200,168,75,0.4), 0 0 40px rgba(200,168,75,0.15); }
+    50% { text-shadow: 0 0 30px rgba(200,168,75,0.7), 0 0 60px rgba(200,168,75,0.3), 0 0 80px rgba(200,168,75,0.1); }
+  }
+
+  .subtitle {
+    font-family: 'VT323', monospace;
+    font-size: 16px;
+    color: var(--text-dim);
+    letter-spacing: 3px;
+  }
+
+  .subtitle .breath {
+    display: inline-block;
+    animation: breathDot 2s ease-in-out infinite;
+  }
+  .subtitle .breath:nth-child(2) { animation-delay: 0.3s; }
+  .subtitle .breath:nth-child(3) { animation-delay: 0.6s; }
+
+  @keyframes breathDot {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; color: var(--gold); }
+  }
+
+  /* Core node */
+  .core-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 8px;
+    position: relative;
+  }
+
+  .core-node {
+    position: relative;
+    padding: 18px 44px;
+    border: 2px solid var(--gold);
+    background: linear-gradient(180deg, rgba(200,168,75,0.08) 0%, rgba(200,168,75,0.02) 100%);
+    clip-path: polygon(
+      0px 6px, 6px 0px, calc(100% - 6px) 0px, 100% 6px,
+      100% calc(100% - 6px), calc(100% - 6px) 100%,
+      6px 100%, 0px calc(100% - 6px)
+    );
+    text-align: center;
+    z-index: 2;
+  }
+
+  .core-node .label {
+    font-family: 'Courier New', 'SimSun', monospace;
+    font-size: 10px;
+    color: var(--gold);
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+    text-shadow: 0 0 15px rgba(200,168,75,0.5);
+  }
+
+  .core-node .name {
+    font-family: 'VT323', monospace;
+    font-size: 22px;
+    color: var(--text-bright);
+    letter-spacing: 1px;
+  }
+
+  .core-node .sub {
+    font-size: 12px;
+    color: var(--text-dim);
+  }
+
+  /* Breathing ring around core */
+  .core-ring {
+    position: absolute;
+    inset: -8px;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    clip-path: polygon(
+      0px 10px, 10px 0px, calc(100% - 10px) 0px, 100% 10px,
+      100% calc(100% - 10px), calc(100% - 10px) 100%,
+      10px 100%, 0px calc(100% - 10px)
+    );
+    animation: ringBreath 3s ease-in-out infinite;
+  }
+
+  @keyframes ringBreath {
+    0%, 100% {
+      border-color: rgba(200,168,75,0.15);
+      box-shadow: 0 0 15px rgba(200,168,75,0.05), inset 0 0 15px rgba(200,168,75,0.02);
+    }
+    50% {
+      border-color: rgba(200,168,75,0.5);
+      box-shadow: 0 0 30px rgba(200,168,75,0.15), inset 0 0 30px rgba(200,168,75,0.05), 0 0 60px rgba(200,168,75,0.05);
+    }
+  }
+
+  .core-ring:nth-child(3) {
+    inset: -16px;
+    animation-delay: 1.5s;
+    animation-duration: 4s;
+    opacity: 0.5;
+  }
+
+  /* Connections from core to modules - SVG */
+  .connections-layer {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Module grid */
+  .modules-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .module {
+    position: relative;
+    border: 2px solid var(--border);
+    padding: 20px 16px 14px;
+    clip-path: polygon(
+      0px 5px, 5px 0px, calc(100% - 5px) 0px, 100% 5px,
+      100% calc(100% - 5px), calc(100% - 5px) 100%,
+      5px 100%, 0px calc(100% - 5px)
+    );
+    background: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, rgba(0,0,0,0.3) 100%);
+    transition: all 0.3s ease;
+  }
+
+  .module:hover {
+    transform: translateY(-3px);
+  }
+
+  .module::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    clip-path: polygon(
+      0px 5px, 5px 0px, calc(100% - 5px) 0px, 100% 5px,
+      100% calc(100% - 5px), calc(100% - 5px) 100%,
+      5px 100%, 0px calc(100% - 5px)
+    );
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
+  .module:hover::before {
+    opacity: 1;
+  }
+
+  /* Module themes */
+  .module.invest { border-color: var(--blue); }
+  .module.invest::before { background: var(--blue); box-shadow: 0 0 20px var(--blue-glow); }
+  .module.invest:hover { box-shadow: 0 0 25px rgba(59,89,152,0.2); }
+  .module.invest:hover .module-title { color: var(--blue-glow); text-shadow: 0 0 10px rgba(91,127,212,0.4); }
+
+  .module.tech { border-color: var(--green); }
+  .module.tech::before { background: var(--green); box-shadow: 0 0 20px var(--green-glow); }
+  .module.tech:hover { box-shadow: 0 0 25px rgba(42,96,64,0.2); }
+  .module.tech:hover .module-title { color: var(--green-glow); text-shadow: 0 0 10px rgba(58,212,114,0.4); }
+
+  .module.brand { border-color: var(--purple); }
+  .module.brand::before { background: var(--purple); box-shadow: 0 0 20px var(--purple-glow); }
+  .module.brand:hover { box-shadow: 0 0 25px rgba(74,48,112,0.2); }
+  .module.brand:hover .module-title { color: var(--purple-glow); text-shadow: 0 0 10px rgba(139,92,246,0.4); }
+
+  .module.legacy { border-color: var(--cyan); }
+  .module.legacy::before { background: var(--cyan); box-shadow: 0 0 20px var(--cyan-glow); }
+  .module.legacy:hover { box-shadow: 0 0 25px rgba(26,80,96,0.2); }
+  .module.legacy:hover .module-title { color: var(--cyan-glow); text-shadow: 0 0 10px rgba(48,200,232,0.4); }
+
+  /* Module header */
+  .module-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+
+  .module-icon {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    position: relative;
+  }
+
+  .module-icon::after {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border: 1px solid currentColor;
+    opacity: 0.3;
+  }
+
+  .module-title {
+    font-family: 'Courier New', 'SimSun', monospace;
+    font-size: 7px;
+    letter-spacing: 1px;
+    color: var(--text-bright);
+    line-height: 1.5;
+    transition: color 0.3s, text-shadow 0.3s;
+  }
+
+  .module-subtitle {
+    font-size: 12px;
+    color: var(--text-dim);
+    letter-spacing: 1px;
+    margin-top: 2px;
+  }
+
+  .module-items {
+    list-style: none;
+  }
+
+  .module-items li {
+    font-size: 13px;
+    color: var(--text);
+    padding: 4px 0 4px 12px;
+    position: relative;
+    letter-spacing: 0.5px;
+    transition: color 0.2s;
+  }
+
+  .module-items li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    font-size: 8px;
+    color: var(--text-dim);
+    transition: color 0.2s;
+  }
+
+  .module-items li:hover {
+    color: var(--text-bright);
+  }
+  .module.invest .module-items li:hover::before { color: var(--blue-glow); }
+  .module.tech .module-items li:hover::before { color: var(--green-glow); }
+  .module.brand .module-items li:hover::before { color: var(--purple-glow); }
+  .module.legacy .module-items li:hover::before { color: var(--cyan-glow); }
+
+  /* Status indicator - breathing LED */
+  .module-status {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--green-glow);
+    box-shadow: 0 0 6px var(--green-glow), 0 0 12px var(--green-glow);
+    animation: ledBreath 2s ease-in-out infinite;
+  }
+
+  .module-status.dim {
+    background: var(--text-dim);
+    box-shadow: 0 0 4px var(--text-dim);
+    animation: ledSlow 4s ease-in-out infinite;
+  }
+
+  @keyframes ledBreath {
+    0%, 100% { opacity: 0.5; box-shadow: 0 0 4px var(--green-glow); }
+    50% { opacity: 1; box-shadow: 0 0 12px var(--green-glow), 0 0 20px var(--green-glow); }
+  }
+
+  @keyframes ledSlow {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 0.6; }
+  }
+
+  /* Bottom tagline */
+  .tagline {
+    text-align: center;
+    margin-top: 32px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .tagline-text {
+    font-size: 13px;
+    color: var(--text-dim);
+    letter-spacing: 2px;
+  }
+
+  .tagline-dots {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 8px;
+  }
+
+  .tagline-dot {
+    width: 4px;
+    height: 4px;
+    background: var(--text-dim);
+    animation: dotSequence 2.4s ease-in-out infinite;
+  }
+  .tagline-dot:nth-child(2) { animation-delay: 0.2s; }
+  .tagline-dot:nth-child(3) { animation-delay: 0.4s; }
+  .tagline-dot:nth-child(4) { animation-delay: 0.6s; }
+  .tagline-dot:nth-child(5) { animation-delay: 0.8s; }
+  .tagline-dot:nth-child(6) { animation-delay: 1.0s; }
+  .tagline-dot:nth-child(7) { animation-delay: 1.2s; }
+  .tagline-dot:nth-child(8) { animation-delay: 1.4s; }
+
+  @keyframes dotSequence {
+    0%, 100% { opacity: 0.15; transform: scale(1); }
+    25% { opacity: 1; transform: scale(1.8); background: var(--gold); }
+    50% { opacity: 0.3; transform: scale(1); }
+  }
+
+  /* Connection lines between core and modules - CSS approach */
+  .connections {
+    position: absolute;
+    top: 155px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 900px;
+    height: 60px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .conn-line {
+    position: absolute;
+    height: 60px;
+    width: 1px;
+    background: linear-gradient(to bottom, rgba(200,168,75,0.6), rgba(200,168,75,0.05));
+    top: 0;
+  }
+
+  /* Horizontal distribution */
+  .conn-line:nth-child(1) { left: 14%; }
+  .conn-line:nth-child(2) { left: 38%; }
+  .conn-line:nth-child(3) { left: 62%; }
+  .conn-line:nth-child(4) { left: 86%; }
+
+  /* Glow particles along lines */
+  .particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: var(--gold);
+    border-radius: 50%;
+    animation: particleFlow 3s ease-in-out infinite;
+  }
+
+  .conn-line:nth-child(1) .particle { animation-delay: 0s; }
+  .conn-line:nth-child(2) .particle { animation-delay: 0.8s; }
+  .conn-line:nth-child(3) .particle { animation-delay: 1.6s; }
+  .conn-line:nth-child(4) .particle { animation-delay: 2.4s; }
+
+  @keyframes particleFlow {
+    0% { top: 0%; opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+  }
+
+  /* Version number */
+  .version {
+    position: fixed;
+    bottom: 16px;
+    right: 24px;
+    font-family: 'Courier New', 'SimSun', monospace;
+    font-size: 6px;
+    color: var(--text-dim);
+    z-index: 101;
+    letter-spacing: 2px;
+  }
+
+  /* Horizontal connector at top of modules */
+  .top-bar {
+    position: absolute;
+    top: 185px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 900px;
+    height: 2px;
+    background: linear-gradient(
+      to right,
+      transparent 10%,
+      rgba(200,168,75,0.2) 20%,
+      rgba(200,168,75,0.4) 35%,
+      rgba(200,168,75,0.15) 50%,
+      rgba(200,168,75,0.4) 65%,
+      rgba(200,168,75,0.2) 80%,
+      transparent 90%
+    );
+    pointer-events: none;
+    z-index: 0;
+    animation: barShimmer 4s ease-in-out infinite;
+  }
+
+  @keyframes barShimmer {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.7; }
+  }
+
+  /* Corner decorations */
+  .corner-deco {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    border-color: var(--border);
+    border-style: solid;
+    z-index: 99;
+    pointer-events: none;
+  }
+  .corner-tl { top: 20px; left: 20px; border-width: 1px 0 0 1px; }
+  .corner-tr { top: 20px; right: 20px; border-width: 1px 1px 0 0; }
+  .corner-bl { bottom: 20px; left: 20px; border-width: 0 0 1px 1px; }
+  .corner-br { bottom: 20px; right: 20px; border-width: 0 1px 1px 0; }
+
+  /* Module inner glow on hover */
+  .module-glow {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    pointer-events: none;
+    clip-path: polygon(
+      0px 5px, 5px 0px, calc(100% - 5px) 0px, 100% 5px,
+      100% calc(100% - 5px), calc(100% - 5px) 100%,
+      5px 100%, 0px calc(100% - 5px)
+    );
+  }
+  .module.invest .module-glow { background: radial-gradient(ellipse at center, rgba(59,89,152,0.08) 0%, transparent 70%); }
+  .module.tech .module-glow { background: radial-gradient(ellipse at center, rgba(42,96,64,0.08) 0%, transparent 70%); }
+  .module.brand .module-glow { background: radial-gradient(ellipse at center, rgba(74,48,112,0.08) 0%, transparent 70%); }
+  .module.legacy .module-glow { background: radial-gradient(ellipse at center, rgba(26,80,96,0.08) 0%, transparent 70%); }
+  .module:hover .module-glow { opacity: 1; }
+</style>
+</head>
+<body>
+
+<div class="corner-deco corner-tl"></div>
+<div class="corner-deco corner-tr"></div>
+<div class="corner-deco corner-bl"></div>
+<div class="corner-deco corner-br"></div>
+
+<div class="container">
+  
+  <!-- Title -->
+  <div class="title-section">
+    <div class="title-pixel">P M F O</div>
+    <div class="subtitle">
+      Personal Mini Family Office
+      <span class="breath">·</span>
+      <span class="breath">·</span>
+      <span class="breath">·</span>
+    </div>
+  </div>
+
+  <!-- Core Node -->
+  <div class="core-wrapper" style="position:relative;">
+    <div class="core-node" style="position:relative;">
+      <div class="core-ring"></div>
+      <div class="core-ring"></div>
+      <div class="label">▸ 老张的人生系统 ◂</div>
+      <div class="name">PMFO 中枢</div>
+      <div class="sub">AI Agent 是加速器，不是目的</div>
+    </div>
+  </div>
+
+  <!-- Connection bridge -->
+  <div class="connections">
+    <div class="conn-line"><div class="particle"></div></div>
+    <div class="conn-line"><div class="particle"></div></div>
+    <div class="conn-line"><div class="particle"></div></div>
+    <div class="conn-line"><div class="particle"></div></div>
+  </div>
+  <div class="top-bar"></div>
+
+  <!-- Four Modules -->
+  <div class="modules-grid" style="margin-top:6px;">
+    
+    <!-- Module 1: 投资研究 -->
+    <div class="module invest">
+      <div class="module-glow"></div>
+      <div class="module-status"></div>
+      <div class="module-header">
+        <div class="module-icon" style="color:var(--blue-glow);">◆</div>
+        <div>
+          <div class="module-title" style="color:var(--blue-glow);">01 投资研究</div>
+          <div class="module-subtitle">Investment Research</div>
+        </div>
+      </div>
+      <ul class="module-items">
+        <li>行业研究 & 产业链拆解</li>
+        <li>尽调分析 & 标的筛选</li>
+        <li>投资决策支持</li>
+        <li>市场洞察 & 数据追踪</li>
+      </ul>
+    </div>
+
+    <!-- Module 2: AI/Agent -->
+    <div class="module tech">
+      <div class="module-glow"></div>
+      <div class="module-status"></div>
+      <div class="module-header">
+        <div class="module-icon" style="color:var(--green-glow);">◈</div>
+        <div>
+          <div class="module-title" style="color:var(--green-glow);">02 AI Agent</div>
+          <div class="module-subtitle">Technology Leverage</div>
+        </div>
+      </div>
+      <ul class="module-items">
+        <li>知识库 & 自动化管道</li>
+        <li>Agent Skill 体系</li>
+        <li>Cron 推送 & 监控</li>
+        <li>研究加速 & 决策辅助</li>
+      </ul>
+    </div>
+
+    <!-- Module 3: 个人品牌 -->
+    <div class="module brand">
+      <div class="module-glow"></div>
+      <div class="module-status"></div>
+      <div class="module-header">
+        <div class="module-icon" style="color:var(--purple-glow);">◇</div>
+        <div>
+          <div class="module-title" style="color:var(--purple-glow);">03 个人品牌</div>
+          <div class="module-subtitle">Personal Brand</div>
+        </div>
+      </div>
+      <ul class="module-items">
+        <li>公众号 & 视频号</li>
+        <li>个人网站 & 案例展示</li>
+        <li>投资心得分享</li>
+        <li>子弹笔记 & 内容输出</li>
+      </ul>
+    </div>
+
+    <!-- Module 4: 家族传承 -->
+    <div class="module legacy">
+      <div class="module-glow"></div>
+      <div class="module-status dim"></div>
+      <div class="module-header">
+        <div class="module-icon" style="color:var(--cyan-glow);">◎</div>
+        <div>
+          <div class="module-title" style="color:var(--cyan-glow);">04 家族传承</div>
+          <div class="module-subtitle">Legacy &amp; Heritage</div>
+        </div>
+      </div>
+      <ul class="module-items">
+        <li>慈善信托架构</li>
+        <li>宗族文化传承</li>
+        <li>智慧养育 & 教育</li>
+        <li>子女接班规划</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Tagline -->
+  <div class="tagline">
+    <div class="tagline-text">你不是在经营产品 · 你是在搭建人生系统</div>
+    <div class="tagline-dots">
+      <div class="tagline-dot"></div>
+      <div class="tagline-dot"></div>
+      <div class="tagline-dot"></div>
+      <div class="tagline-dot"></div>
+      <div class="tagline-dot"></div>
+      <div class="tagline-dot"></div>
+      <div class="tagline-dot"></div>
+      <div class="tagline-dot"></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="version">PMFO v0.1.0 · JT CAPITAL</div>
+
+</body>
+</html>
