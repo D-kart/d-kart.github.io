@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>象量EleQuant.AI · 行业深度研究 · 2025年至今中国前二十大并购交易全景扫描</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Times New Roman', 'SimSun', serif;
+    background: #f4f1eb;
+    color: #1a1a1a;
+    font-size: 10.5pt;
+    line-height: 1.6;
+  }
+
+  .page {
+    max-width: 900px;
+    margin: 36px auto;
+    background: #fff;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.12);
+    padding: 56px 64px 72px;
+  }
+
+  /* ── Letterhead ── */
+  .header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 2.5px solid #1a1a4e;
+    padding-bottom: 10px;
+  }
+  .firm-left { display: flex; flex-direction: column; gap: 3px; }
+  .firm-name {
+    font-size: 14pt;
+    font-weight: 800;
+    color: #1a1a4e;
+    letter-spacing: 2px;
+    font-family: 'Arial', sans-serif;
+  }
+  .firm-name span { color: #888; font-weight: 400; font-size: 9pt; letter-spacing: 1px; }
+  .firm-slogan {
+    font-size: 7.5pt;
+    color: #888;
+    letter-spacing: 1px;
+    font-family: 'Arial', sans-serif;
+  }
+  .doc-meta {
+    font-family: 'Arial', sans-serif;
+    font-size: 7.5pt;
+    color: #555;
+    text-align: right;
+    line-height: 1.7;
+  }
+
+  .confidential {
+    background: #1a1a4e;
+    color: #fff;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    font-size: 7pt;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 3px 0;
+    margin-bottom: 32px;
+  }
+
+  /* ── Title ── */
+  .title-block {
+    border-left: 4px solid #1a1a4e;
+    padding-left: 18px;
+    margin-bottom: 26px;
+  }
+  .report-type {
+    font-family: 'Arial', sans-serif;
+    font-size: 7.5pt;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 4px;
+  }
+  .report-title {
+    font-size: 19pt;
+    font-weight: bold;
+    color: #1a1a4e;
+    line-height: 1.25;
+  }
+  .report-subtitle {
+    font-size: 10.5pt;
+    color: #444;
+    margin-top: 6px;
+  }
+
+  /* ── Snap bar ── */
+  .snap-bar {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    border: 1px solid #c8c0aa;
+    margin-bottom: 32px;
+  }
+  .snap-item {
+    padding: 11px 13px;
+    border-right: 1px solid #c8c0aa;
+  }
+  .snap-item:last-child { border-right: none; }
+  .snap-label {
+    font-family: 'Arial', sans-serif;
+    font-size: 6.5pt;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #888;
+    margin-bottom: 4px;
+  }
+  .snap-value {
+    font-size: 13pt;
+    font-weight: bold;
+    color: #1a1a4e;
+    line-height: 1.1;
+  }
+  .snap-sub {
+    font-size: 7pt;
+    color: #666;
+    font-family: 'Arial', sans-serif;
+    margin-top: 2px;
+  }
+
+  /* ── Section ── */
+  .section { margin-bottom: 30px; }
+  .section-title {
+    font-family: 'Arial', sans-serif;
+    font-size: 8pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #1a1a4e;
+    border-bottom: 1px solid #1a1a4e;
+    padding-bottom: 3px;
+    margin-bottom: 14px;
+  }
+
+  /* ── Prose text ── */
+  .prose { font-size: 10pt; line-height: 1.7; color: #222; margin-bottom: 10px; }
+
+  /* ── Insight boxes ── */
+  .insight-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .insight-box {
+    border: 1px solid #c8c0aa;
+    padding: 12px 13px;
+    background: #faf9f6;
+  }
+  .insight-num {
+    font-family: 'Arial', sans-serif;
+    font-size: 6.5pt;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #888;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+  .insight-heading {
+    font-weight: bold;
+    color: #1a1a4e;
+    font-size: 9.5pt;
+    margin-bottom: 5px;
+    font-family: 'Arial', sans-serif;
+  }
+  .insight-body { font-size: 9pt; color: #333; line-height: 1.55; }
+
+  /* ── Main deal table ── */
+  .deal-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 8.8pt;
+    margin-bottom: 8px;
+  }
+  .deal-table th {
+    background: #1a1a4e;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    font-size: 7pt;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 7px 9px;
+    text-align: left;
+    white-space: nowrap;
+  }
+  .deal-table td {
+    padding: 7px 9px;
+    border-bottom: 1px solid #e8e4da;
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  .deal-table tr:nth-child(even) td { background: #faf9f6; }
+  .deal-table tr:hover td { background: #f0eee8; }
+  .rank-col {
+    font-family: 'Arial', sans-serif;
+    font-weight: 700;
+    color: #1a1a4e;
+    font-size: 9pt;
+    white-space: nowrap;
+  }
+  .acquirer { font-weight: bold; color: #1a1a4e; }
+  .amount { font-weight: bold; color: #1a1a4e; white-space: nowrap; font-family: 'Arial', sans-serif; }
+
+  .sector-tag {
+    display: inline-block;
+    font-family: 'Arial', sans-serif;
+    font-size: 6.5pt;
+    padding: 1px 6px;
+    border-radius: 2px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+  .tag-finance   { background: #e8eaf6; color: #3949ab; }
+  .tag-tech      { background: #e3f2fd; color: #1565c0; }
+  .tag-semicon   { background: #e8f5e9; color: #2e7d32; }
+  .tag-energy    { background: #fff8e1; color: #f57f17; }
+  .tag-pharma    { background: #fce4ec; color: #880e4f; }
+  .tag-robot     { background: #f3e5f5; color: #6a1b9a; }
+  .tag-material  { background: #e0f2f1; color: #00695c; }
+  .tag-consumer  { background: #fff3e0; color: #e65100; }
+  .tag-media     { background: #fafafa; color: #424242; border: 1px solid #ddd; }
+
+  /* ── Sector analysis ── */
+  .sector-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 6px;
+  }
+  .sector-box {
+    border: 1px solid #c8c0aa;
+    padding: 13px 15px;
+  }
+  .sector-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  .sector-name {
+    font-family: 'Arial', sans-serif;
+    font-size: 9.5pt;
+    font-weight: 700;
+    color: #1a1a4e;
+  }
+  .sector-count {
+    font-family: 'Arial', sans-serif;
+    font-size: 7pt;
+    background: #1a1a4e;
+    color: #fff;
+    padding: 2px 7px;
+    letter-spacing: 1px;
+  }
+  .sector-amount {
+    font-family: 'Arial', sans-serif;
+    font-size: 11pt;
+    font-weight: bold;
+    color: #1a1a4e;
+    margin-bottom: 4px;
+  }
+  .sector-body { font-size: 9pt; color: #333; line-height: 1.55; }
+
+  /* ── Pattern cards ── */
+  .pattern-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .pattern-box {
+    border-left: 3px solid #1a1a4e;
+    padding: 10px 13px;
+    background: #faf9f6;
+  }
+  .pattern-heading {
+    font-family: 'Arial', sans-serif;
+    font-size: 9pt;
+    font-weight: 700;
+    color: #1a1a4e;
+    margin-bottom: 5px;
+  }
+  .pattern-body { font-size: 9pt; color: #333; line-height: 1.55; }
+  .pattern-deals { font-family: 'Arial', sans-serif; font-size: 7.5pt; color: #888; margin-top: 5px; }
+
+  /* ── Timeline ── */
+  .timeline-box {
+    border: 1px solid #c8c0aa;
+    padding: 14px 18px;
+    margin-bottom: 6px;
+    background: #faf9f6;
+  }
+  .timeline-title {
+    font-family: 'Arial', sans-serif;
+    font-size: 9pt;
+    font-weight: 700;
+    color: #1a1a4e;
+    margin-bottom: 8px;
+  }
+  .timeline-body { font-size: 9.5pt; color: #222; line-height: 1.65; }
+
+  /* ── Data table general ── */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9.5pt;
+    margin-bottom: 6px;
+  }
+  .data-table th {
+    background: #1a1a4e;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    font-size: 7.5pt;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 7px 10px;
+    text-align: left;
+  }
+  .data-table td {
+    padding: 7px 10px;
+    border-bottom: 1px solid #e8e4da;
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  .data-table tr:nth-child(even) td { background: #faf9f6; }
+  .label-col { font-weight: bold; color: #1a1a4e; width: 30%; font-family: 'Arial', sans-serif; font-size: 9pt; }
+
+  /* ── Verdict box ── */
+  .verdict-box {
+    border: 2px solid #1a1a4e;
+    padding: 18px 22px;
+    background: #f5f5fa;
+    margin-bottom: 8px;
+  }
+  .verdict-label {
+    font-family: 'Arial', sans-serif;
+    font-size: 7pt;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 6px;
+  }
+  .verdict-text { font-size: 10.5pt; line-height: 1.7; color: #1a1a1a; }
+  .verdict-badge {
+    display: inline-block;
+    background: #1a1a4e;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 700;
+    padding: 4px 16px;
+    margin-top: 12px;
+    letter-spacing: 1px;
+  }
+
+  /* ── Lists ── */
+  ul.ws-list { list-style: none; padding: 0; }
+  ul.ws-list li {
+    padding: 3px 0 3px 14px;
+    position: relative;
+    font-size: 9.5pt;
+    color: #222;
+    line-height: 1.55;
+  }
+  ul.ws-list li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: #1a1a4e;
+    font-size: 8pt;
+    top: 4px;
+  }
+
+  /* ── Callout ── */
+  .callout {
+    border-left: 3px solid #1a1a4e;
+    background: #f0f0f8;
+    padding: 10px 14px;
+    margin: 12px 0;
+    font-size: 9.5pt;
+    color: #1a1a1a;
+    line-height: 1.6;
+    font-style: italic;
+  }
+
+  /* ── Divider ── */
+  hr.divider { border: none; border-top: 1px dashed #c8c0aa; margin: 26px 0; }
+
+  /* ── Footer ── */
+  .footer {
+    margin-top: 44px;
+    border-top: 1px solid #c8c0aa;
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .footer-left { font-family: 'Arial', sans-serif; font-size: 7pt; color: #999; line-height: 1.7; }
+  .footer-right { font-family: 'Arial', sans-serif; font-size: 8pt; color: #1a1a4e; font-weight: 700; text-align: right; line-height: 1.7; }
+  .footer-slogan { font-size: 6.5pt; color: #aaa; font-weight: 400; font-style: italic; }
+
+  @media print {
+    body { background: #fff; }
+    .page { box-shadow: none; margin: 0; padding: 36px 48px; }
+  }
+  @media (max-width: 640px) {
+    .page { padding: 18px 14px; }
+    .snap-bar { grid-template-columns: repeat(3, 1fr); }
+    .insight-grid, .sector-grid, .pattern-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Letterhead -->
+  <div class="header-bar">
+    <div class="firm-left">
+      <div class="firm-name">象量 <span>EleQuant.AI</span></div>
+      <div class="firm-slogan">象无形，量有度。· 构建数据驱动的AI投资研究新范式</div>
+    </div>
+    <div class="doc-meta">
+      机密文件 — 仅供内部阅览<br>
+      日期：2026年3月<br>
+      报告类型：行业深度研究
+    </div>
+  </div>
+  <div class="confidential">Strictly Confidential — Industry Deep Research · 象量科技 EleQuant.AI 投资研究部</div>
+
+  <!-- Title -->
+  <div class="title-block">
+    <div class="report-type">Industry Deep Scan · 行业深度扫描报告</div>
+    <div class="report-title">中国资本市场并购全景扫描<br>2025年至今前二十大并购交易深度解析</div>
+    <div class="report-subtitle">产业整合逻辑 · 结构创新路径 · 政策映射分析 · 未来趋势预判</div>
+  </div>
+
+  <!-- Snap bar -->
+  <div class="snap-bar">
+    <div class="snap-item">
+      <div class="snap-label">样本交易数</div>
+      <div class="snap-value">20</div>
+      <div class="snap-sub">前二十大并购</div>
+    </div>
+    <div class="snap-item">
+      <div class="snap-label">交易总规模</div>
+      <div class="snap-value">~2,083亿</div>
+      <div class="snap-sub">人民币</div>
+    </div>
+    <div class="snap-item">
+      <div class="snap-label">最大单笔</div>
+      <div class="snap-value">976亿</div>
+      <div class="snap-sub">国泰君安×海通证券</div>
+    </div>
+    <div class="snap-item">
+      <div class="snap-label">核心赛道</div>
+      <div class="snap-value">科技+新能源</div>
+      <div class="snap-sub">合计占比超55%</div>
+    </div>
+    <div class="snap-item">
+      <div class="snap-label">统计区间</div>
+      <div class="snap-value">2025–2026</div>
+      <div class="snap-sub">截至2026年3月</div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 1: Executive Summary ===== -->
+  <div class="section">
+    <div class="section-title">Section I · Executive Summary · 核心结论</div>
+    <p class="prose">
+      2025年以来，中国并购市场进入<strong>结构性跃升阶段</strong>。监管层"并购六条"持续催化，
+      科创板并购通道畅通，叠加产业整合政策红利，推动本轮并购呈现出规模前所未有、结构高度创新、
+      产业逻辑极度清晰三大特征。前二十大交易累计规模约<strong>2,083亿元人民币</strong>，
+      横跨金融、半导体、新能源、医药、机器人、AI硬件等核心赛道，
+      深刻折射出中国产业升级的战略优先序列。
+    </p>
+    <div class="insight-grid">
+      <div class="insight-box">
+        <div class="insight-num">Core Finding 01</div>
+        <div class="insight-heading">国家战略驱动是底层逻辑</div>
+        <div class="insight-body">
+          超过75%的交易直接映射国家战略优先项：半导体国产替代、新能源供应链安全、
+          AI算力基础设施、商业航天、生物医药全链条。并购不再是纯市场行为，
+          而是产业政策的资本化执行工具。
+        </div>
+      </div>
+      <div class="insight-box">
+        <div class="insight-num">Core Finding 02</div>
+        <div class="insight-heading">垂直整合成为主流范式</div>
+        <div class="insight-body">
+          从"扩规模"到"补链条"的范式切换已完成。超过80%的交易以
+          "打通上下游、形成全链条闭环"为核心逻辑，
+          买方普遍追求"材料-制造-平台-运营"的一体化控制权，
+          而非单纯财务回报。
+        </div>
+      </div>
+      <div class="insight-box">
+        <div class="insight-num">Core Finding 03</div>
+        <div class="insight-heading">结构创新突破历史边界</div>
+        <div class="insight-body">
+          换股吸收合并、资产置换+配套募资、独角兽收购上市公司、
+          私募基金结构控股A股等新型结构集中涌现，
+          展现监管对并购工具箱的全面开放，
+          并购重组正式进入"结构驱动"新纪元。
+        </div>
+      </div>
+    </div>
+    <div class="callout">
+      象量观点：本轮并购浪潮的本质是"产业地图的资本化重绘"——谁先完成供应链控制权的并购卡位，谁就掌握了下一个产业周期的定价权与增长主导权。
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ===== SECTION 2: Full Deal Table ===== -->
+  <div class="section">
+    <div class="section-title">Section II · Full Transaction Database · 二十大并购交易全库</div>
+    <table class="deal-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>买方</th>
+          <th>标的</th>
+          <th>金额</th>
+          <th>赛道</th>
+          <th>交易逻辑摘要</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="rank-col">01</td>
+          <td><span class="acquirer">国泰君安</span></td>
+          <td>海通证券（600837）</td>
+          <td class="amount">976亿</td>
+          <td><span class="sector-tag tag-finance">金融</span></td>
+          <td>换股吸收合并+配套募资，打造资本实力与规模双第一的金融旗舰，响应政策整合导向</td>
+        </tr>
+        <tr>
+          <td class="rank-col">02</td>
+          <td><span class="acquirer">东阳光</span></td>
+          <td>秦淮数据中国区</td>
+          <td class="amount">280亿</td>
+          <td><span class="sector-tag tag-tech">AI算力</span></td>
+          <td>绿电+液冷+电极箔直供IDC，构建"材料-绿电-算力-运营"闭环，加速"东数西算"落地</td>
+        </tr>
+        <tr>
+          <td class="rank-col">03</td>
+          <td><span class="acquirer">腾讯音乐</span></td>
+          <td>喜马拉雅</td>
+          <td class="amount">205亿</td>
+          <td><span class="sector-tag tag-media">内容生态</span></td>
+          <td>补齐长音频短板，构建"音乐+长音频"全品类生态，接入8亿+月活微信流量</td>
+        </tr>
+        <tr>
+          <td class="rank-col">04</td>
+          <td><span class="acquirer">紫金矿业</span></td>
+          <td>藏格矿业（000408）</td>
+          <td class="amount">137亿</td>
+          <td><span class="sector-tag tag-energy">战略资源</span></td>
+          <td>构建"铜-锂-钾"核心资源三角，强化战略性矿产掌控，降低海外依赖</td>
+        </tr>
+        <tr>
+          <td class="rank-col">05</td>
+          <td><span class="acquirer">松发股份</span></td>
+          <td>恒力重工</td>
+          <td class="amount">80亿</td>
+          <td><span class="sector-tag tag-consumer">绿色制造</span></td>
+          <td>资产置换+发股+40亿配套募资，陶瓷企业彻底转型绿色船舶，三年对赌48亿净利</td>
+        </tr>
+        <tr>
+          <td class="rank-col">06</td>
+          <td><span class="acquirer">立讯精密</span></td>
+          <td>闻泰科技ODM业务</td>
+          <td class="amount">50亿</td>
+          <td><span class="sector-tag tag-tech">消费电子</span></td>
+          <td>破圈安卓生态，形成"零部件-模组-整机"全链，从精密组件商跃升全栈系统集成商</td>
+        </tr>
+        <tr>
+          <td class="rank-col">07</td>
+          <td><span class="acquirer">佛塑科技</span></td>
+          <td>金力股份（832161）</td>
+          <td class="amount">51亿</td>
+          <td><span class="sector-tag tag-energy">锂电材料</span></td>
+          <td>切入高景气锂电隔膜赛道，获取核心技术、产能与优质客户，完成业务结构升级</td>
+        </tr>
+        <tr>
+          <td class="rank-col">08</td>
+          <td><span class="acquirer">上海莱士</span></td>
+          <td>南岳生物</td>
+          <td class="amount">42亿</td>
+          <td><span class="sector-tag tag-pharma">血制品</span></td>
+          <td>采浆量增18%，湖南区域壁垒超70%，构建"采浆-研发-商业化"闭环，助海尔大健康战略</td>
+        </tr>
+        <tr>
+          <td class="rank-col">09</td>
+          <td><span class="acquirer">晶丰明源</span></td>
+          <td>易冲科技</td>
+          <td class="amount">33亿</td>
+          <td><span class="sector-tag tag-semicon">芯片</span></td>
+          <td>切入无线充电+车规芯片，摆脱LED驱动困境，构建全场景电源管理平台</td>
+        </tr>
+        <tr>
+          <td class="rank-col">10</td>
+          <td><span class="acquirer">北方华创</span></td>
+          <td>芯源微（688037）</td>
+          <td class="amount">31亿</td>
+          <td><span class="sector-tag tag-semicon">半导体设备</span></td>
+          <td>补齐涂胶显影关键环节，构建全流程整线集成方案，缩短客户验证周期3–5个月</td>
+        </tr>
+        <tr>
+          <td class="rank-col">11</td>
+          <td><span class="acquirer">高瓴资本</span></td>
+          <td>津石医药</td>
+          <td class="amount">28亿</td>
+          <td><span class="sector-tag tag-pharma">医药CRO</span></td>
+          <td>补齐医疗生态临床执行短板，构建"研发-临床-生产-商业化"全链路闭环</td>
+        </tr>
+        <tr>
+          <td class="rank-col">12</td>
+          <td><span class="acquirer">海尔卡奥斯</span></td>
+          <td>新时达（002527）</td>
+          <td class="amount">25亿</td>
+          <td><span class="sector-tag tag-robot">工业机器人</span></td>
+          <td>工业机器人+工业互联网深度融合，打通"云-边-端"，加速具身智能产业化</td>
+        </tr>
+        <tr>
+          <td class="rank-col">13</td>
+          <td><span class="acquirer">领益智造</span></td>
+          <td>向隆机械</td>
+          <td class="amount">24亿</td>
+          <td><span class="sector-tag tag-robot">汽车+机器人</span></td>
+          <td>从Tier2跃升Tier1，补齐传动轴部件，构建"车-机共生"产业生态</td>
+        </tr>
+        <tr>
+          <td class="rank-col">14</td>
+          <td><span class="acquirer">追觅科技</span></td>
+          <td>嘉美包装（002969）</td>
+          <td class="amount">23亿</td>
+          <td><span class="sector-tag tag-robot">AI硬件</span></td>
+          <td>以A股平台为融资枢纽，锁定制造基地，推动传统包装厂升级精密智造基地</td>
+        </tr>
+        <tr>
+          <td class="rank-col">15</td>
+          <td><span class="acquirer">智元恒岳/致远新创</span></td>
+          <td>上纬新材（688585）</td>
+          <td class="amount">21亿</td>
+          <td><span class="sector-tag tag-robot">人形机器人</span></td>
+          <td>独角兽收购A股上市公司标杆案例，绑定复合材料供应链，形成"材料+制造"产业闭环</td>
+        </tr>
+        <tr>
+          <td class="rank-col">16</td>
+          <td><span class="acquirer">瑞丞基金</span></td>
+          <td>鸿合科技（002955）</td>
+          <td class="amount">16亿</td>
+          <td><span class="sector-tag tag-tech">智能显示</span></td>
+          <td>私募基金结构控股上市公司，奇瑞系资源注入，切入车载显示供应链</td>
+        </tr>
+        <tr>
+          <td class="rank-col">17</td>
+          <td><span class="acquirer">奥浦迈</span></td>
+          <td>澎立生物</td>
+          <td class="amount">15亿</td>
+          <td><span class="sector-tag tag-pharma">CRDMO</span></td>
+          <td>打通CRO+培养基+CDMO全链，构建前端导流-后端承接-技术互补CRDMO一体化壁垒</td>
+        </tr>
+        <tr>
+          <td class="rank-col">18</td>
+          <td><span class="acquirer">璞源材料</span></td>
+          <td>茵地乐材料</td>
+          <td class="amount">14亿</td>
+          <td><span class="sector-tag tag-energy">锂电材料</span></td>
+          <td>从服装主业切入锂电粘结剂，茵地乐PAA粘结剂市占率近50%，绑定宁德、比亚迪</td>
+        </tr>
+        <tr>
+          <td class="rank-col">19</td>
+          <td><span class="acquirer">康龙化成</span></td>
+          <td>佰翱得</td>
+          <td class="amount">13亿</td>
+          <td><span class="sector-tag tag-pharma">CRO</span></td>
+          <td>补齐冷冻电镜/结构生物学能力，AI平台叠加后研发效率提升30%–50%</td>
+        </tr>
+        <tr>
+          <td class="rank-col">20</td>
+          <td><span class="acquirer">华海诚科</span></td>
+          <td>衡所华威电子</td>
+          <td class="amount">16亿</td>
+          <td><span class="sector-tag tag-semicon">封装材料</span></td>
+          <td>合并后跃居全球第二、国内绝对龙头，攻克HBM/FOWLP先进封装材料卡脖子</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-family:'Arial',sans-serif; font-size:7pt; color:#999; margin-top:4px;">* 金额为公开披露或估算数据，部分交易含配套募资及换股对价。数据来源：公开公告、Wind、象量研究整理。</p>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ===== SECTION 3: Sector Analysis ===== -->
+  <div class="section">
+    <div class="section-title">Section III · Sector Distribution · 赛道分布与产业意义</div>
+    <div class="sector-grid">
+      <div class="sector-box">
+        <div class="sector-header">
+          <div class="sector-name">半导体与先进制造</div>
+          <div class="sector-count">3笔</div>
+        </div>
+        <div class="sector-amount">~80亿元</div>
+        <div class="sector-body">
+          北方华创×芯源微、晶丰明源×易冲科技、华海诚科×衡所华威三笔交易均以
+          <strong>国产替代</strong>为核心逻辑。涂胶显影、无线充电芯片、HBM封装材料，
+          三个方向分别对应半导体设备整线化、车规+消费双赛道扩张、先进封装材料自主可控。
+          国产替代浪潮已从设备延伸至关键材料，产业链卡点逐一被资本化攻克。
+        </div>
+      </div>
+      <div class="sector-box">
+        <div class="sector-header">
+          <div class="sector-name">医药生命科学</div>
+          <div class="sector-count">4笔</div>
+        </div>
+        <div class="sector-amount">~98亿元</div>
+        <div class="sector-body">
+          高瓴×津石（SMO）、奥浦迈×澎立（CRDMO）、康龙化成×佰翱得（结构生物学）、
+          上海莱士×南岳生物（血制品）四笔交易共同指向同一战略：
+          <strong>打通"靶点发现-临床执行-生产-商业化"全链条</strong>。
+          AI辅助结构预测、CRDMO一体化、区域采浆壁垒，
+          生命科学赛道的并购正在从扩产能转向构建全流程壁垒。
+        </div>
+      </div>
+      <div class="sector-box">
+        <div class="sector-header">
+          <div class="sector-name">机器人与AI硬件</div>
+          <div class="sector-count">4笔</div>
+        </div>
+        <div class="sector-amount">~93亿元</div>
+        <div class="sector-body">
+          海尔卡奥斯×新时达、领益智造×向隆机械、追觅科技×嘉美包装、
+          智元恒岳×上纬新材四笔交易，标志着<strong>机器人产业链并购元年</strong>的到来。
+          从工业互联网平台（卡奥斯）、传动轴部件（向隆）、精密制造基地（嘉美）、
+          到复合材料供应链（上纬），机器人全链条正在被快速资本化整合。
+        </div>
+      </div>
+      <div class="sector-box">
+        <div class="sector-header">
+          <div class="sector-name">新能源与战略资源</div>
+          <div class="sector-count">3笔</div>
+        </div>
+        <div class="sector-amount">~202亿元</div>
+        <div class="sector-body">
+          紫金矿业×藏格矿业（铜锂钾资源三角）、佛塑科技×金力股份（锂电隔膜）、
+          璞源材料×茵地乐（PAA粘结剂）三笔交易呈现清晰的<strong>资源-材料-电池</strong>
+          纵向整合逻辑。锂电材料赛道连出两笔大额并购，折射出宁德、比亚迪等
+          核心客户的供应链安全焦虑正在向产业链上游传导。
+        </div>
+      </div>
+      <div class="sector-box">
+        <div class="sector-header">
+          <div class="sector-name">AI算力与数字基础设施</div>
+          <div class="sector-count">2笔</div>
+        </div>
+        <div class="sector-amount">~296亿元</div>
+        <div class="sector-body">
+          东阳光×秦淮数据（280亿）是本次样本中除金融外规模最大的产业并购。
+          "材料-绿电-算力-运营"四层闭环是新型算力基础设施建设路径的完整样本，
+          映射"东数西算"国家战略。瑞丞×鸿合则代表<strong>产业资本借道A股布局
+          车载显示+AI交互</strong>的新型路径。
+        </div>
+      </div>
+      <div class="sector-box">
+        <div class="sector-header">
+          <div class="sector-name">金融与内容生态</div>
+          <div class="sector-count">3笔</div>
+        </div>
+        <div class="sector-amount">~1,197亿元（含国泰海通）</div>
+        <div class="sector-body">
+          国泰君安×海通证券（976亿）是监管推动券商整合的里程碑式样本，
+          "换股吸收合并"结构本身即为监管政策工具的典型示范。
+          腾讯音乐×喜马拉雅则是内容平台"全品类音频生态"战略的资本化落子，
+          微信流量池的接入价值是核心定价逻辑。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ===== SECTION 4: Transaction Structure Patterns ===== -->
+  <div class="section">
+    <div class="section-title">Section IV · Structural Innovation · 交易结构创新模式解析</div>
+    <p class="prose">
+      本次样本中，交易结构创新程度之高为近年罕见，体现了监管政策对并购工具箱的系统性开放。
+      以下四大模式代表了中国并购市场结构演进的前沿方向：
+    </p>
+    <div class="pattern-grid">
+      <div class="pattern-box">
+        <div class="pattern-heading">模式一：换股吸收合并 + 配套募资</div>
+        <div class="pattern-body">
+          通过股权置换完成大体量并购，避免现金压力，同步配套定增补充整合资金。
+          适用于规模匹配度高、双方股东结构较为一致的战略整合场景。
+          整合后资本实力跃升、牌照叠加、客户资源合并，产生1+1&gt;2效应。
+        </div>
+        <div class="pattern-deals">典型案例：国泰君安×海通证券（976亿）</div>
+      </div>
+      <div class="pattern-box">
+        <div class="pattern-heading">模式二：资产置换 + 发股 + 配套募资</div>
+        <div class="pattern-body">
+          上市公司以存量劣质资产置换优质标的，同步发行股份支付对价，
+          并配套定增获取整合资金。实现"保壳+业务转型+资产证券化"三位一体。
+          对赌条款锁定标的业绩，降低买方整合风险。
+        </div>
+        <div class="pattern-deals">典型案例：松发股份×恒力重工（80亿，三年对赌48亿净利）</div>
+      </div>
+      <div class="pattern-box">
+        <div class="pattern-heading">模式三：独角兽收购A股上市公司</div>
+        <div class="pattern-body">
+          非上市独角兽以现金或股权方式取得科创板上市公司控制权，
+          同步获取上市平台融资通道、壳资源及市值背书。
+          开创了中国一级市场反向并购二级市场的新型路径，
+          监管层对此结构高度包容。
+        </div>
+        <div class="pattern-deals">典型案例：智元恒岳×上纬新材（21亿）；追觅科技×嘉美包装（23亿）</div>
+      </div>
+      <div class="pattern-box">
+        <div class="pattern-heading">模式四：私募基金结构控股上市公司</div>
+        <div class="pattern-body">
+          PE/产业基金以杠杆化结构取得A股上市公司控股权，
+          同步引入战略资源（产业协同方），实现"资本+产业"双轮驱动。
+          有效绕开国有资本复杂审批流程，适合产业整合时间窗口敏感的场景。
+        </div>
+        <div class="pattern-deals">典型案例：瑞丞基金×鸿合科技（15.75亿）</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ===== SECTION 5: Policy Mapping ===== -->
+  <div class="section">
+    <div class="section-title">Section V · Policy Mapping · 政策映射与监管信号解读</div>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>政策信号</th>
+          <th>对应交易类型</th>
+          <th>典型案例</th>
+          <th>象量解读</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>并购六条</strong><br><span style="font-size:8pt;color:#888;">鼓励A股上市公司并购重组，支持硬科技标的</span></td>
+          <td>科创板并购、独角兽反向收购</td>
+          <td>北方华创×芯源微；智元×上纬新材</td>
+          <td>政策为科创板并购通道正式开绿灯，标志中国并购重组从"壳资源驱动"向"产业价值驱动"彻底转型</td>
+        </tr>
+        <tr>
+          <td><strong>国企合并整合导向</strong><br><span style="font-size:8pt;color:#888;">推动同业竞争消除、做大做强国家队</span></td>
+          <td>国有券商换股合并</td>
+          <td>国泰君安×海通证券</td>
+          <td>金融领域国企整合进入快车道，"国泰海通"模式将在其他金融子行业复制，银行、保险整合可期</td>
+        </tr>
+        <tr>
+          <td><strong>战略性资源安全</strong><br><span style="font-size:8pt;color:#888;">锂、铜、稀土等关键矿产国内掌控</span></td>
+          <td>矿产资源并购整合</td>
+          <td>紫金矿业×藏格矿业</td>
+          <td>资源并购与地缘政治深度绑定，国内优质矿产资产稀缺性溢价将持续提升</td>
+        </tr>
+        <tr>
+          <td><strong>半导体自主可控</strong><br><span style="font-size:8pt;color:#888;">设备、材料、封装全链国产替代</span></td>
+          <td>半导体产业链垂直整合</td>
+          <td>北方华创×芯源微；华海诚科×衡所华威</td>
+          <td>国产替代已进入"整线整合"阶段，单点替代转向系统性方案替代，集群竞争力升级</td>
+        </tr>
+        <tr>
+          <td><strong>具身智能与机器人</strong><br><span style="font-size:8pt;color:#888;">人形机器人列入国家战略新兴产业</span></td>
+          <td>机器人产业链并购</td>
+          <td>智元×上纬；海尔卡奥斯×新时达；领益×向隆</td>
+          <td>机器人产业链并购元年已至，材料-电机-控制-平台四维整合将在未来24个月内持续加速</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ===== SECTION 6: Forward Outlook ===== -->
+  <div class="section">
+    <div class="section-title">Section VI · Forward Outlook · 未来并购趋势预判</div>
+    <div class="insight-grid">
+      <div class="insight-box">
+        <div class="insight-num">Trend 01 · 12个月内</div>
+        <div class="insight-heading">人形机器人产业链整合加速</div>
+        <div class="insight-body">
+          继智元×上纬之后，预计未来12个月将出现更多机器人本体企业
+          收购关键部件（电机、传感器、减速器）供应商的交易。
+          "材料+电机+控制器"三角整合是下一批交易的核心逻辑。
+          重点关注：空心杯电机、谐波减速器、力矩传感器赛道。
+        </div>
+      </div>
+      <div class="insight-box">
+        <div class="insight-num">Trend 02 · 12–24个月</div>
+        <div class="insight-heading">AI算力基础设施并购潮</div>
+        <div class="insight-body">
+          东阳光×秦淀数据开创了"产业公司+IDC"整合先例。
+          预计储能企业、绿电运营商、液冷材料供应商将陆续成为
+          算力基础设施并购标的。算力REITs化与IDC并购基金
+          将成为新型退出工具。
+        </div>
+      </div>
+      <div class="insight-box">
+        <div class="insight-num">Trend 03 · 24–36个月</div>
+        <div class="insight-heading">独角兽A股化浪潮</div>
+        <div class="insight-body">
+          智元×上纬、追觅×嘉美的模式将被大量复制。
+          AI、机器人、新材料赛道头部独角兽将加速借助A股
+          上市公司获取资本市场平台，同时完成供应链整合。
+          科创板将成为这类交易的核心载体。
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-box" style="margin-top:12px;">
+      <div class="timeline-title">象量预判：2026–2027年十大高概率并购方向</div>
+      <div class="timeline-body">
+        <ul class="ws-list">
+          <li><strong>空心杯/谐波减速器：</strong>人形机器人本体企业垂直收购精密传动部件供应商（参考领益×向隆模式）</li>
+          <li><strong>星载激光通信：</strong>低轨卫星运营商整合激光通信终端制造商，打通"通信载荷-星座运营"闭环</li>
+          <li><strong>大模型推理芯片：</strong>算力云服务商收购国产AI推理芯片设计公司，构建自主算力底座</li>
+          <li><strong>血制品区域整合：</strong>上海莱士模式继续复制，国内血制品采浆站继续向头部企业集中</li>
+          <li><strong>锂电回收：</strong>材料企业横向并购锂电回收公司，形成"正向制造+逆向回收"循环闭环</li>
+          <li><strong>ADC抗体偶联药物：</strong>CRO龙头以并购补齐连接子、毒素合成等ADC产业链短板</li>
+          <li><strong>商业卫星电源：</strong>航天央企或私营卫星制造商收购卫星电源细分赛道领军企业</li>
+          <li><strong>工业软件与MES：</strong>制造业龙头收购工业软件公司，推动"硬件+软件"一体化智能制造升级</li>
+          <li><strong>车载显示+AR HUD：</strong>汽车Tier1整合AR光学、显示模组供应商，为L3+自动驾驶布局</li>
+          <li><strong>AIGC内容基础设施：</strong>内容平台收购多模态生成技术公司，构建AI原生内容生产能力</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ===== SECTION 7: EleQuant Verdict ===== -->
+  <div class="section">
+    <div class="section-title">Section VII · EleQuant Research Verdict · 象量研究综合评价</div>
+    <div class="verdict-box">
+      <div class="verdict-label">Research Conclusion · 研究结论</div>
+      <div class="verdict-text">
+        2025年以来的中国并购市场，呈现出我们在过去十年中从未见过的结构性特征：
+        <strong>国家战略优先序列</strong>与<strong>产业资本逻辑</strong>的高度共振，
+        正在将并购重组从资本市场的"边缘工具"推向产业整合的"核心引擎"。<br><br>
+        本次样本的二十笔交易，跨越金融、半导体、新能源、医药、机器人、AI算力六大赛道，
+        但共享同一底层逻辑：<strong>通过并购实现供应链控制权，进而锁定产业周期的定价主导权。</strong>
+        这是一种比单纯财务回报更深层的战略诉求，也是本轮并购浪潮区别于以往"壳游戏"的本质所在。<br><br>
+        对于投资机构而言，本轮并购浪潮揭示的核心机会在于：
+        率先识别"被整合标的"——即那些掌握关键技术或资质、尚未完成资本化但产业逻辑清晰的中小公司，
+        在并购溢价兑现之前完成布局，才是Alpha的真正来源。
+      </div>
+      <div>
+        <span class="verdict-badge">象量评级：并购浪潮持续加速 · 建议重点关注机器人产业链与半导体材料赛道</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-left">
+      <strong>免责声明：</strong>本报告为象量EleQuant.AI内部研究文件，仅供参考，不构成任何投资要约或建议。<br>
+      所有数据与判断均基于公开信息及合理推断，部分数据经象量研究团队整理，可能与官方披露存在差异。<br>
+      投资决策请结合专业法律、财务及合规顾问意见。© 2026 象量科技 EleQuant.AI · 严格保密 · Strictly Confidential
+    </div>
+    <div class="footer-right">
+      象量 EleQuant.AI<br>
+      <span class="footer-slogan">象无形，量有度。</span>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

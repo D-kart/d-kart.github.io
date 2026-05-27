@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>象量 EleQuant.AI · 投资研究中心</title>
+<meta name="description" content="象量EleQuant.AI — 构建数据驱动的AI投资研究新范式。深度并购分析、行业扫描、热点事件解读。">
+<style>
+  :root {
+    --navy: #1a1a4e;
+    --navy-light: #2a2a6e;
+    --gold: #c8a000;
+    --paper: #faf9f6;
+    --border: #c8c0aa;
+    --text: #1a1a1a;
+    --muted: #666;
+    --red: #c00;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Arial', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: #f4f1eb;
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* ── Top bar ── */
+  .topbar {
+    background: var(--navy);
+    color: rgba(255,255,255,0.6);
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-align: center;
+    padding: 6px 20px;
+  }
+
+  /* ── Header ── */
+  header {
+    background: #fff;
+    border-bottom: 3px solid var(--navy);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+  .logo {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    text-decoration: none;
+  }
+  .logo-name {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--navy);
+    letter-spacing: 2px;
+    line-height: 1;
+  }
+  .logo-name span { color: #999; font-weight: 400; font-size: 12px; margin-left: 4px; }
+  .logo-slogan {
+    font-size: 10px;
+    color: #aaa;
+    letter-spacing: 1px;
+  }
+
+  nav { display: flex; gap: 0; }
+  .nav-btn {
+    background: none;
+    border: none;
+    padding: 8px 16px;
+    font-size: 13px;
+    color: var(--muted);
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s;
+    font-family: inherit;
+    white-space: nowrap;
+  }
+  .nav-btn:hover { color: var(--navy); background: var(--paper); }
+  .nav-btn.active { color: var(--navy); font-weight: 700; background: var(--paper); }
+
+  .header-contact {
+    background: var(--navy);
+    color: #fff;
+    padding: 7px 16px;
+    font-size: 12px;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    letter-spacing: 1px;
+    transition: background 0.2s;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .header-contact:hover { background: var(--navy-light); }
+
+  /* ── Hero ── */
+  .hero {
+    background: var(--navy);
+    color: #fff;
+    padding: 56px 24px 48px;
+    text-align: center;
+  }
+  .hero-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    margin-bottom: 18px;
+    color: rgba(255,255,255,0.7);
+  }
+  .hero h1 {
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+  }
+  .hero h1 span { color: rgba(255,255,255,0.5); font-weight: 400; }
+  .hero-sub {
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+    max-width: 560px;
+    margin: 0 auto 28px;
+    line-height: 1.7;
+  }
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .hero-stat { text-align: center; }
+  .hero-stat-num {
+    font-size: 24px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .hero-stat-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* ── Main layout ── */
+  .main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 24px;
+  }
+
+  /* ── Filter bar ── */
+  .filter-bar {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+    align-items: center;
+  }
+  .filter-label {
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-right: 4px;
+  }
+  .filter-btn {
+    background: #fff;
+    border: 1px solid var(--border);
+    padding: 5px 14px;
+    font-size: 12px;
+    color: var(--muted);
+    cursor: pointer;
+    border-radius: 2px;
+    font-family: inherit;
+    transition: all 0.2s;
+  }
+  .filter-btn:hover { border-color: var(--navy); color: var(--navy); }
+  .filter-btn.active {
+    background: var(--navy);
+    border-color: var(--navy);
+    color: #fff;
+    font-weight: 700;
+  }
+
+  /* ── Report grid ── */
+  .report-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+  }
+
+  .report-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.2s, transform 0.2s;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+  }
+  .report-card:hover {
+    box-shadow: 0 6px 24px rgba(26,26,78,0.12);
+    transform: translateY(-2px);
+  }
+
+  .card-header {
+    background: var(--navy);
+    padding: 14px 16px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .card-category {
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    font-weight: 700;
+  }
+  .card-date {
+    font-size: 10px;
+    color: rgba(255,255,255,0.4);
+    white-space: nowrap;
+  }
+
+  .card-body { padding: 16px; flex: 1; }
+  .card-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.35;
+    margin-bottom: 8px;
+  }
+  .card-desc {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+  .card-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+  .card-tag {
+    font-size: 10px;
+    padding: 2px 8px;
+    background: var(--paper);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    letter-spacing: 0.5px;
+  }
+
+  .card-footer {
+    padding: 10px 16px;
+    border-top: 1px solid var(--paper);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .card-read {
+    font-size: 11px;
+    color: var(--navy);
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .card-arrow { color: var(--navy); font-size: 14px; }
+
+  /* ── Category badge colors ── */
+  .cat-ma     .card-header { background: #1a1a4e; }
+  .cat-hot    .card-header { background: #7a0000; }
+  .cat-sector .card-header { background: #1a3a1a; }
+  .cat-fund   .card-header { background: #3a2800; }
+  .cat-project .card-header { background: #2a1a4e; }
+
+  /* ── Section heading ── */
+  .section-heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .section-heading h2 {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .section-heading::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── About / Contact section ── */
+  .about-section {
+    background: var(--navy);
+    color: #fff;
+    padding: 48px 24px;
+    margin-top: 16px;
+  }
+  .about-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+  .about-title {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 12px;
+  }
+  .about-name {
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+  }
+  .about-slogan {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 16px;
+    font-style: italic;
+  }
+  .about-desc {
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.8;
+  }
+  .contact-title {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 16px;
+  }
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .contact-item:last-child { border-bottom: none; margin-bottom: 0; }
+  .contact-label {
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    width: 60px;
+    flex-shrink: 0;
+    padding-top: 2px;
+  }
+  .contact-value {
+    font-size: 13px;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.5;
+  }
+  .contact-value a { color: rgba(255,255,255,0.85); text-decoration: none; }
+  .contact-value a:hover { color: #fff; text-decoration: underline; }
+
+  /* ── Footer ── */
+  footer {
+    background: #0f0f30;
+    color: rgba(255,255,255,0.3);
+    text-align: center;
+    padding: 20px 24px;
+    font-size: 11px;
+    letter-spacing: 1px;
+    line-height: 1.8;
+  }
+
+  /* ── Empty state ── */
+  .empty-state {
+    text-align: center;
+    padding: 48px 24px;
+    color: var(--muted);
+    display: none;
+  }
+  .empty-state.show { display: block; }
+
+  /* ── Mobile ── */
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 22px; }
+    .hero-stats { gap: 24px; }
+    nav { display: none; }
+    .report-grid { grid-template-columns: 1fr; }
+    .about-inner { grid-template-columns: 1fr; gap: 32px; }
+    .header-inner { height: 56px; }
+    .main { padding: 24px 16px; }
+    .hero { padding: 36px 16px 32px; }
+  }
+  @media (max-width: 480px) {
+    .hero-stat-num { font-size: 20px; }
+    .hero-stats { gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Top bar -->
+<div class="topbar">
+  象量 EleQuant.AI · 构建数据驱动的AI投资研究新范式 · 象无形，量有度。
+</div>
+
+<!-- Header -->
+<header>
+  <div class="header-inner">
+    <a class="logo" href="#">
+      <div class="logo-name">象量 <span>EleQuant.AI</span></div>
+      <div class="logo-slogan">象无形，量有度。</div>
+    </a>
+    <nav>
+      <button class="nav-btn active" onclick="filterReports('all', this)">全部报告</button>
+      <button class="nav-btn" onclick="filterReports('ma', this)">并购分析</button>
+      <button class="nav-btn" onclick="filterReports('sector', this)">行业扫描</button>
+      <button class="nav-btn" onclick="filterReports('hot', this)">热点解读</button>
+      <button class="nav-btn" onclick="filterReports('project', this)">项目推荐</button>
+      <button class="nav-btn" onclick="filterReports('fund', this)">募集材料</button>
+    </nav>
+    <a class="header-contact" href="#contact">联系我们</a>
+  </div>
+</header>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-tag">Investment Research · 投资研究中心</div>
+  <h1>象量 EleQuant.AI<br><span>数据驱动的AI投资研究新范式</span></h1>
+  <p class="hero-sub">
+    深度并购分析 · 行业扫描 · 热点事件解读 · 项目投资推荐<br>
+    钛禾智库孵化 · 浙江大学学术背书 · 覆盖科技产业全链条
+  </p>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-num" id="stat-total">4</div>
+      <div class="hero-stat-label">深度报告</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">5+</div>
+      <div class="hero-stat-label">覆盖赛道</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">2026</div>
+      <div class="hero-stat-label">持续更新</div>
+    </div>
+  </div>
+</div>
+
+<!-- Main content -->
+<div class="main">
+
+  <div class="filter-bar">
+    <span class="filter-label">筛选</span>
+    <button class="filter-btn active" onclick="filterReports('all', this)">全部</button>
+    <button class="filter-btn" onclick="filterReports('ma', this)">并购分析</button>
+    <button class="filter-btn" onclick="filterReports('sector', this)">行业扫描</button>
+    <button class="filter-btn" onclick="filterReports('hot', this)">热点解读</button>
+    <button class="filter-btn" onclick="filterReports('project', this)">项目推荐</button>
+    <button class="filter-btn" onclick="filterReports('fund', this)">募集材料</button>
+  </div>
+
+  <div class="section-heading"><h2>最新发布</h2></div>
+
+  <div class="report-grid" id="reportGrid">
+
+    <!-- Report 1: MA Brief -->
+    <a class="report-card cat-ma" href="zhiyuan_shangwei_ma_brief.html" target="_blank" data-cat="ma">
+      <div class="card-header">
+        <div class="card-category">M&A Brief · 并购分析</div>
+        <div class="card-date">2026.03</div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">智元恒岳 / 致远新创<br>收购上纬新材（688585）</div>
+        <div class="card-desc">
+          独角兽收购A股上市公司标杆案例。约21亿人民币，人形机器人材料供应链垂直整合，
+          上纬高性能复合材料助力整机轻量化，共建智能材料实验室。
+        </div>
+        <div class="card-tags">
+          <span class="card-tag">人形机器人</span>
+          <span class="card-tag">复合材料</span>
+          <span class="card-tag">科创板</span>
+          <span class="card-tag">21亿</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="card-read">阅读报告</span>
+        <span class="card-arrow">→</span>
+      </div>
+    </a>
+
+    <!-- Report 2: Portfolio Pipeline -->
+    <a class="report-card cat-project" href="elequant_portfolio_20260318.html" target="_blank" data-cat="project">
+      <div class="card-header">
+        <div class="card-category">Pipeline Brief · 储备项目</div>
+        <div class="card-date">2026.03.18</div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">2026年3月储备项目投资简报<br>商业航天 · 国防AI · 硬科技</div>
+        <div class="card-desc">
+          13个重点储备项目全景扫描，涵盖商业航天（火箭/卫星/激光通信）、
+          国防AI、脑机芯片、高端材料等核心赛道，含详细投资逻辑与退出路径。
+        </div>
+        <div class="card-tags">
+          <span class="card-tag">商业航天</span>
+          <span class="card-tag">国防AI</span>
+          <span class="card-tag">脑机接口</span>
+          <span class="card-tag">科创板</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="card-read">阅读报告</span>
+        <span class="card-arrow">→</span>
+      </div>
+    </a>
+
+    <!-- Report 3: Sector Scan -->
+    <a class="report-card cat-sector" href="elequant_ma_deep_scan_2025.html" target="_blank" data-cat="sector">
+      <div class="card-header">
+        <div class="card-category">Industry Scan · 行业深度扫描</div>
+        <div class="card-date">2026.03</div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">中国资本市场并购全景扫描<br>2025年至今前二十大并购深度解析</div>
+        <div class="card-desc">
+          累计交易规模约2,083亿元，横跨金融、半导体、新能源、医药、机器人、AI算力六大赛道。
+          含结构创新模式解析、政策映射与未来十大高概率并购方向预判。
+        </div>
+        <div class="card-tags">
+          <span class="card-tag">并购浪潮</span>
+          <span class="card-tag">半导体</span>
+          <span class="card-tag">新能源</span>
+          <span class="card-tag">2083亿</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="card-read">阅读报告</span>
+        <span class="card-arrow">→</span>
+      </div>
+    </a>
+
+    <!-- Report 4: Hot Event -->
+    <a class="report-card cat-hot" href="elequant_market_crisis_analysis.html" target="_blank" data-cat="hot">
+      <div class="card-header">
+        <div class="card-category">Hot Event · 热点事件解读</div>
+        <div class="card-date">2026.03</div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">黄金单日暴跌11.23%<br>流动性挤兑预警与全球资产重定价</div>
+        <div class="card-desc">
+          高盛翻转信号解码、戴维斯双杀机制全解析、ETF赎回潮堰塞湖风险、
+          油价通胀未爆弹、2008年危机传导路径对照与四阶段投资者行动框架。
+        </div>
+        <div class="card-tags">
+          <span class="card-tag">黄金</span>
+          <span class="card-tag">流动性危机</span>
+          <span class="card-tag">高盛</span>
+          <span class="card-tag">极度谨慎</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="card-read">阅读报告</span>
+        <span class="card-arrow">→</span>
+      </div>
+    </a>
+
+  </div><!-- /report-grid -->
+
+  <div class="empty-state" id="emptyState">
+    <p style="font-size:32px;margin-bottom:12px;">📭</p>
+    <p style="font-size:14px;color:#999;">该分类暂无报告，敬请期待</p>
+  </div>
+
+</div><!-- /main -->
+
+<!-- About & Contact -->
+<div class="about-section" id="contact">
+  <div class="about-inner">
+    <div>
+      <div class="about-title">About · 关于象量</div>
+      <div class="about-name">象量 EleQuant.AI</div>
+      <div class="about-slogan">象无形，量有度。</div>
+      <div class="about-desc">
+        象量EleQuant.AI由钛禾智库孵化，致力于通过人工智能与大数据技术，
+        构建覆盖科技产业全链条的智能投资研究体系。<br><br>
+        我们的研究覆盖并购交易分析、行业深度扫描、热点事件解读、
+        项目投资推荐与基金募集材料，服务投资机构、科技企业与地方政府，
+        助力中国科技创新生态实现精准化、系统化的价值发现与资源配置。<br><br>
+        <strong style="color:rgba(255,255,255,0.9);">使命：成为中国科技产业投资与创新的智能中枢，打造全球领先的大数据智能投行。</strong>
+      </div>
+    </div>
+    <div>
+      <div class="contact-title">Contact · 联系我们</div>
+      <div class="contact-item">
+        <div class="contact-label">合作</div>
+        <div class="contact-value">
+          投资研究定制 · 行业报告委托<br>并购顾问 · 项目对接
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-label">微信</div>
+        <div class="contact-value">请添加微信洽谈合作<br><strong style="color:#fff;">（请在此处填写你的微信号）</strong></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-label">邮箱</div>
+        <div class="contact-value"><a href="mailto:请填写你的邮箱">请填写你的邮箱</a></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-label">机构</div>
+        <div class="contact-value">钛禾智库 · 象量科技<br>深圳 · 杭州</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  © 2026 象量科技 EleQuant.AI · 构建数据驱动的AI投资研究新范式<br>
+  本网站所有报告仅供参考，不构成投资建议。象无形，量有度。
+</footer>
+
+<script>
+  // Filter reports by category
+  function filterReports(cat, btn) {
+    // Update active state on both nav and filter buttons
+    document.querySelectorAll('.nav-btn, .filter-btn').forEach(b => b.classList.remove('active'));
+    if (btn) btn.classList.add('active');
+
+    const cards = document.querySelectorAll('.report-card');
+    let visible = 0;
+    cards.forEach(card => {
+      const show = cat === 'all' || card.dataset.cat === cat;
+      card.style.display = show ? 'flex' : 'none';
+      if (show) visible++;
+    });
+
+    const empty = document.getElementById('emptyState');
+    empty.classList.toggle('show', visible === 0);
+
+    document.getElementById('stat-total').textContent = visible;
+  }
+
+  // Smooth scroll to contact
+  document.querySelector('.header-contact').addEventListener('click', function(e) {
+    e.preventDefault();
+    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+  });
+</script>
+
+</body>
+</html>
